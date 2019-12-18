@@ -70,7 +70,7 @@ body {
   font-family: "Microsoft YaHei";
 }
 
-/* line 9, ../sass/common.scss */
+/* line 3, ../sass/index.scss */
 .wrapper-head {
   height: 60px;
   line-height: 60px;
@@ -81,18 +81,18 @@ body {
   background: linear-gradient(to bottom, #CBCCFF, #9ECDFF);
   padding: 0 20px;
 }
-/* line 19, ../sass/common.scss */
+/* line 13, ../sass/index.scss */
 .wrapper-head .head-left {
   float: left;
 }
-/* line 22, ../sass/common.scss */
+/* line 16, ../sass/index.scss */
 .wrapper-head .head-left .name {
   float: left;
   font-size: 28px;
   font-weight: 500;
   color: #000;
 }
-/* line 28, ../sass/common.scss */
+/* line 22, ../sass/index.scss */
 .wrapper-head .head-left .name::before {
   content: ' ';
   width: 35px;
@@ -104,24 +104,24 @@ body {
   position: relative;
   top: 8px;
 }
-/* line 41, ../sass/common.scss */
+/* line 35, ../sass/index.scss */
 .wrapper-head .head-left .desc {
   float: left;
   margin: 0 20px;
   padding-top: 12px;
 }
-/* line 46, ../sass/common.scss */
+/* line 40, ../sass/index.scss */
 .wrapper-head .head-left .desc > div {
   line-height: 18px;
   text-align: center;
   font-size: 14px;
   color: #666;
 }
-/* line 55, ../sass/common.scss */
+/* line 49, ../sass/index.scss */
 .wrapper-head .menus {
   float: left;
 }
-/* line 58, ../sass/common.scss */
+/* line 52, ../sass/index.scss */
 .wrapper-head .menus > li {
   float: left;
   padding: 0 20px;
@@ -129,26 +129,30 @@ body {
   font-size: 16px;
   color: #333;
 }
-/* line 65, ../sass/common.scss */
+/* line 59, ../sass/index.scss */
 .wrapper-head .menus > li:hover {
   background: rgba(0, 0, 0, 0.1);
 }
-/* line 71, ../sass/common.scss */
+/* line 63, ../sass/index.scss */
+.wrapper-head .menus > li.active {
+  color: #fff;
+}
+/* line 69, ../sass/index.scss */
 .wrapper-head .head-right {
   float: right;
   font-size: 16px;
   color: #333;
 }
-/* line 76, ../sass/common.scss */
+/* line 74, ../sass/index.scss */
 .wrapper-head .head-right .app {
   float: left;
   cursor: pointer;
 }
-/* line 80, ../sass/common.scss */
+/* line 78, ../sass/index.scss */
 .wrapper-head .head-right .app:hover {
   color: #666;
 }
-/* line 84, ../sass/common.scss */
+/* line 82, ../sass/index.scss */
 .wrapper-head .head-right .app::before {
   content: ' ';
   display: inline-block;
@@ -160,17 +164,17 @@ body {
   top: 2px;
   margin-right: 2px;
 }
-/* line 97, ../sass/common.scss */
+/* line 95, ../sass/index.scss */
 .wrapper-head .head-right .user {
   float: left;
   margin-left: 20px;
   cursor: pointer;
 }
-/* line 102, ../sass/common.scss */
+/* line 100, ../sass/index.scss */
 .wrapper-head .head-right .user:hover {
   color: #666;
 }
-/* line 106, ../sass/common.scss */
+/* line 104, ../sass/index.scss */
 .wrapper-head .head-right .user::before {
   content: ' ';
   display: inline-block;
@@ -183,265 +187,9 @@ body {
   margin-right: 3px;
 }
 
-/* line 121, ../sass/common.scss */
+/* line 119, ../sass/index.scss */
 .wrapper-body {
   position: relative;
   top: 60px;
   height: calc(100% - 60px);
-}
-
-/* line 3, ../sass/index.scss */
-.wrapper-body {
-  overflow: auto;
-  position: relative;
-  background: #F2F2F2;
-}
-/* line 8, ../sass/index.scss */
-.wrapper-body .search {
-  background: #9ECDFF;
-  position: relative;
-  height: 220px;
-}
-/* line 13, ../sass/index.scss */
-.wrapper-body .search .name1 {
-  font-size: 50px;
-  font-weight: 700;
-  color: #997A7E;
-  position: absolute;
-  left: 20%;
-  top: 10px;
-}
-/* line 22, ../sass/index.scss */
-.wrapper-body .search .name2 {
-  font-size: 50px;
-  font-weight: 700;
-  color: #997A7E;
-  position: absolute;
-  left: 32%;
-  top: 35px;
-}
-/* line 31, ../sass/index.scss */
-.wrapper-body .search .search-box {
-  width: 70%;
-  height: 120px;
-  position: absolute;
-  bottom: 0;
-  left: 15%;
-  background: #99AFCA;
-}
-/* line 39, ../sass/index.scss */
-.wrapper-body .search .search-box .sousuo {
-  width: 90%;
-  margin: 20px auto;
-  display: flex;
-}
-/* line 44, ../sass/index.scss */
-.wrapper-body .search .search-box .sousuo .search-input {
-  flex: 1;
-  height: 40px;
-  line-height: 40px;
-  padding: 0 8px;
-  outline: none;
-  border: 1px solid #ddd;
-  border-radius: 4px 0 0 4px;
-  color: #333;
-}
-/* line 55, ../sass/index.scss */
-.wrapper-body .search .search-box .sousuo > button {
-  width: 100px;
-  height: 42px;
-  line-height: 42px;
-  border-radius: 0 4px 4px 0;
-  border: none;
-  outline: none;
-  background: #9ECDFF;
-  color: #fff;
-  font-size: 16px;
-  cursor: pointer;
-}
-/* line 67, ../sass/index.scss */
-.wrapper-body .search .search-box .sousuo > button:hover {
-  background: #b0d6ff;
-}
-/* line 73, ../sass/index.scss */
-.wrapper-body .search .search-box .hot-zhiwei {
-  font-size: 14px;
-  color: #fff;
-  width: 90%;
-  margin: 0 auto;
-}
-/* line 82, ../sass/index.scss */
-.wrapper-body .lunbos {
-  margin: 20px;
-  overflow: hidden;
-}
-/* line 86, ../sass/index.scss */
-.wrapper-body .lunbos .left-menus {
-  float: left;
-  width: 250px;
-  height: 450px;
-  background: #fff;
-}
-/* line 92, ../sass/index.scss */
-.wrapper-body .lunbos .left-menus .menu-item {
-  line-height: 50px;
-  padding-left: 12px;
-  font-size: 16px;
-  color: #333;
-  cursor: pointer;
-}
-/* line 99, ../sass/index.scss */
-.wrapper-body .lunbos .left-menus .menu-item::after {
-  content: ' ';
-  float: right;
-  width: 20px;
-  height: 20px;
-  background: url(../images/index/youjiantou.png) no-repeat;
-  background-size: contain;
-  position: relative;
-  top: 16px;
-  right: 10px;
-}
-/* line 111, ../sass/index.scss */
-.wrapper-body .lunbos .left-menus .menu-item:hover {
-  color: #9ECDFF;
-  background: #F2F2F2;
-}
-/* line 118, ../sass/index.scss */
-.wrapper-body .lunbos .lunb {
-  float: left;
-  width: calc(100% - 270px);
-  height: 450px;
-  margin-left: 20px;
-}
-/* line 126, ../sass/index.scss */
-.wrapper-body .three-png {
-  background: #fff;
-  margin: 20px;
-  padding: 10px;
-  overflow: hidden;
-}
-/* line 132, ../sass/index.scss */
-.wrapper-body .three-png > img {
-  width: calc((100% - 20px) / 3);
-  float: left;
-  margin-right: 10px;
-  cursor: pointer;
-  opacity: 1;
-}
-/* line 139, ../sass/index.scss */
-.wrapper-body .three-png > img:last-child {
-  margin-right: 0;
-}
-/* line 143, ../sass/index.scss */
-.wrapper-body .three-png > img:hover {
-  opacity: 0.8;
-}
-/* line 149, ../sass/index.scss */
-.wrapper-body .hot-jobs {
-  background: #fff;
-  margin: 20px;
-  padding: 20px;
-  overflow: hidden;
-}
-/* line 155, ../sass/index.scss */
-.wrapper-body .hot-jobs .title {
-  font-size: 20px;
-  font-weight: 500;
-  color: #333;
-  margin-bottom: 20px;
-}
-/* line 162, ../sass/index.scss */
-.wrapper-body .hot-jobs .jobs-box {
-  overflow: hidden;
-}
-/* line 165, ../sass/index.scss */
-.wrapper-body .hot-jobs .jobs-box .job-item {
-  border: 1px solid #ddd;
-  width: calc((100% - 36px) / 3);
-  float: left;
-  margin-right: 10px;
-  margin-bottom: 10px;
-  border-radius: 4px;
-  cursor: pointer;
-}
-/* line 174, ../sass/index.scss */
-.wrapper-body .hot-jobs .jobs-box .job-item:hover {
-  border-color: #9ECDFF;
-}
-/* line 178, ../sass/index.scss */
-.wrapper-body .hot-jobs .jobs-box .job-item .title {
-  font-size: 18px;
-  color: #333;
-  padding: 0 12px;
-  margin: 20px 0;
-  font-weight: 400;
-}
-/* line 186, ../sass/index.scss */
-.wrapper-body .hot-jobs .jobs-box .job-item .desc {
-  font-size: 14px;
-  color: #999;
-  border-bottom: 1px dashed #ccc;
-  margin: 12px;
-  padding-bottom: 10px;
-}
-/* line 194, ../sass/index.scss */
-.wrapper-body .hot-jobs .jobs-box .job-item .name {
-  font-size: 16px;
-  color: #333;
-  float: left;
-  margin-left: 12px;
-  margin-bottom: 15px;
-}
-/* line 202, ../sass/index.scss */
-.wrapper-body .hot-jobs .jobs-box .job-item .address {
-  font-size: 14px;
-  color: #666;
-  float: right;
-  margin-right: 12px;
-  margin-bottom: 15px;
-}
-/* line 209, ../sass/index.scss */
-.wrapper-body .hot-jobs .jobs-box .job-item .address::before {
-  content: ' ';
-  display: inline-block;
-  width: 18px;
-  height: 18px;
-  background: url(../images/index/address.png) no-repeat;
-  background-size: contain;
-  margin-right: 5px;
-  position: relative;
-  top: 3px;
-}
-/* line 224, ../sass/index.scss */
-.wrapper-body .hot-jobs .jobs-foot {
-  width: 100%;
-  text-align: center;
-  margin-top: 20px;
-}
-/* line 231, ../sass/index.scss */
-.wrapper-body .hot-citys {
-  background: #fff;
-  margin: 20px;
-  padding: 20px;
-  overflow: hidden;
-}
-/* line 237, ../sass/index.scss */
-.wrapper-body .hot-citys .title {
-  font-size: 20px;
-  font-weight: 500;
-  color: #333;
-  margin-bottom: 20px;
-}
-/* line 245, ../sass/index.scss */
-.wrapper-body .hot-citys .city-box > img {
-  width: 20%;
-  height: 100px;
-  float: left;
-  opacity: 0.8;
-  cursor: pointer;
-}
-/* line 252, ../sass/index.scss */
-.wrapper-body .hot-citys .city-box > img:hover {
-  opacity: 1;
 }
