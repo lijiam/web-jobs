@@ -54,4 +54,9 @@ public class BusinessController {
     public Boolean updateResume(@RequestBody Map<String, String> params) {
         return businessService.updateResume(params);
     }
+
+    @RequestMapping("/updateCompany")
+    public Boolean updateCompany(@RequestBody Map<String, String> params) {
+        return businessService.updateCompany(params);
+    }
 }

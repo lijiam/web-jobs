@@ -23,4 +23,6 @@ public interface BusinessService {
     Resume getResumeById(String id);
 
     Boolean updateResume(Map<String, String> params);
+
+    Boolean updateCompany(Map<String, String> params);
 }

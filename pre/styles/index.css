@@ -186,8 +186,19 @@ body {
   top: 4px;
   margin-right: 3px;
 }
+/* line 117, ../sass/index.scss */
+.wrapper-head .head-right .exit {
+  float: left;
+  margin-left: 20px;
+  cursor: pointer;
+  display: none;
+}
+/* line 123, ../sass/index.scss */
+.wrapper-head .head-right .exit:hover {
+  color: #666;
+}
 
-/* line 119, ../sass/index.scss */
+/* line 130, ../sass/index.scss */
 .wrapper-body {
   position: relative;
   top: 60px;

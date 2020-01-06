@@ -1,5 +1,6 @@
 package com.wuzhi.index.controller;
 
+import com.wuzhi.index.bean.User;
 import com.wuzhi.index.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -23,7 +24,7 @@ public class UserController {
     }
 
     @RequestMapping("/login")
-    public Boolean login(String user_type, String phone, String password) {
+    public User login(String user_type, String phone, String password) {
         return userService.login(user_type, phone, password);
     }
 }

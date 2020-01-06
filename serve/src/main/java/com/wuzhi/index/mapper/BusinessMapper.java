@@ -26,4 +26,6 @@ public interface BusinessMapper {
     Resume getResumeById(@Param("id") String id);
 
     int updateResume(Map<String, String> params);
+
+    int updateCompany(Map<String, String> params);
 }

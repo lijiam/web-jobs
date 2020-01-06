@@ -94,13 +94,13 @@
         url: '/api/user/login',
         data: { phone: phone, password: pwd1, user_type: user_type },
         success: function (a) {
-          if (a) {
+          if (a && a.id) {
             layui.use('layer', function () {
               var layer = layui.layer;
               layer.msg('登录成功。', {
+                time: 1000,
                 end: function () {
-                  localStorage.setItem("islogin", "1");
-                  localStorage.setItem("phone", phone);
+                  localStorage.setItem("user", JSON.stringify(a));
                   window.parent.hadLogin();
                 }
               });
@@ -108,7 +108,7 @@
           } else {
             layui.use('layer', function () {
               var layer = layui.layer;
-              layer.msg('登录失败。');
+              layer.msg('用户名不存在或密码错误。');
             });
           }
         }
@@ -144,6 +144,7 @@
             layui.use('layer', function () {
               var layer = layui.layer;
               layer.msg('注册成功。', {
+                time: 1000,
                 end: function () {
                   $('.register').hide();
                   $('.login').show();

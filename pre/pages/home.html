@@ -89,21 +89,32 @@
     });
   });
   $(function () {
+    var user = JSON.parse(localStorage.getItem("user"));
+    var url = user && user.user_type === '1' ? '/api/getPersonals' : '/api/getJobs';
     $.ajax({
       type: 'POST',
-      url: '/api/getJobs',
+      url: url,
       dataType: "json",
       contentType: "application/json",
       data: JSON.stringify({}),
       success: function (data) {
         var str = '';
         for (var i = 0, len = data.length; i < len && i < 6; i++) {
-          str += '<div class="job-item">' +
-            '<div class="title">' + data[i].name + '</div>' +
-            '<div class="desc">' + data[i].exp + ' ｜ ' + data[i].edu + ' ｜ ' + data[i].fb_time + '发布</div>' +
-            '<div class="name">' + data[i].company_name + '</div>' +
-            '<div class="address">' + data[i].city + '</div>' +
-            '</div>';
+          if (!user || (user && user.user_type === '0')) {
+            str += '<div class="job-item">' +
+              '<div class="title">' + data[i].name + '</div>' +
+              '<div class="desc">' + data[i].exp + ' ｜ ' + data[i].edu + ' ｜ ' + data[i].fb_time + '发布</div>' +
+              '<div class="name">' + data[i].company_name + '</div>' +
+              '<div class="address">' + data[i].city + '</div>' +
+              '</div>';
+          } else if (user && user.user_type === '1') {
+            str += '<div class="job-item">' +
+              '<div class="title">' + data[i].type + '</div>' +
+              '<div class="desc">' + data[i].exp + ' ｜ ' + data[i].edu + ' ｜ 2020-02-10发布</div>' +
+              '<div class="name">' + data[i].name + '</div>' +
+              '<div class="address">' + data[i].city + '</div>' +
+              '</div>';
+          }
         }
         $("#jobsBox").html(str);
       }

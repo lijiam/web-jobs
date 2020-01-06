@@ -15,8 +15,9 @@
     <img class="userimg" src="../../images/biguser.png" alt="user">
     <div class="middle">
       <div class="username">我的简历</div>
-      <div class="time">上次修改时间：2019-09-01</div>
-      <div class="descs"><i class="layui-icon layui-icon-username"></i>个人1 ｜ 女 ｜ 21岁 ｜ 暂无经验 ｜ 现居住杭州</div>
+      <div class="time">上次修改时间：<span id="updateTime">9999-99-99</span></div>
+      <div class="descs"><i class="layui-icon layui-icon-username"></i><span id="descs">个人1 ｜ 女 ｜ 21岁 ｜ 暂无经验 ｜
+          现居住杭州</span></div>
     </div>
     <div class="right">
       <a href="javascript:parent.openResume('resume');" class="layui-btn layui-btn-normal">编辑</a>
@@ -87,6 +88,20 @@
     </ul>
   </div>
 </body>
+<script src="../../scripts/jquery.v1.7.2.js"></script>
 <script src="../../scripts/layui/layui.js"></script>
+<script>
+  $(function () {
+    var user = JSON.parse(localStorage.getItem("user"));
+    $.ajax({
+      url: '/api/getResumeById',
+      data: { id: user.user_id },
+      success: function (data) {
+        $("#updateTime").html(data.update_time);
+        $("#descs").html(data.name + ' ｜ ' + data.sex + ' ｜ ' + data.birthday + ' ｜ ' + data.status + ' ｜ 现居住' + data.address);
+      }
+    })
+  })
+</script>
 
 </html>

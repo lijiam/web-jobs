@@ -29,9 +29,10 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public Boolean login(String user_type, String phone, String password) {
+    public User login(String user_type, String phone, String password) {
         List<User> count = userMapper.login(user_type, phone, password);
-        return count.size() > 0;
+        if (count.size() > 0) return count.get(0);
+        return null;
     }
 
 }

@@ -20,6 +20,15 @@ public class Resume {
     private String schoolstatus;
     private String skills;
     private String others;
+    private String update_time;
+
+    public String getUpdate_time() {
+        return update_time;
+    }
+
+    public void setUpdate_time(String update_time) {
+        this.update_time = update_time;
+    }
 
     public String getUser_id() {
         return user_id;

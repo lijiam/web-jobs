@@ -53,4 +53,10 @@ public class BusinessServiceImpl implements BusinessService {
         int count = businessMapper.updateResume(params);
         return count > 0;
     }
+
+    @Override
+    public Boolean updateCompany(Map<String, String> params) {
+        int count = businessMapper.updateCompany(params);
+        return count > 0;
+    }
 }

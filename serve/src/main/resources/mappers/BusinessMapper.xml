@@ -96,11 +96,80 @@
 	</select>
 
     <insert id="updateResume" parameterType="java.util.Map">
-        insert into
-        resume(user_id, name, sex, birthday,worktime,email,address,status,money,city,job_name,job_hy,workexp,projexp,studyexp,schoolstatus,skills,others)
-        values
-         (#{user_id},#{name},#{sex},#{birthday},#{worktime},#{email},#{address},#{status},#{money},#{city},#{job_name},#{job_hy},#{workexp},#{projexp},#{studyexp},#{schoolstatus},#{skills},#{others})
-         ON DUPLICATE key update
-    name = #{name}
+    INSERT INTO resume (
+	user_id,
+	name,
+	sex,
+	birthday,
+	worktime,
+	email,
+	address,
+	status,
+	money,
+	city,
+	job_name,
+	job_hy,
+	workexp,
+	projexp,
+	studyexp,
+	schoolstatus,
+	skills,
+	others,
+	update_time
+)
+VALUES
+	(
+		#{user_id},
+		#{name},
+		#{sex},
+		#{birthday},
+		#{worktime},
+		#{email},
+		#{address},
+		#{status},
+		#{money},
+		#{city},
+		#{job_name},
+		#{job_hy},
+		#{workexp},
+		#{projexp},
+		#{studyexp},
+		#{schoolstatus},
+		#{skills},
+		#{others},
+		now()
+	)
+	ON DUPLICATE KEY UPDATE NAME = #{name},
+	sex = #{sex},
+	birthday = #{birthday},
+	worktime = #{worktime},
+	email = #{email},
+	address = #{address},
+	status = #{status},
+	money = #{money},
+	city = #{city},
+	job_name = #{job_name},
+	job_hy = #{job_hy},
+	workexp = #{workexp},
+	projexp = #{projexp},
+	studyexp = #{studyexp},
+	schoolstatus = #{schoolstatus},
+	skills = #{skills},
+	others = #{others},
+	update_time = now()
+    </insert>
+
+    <insert id="updateCompany" parameterType="java.util.Map">
+      INSERT INTO company ( id, name, type, rongzi, guimo, fuli, jianjie, gongshang, update_time )
+VALUES
+	( #{id}, #{name}, #{type}, #{rongzi}, #{guimo}, #{fuli}, #{jianjie}, #{gongshang}, now() )
+	ON DUPLICATE KEY UPDATE name = #{name},
+	type = #{type},
+	rongzi = #{rongzi},
+	guimo = #{guimo},
+	fuli = #{fuli},
+	jianjie = #{jianjie},
+	gongshang = #{gongshang},
+	update_time = now()
     </insert>
 </mapper>

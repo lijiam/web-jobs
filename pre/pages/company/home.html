@@ -12,10 +12,10 @@
 
 <body>
   <div class="my-center">
-    <img class="userimg" src="../../images/comps/complogo.jpg" alt="user">
+    <img class="userimg" id="logo" src="../../images/comps/complogo.jpg" alt="user">
     <div class="middle">
-      <div class="username">阿里巴巴集团</div>
-      <div class="time">上次修改时间：2019-09-01</div>
+      <div class="username" id="name">阿里巴巴集团</div>
+      <div class="time">上次修改时间：<span id="updateTime">9999-99-99</span></div>
       <div class="descs"><i class="layui-icon layui-icon-username"></i>在招岗位：9201 ｜ 人事经理：1291</div>
     </div>
     <div class="right">
@@ -61,6 +61,21 @@
     </ul>
   </div>
 </body>
+<script src="../../scripts/jquery.v1.7.2.js"></script>
 <script src="../../scripts/layui/layui.js"></script>
+<script>
+  $(function () {
+    var user = JSON.parse(localStorage.getItem("user"));
+    $.ajax({
+      url: '/api/getCompanyById',
+      data: { id: user.company_id },
+      success: function (data) {
+        $("#logo").attr('src', '../' + data.logo);
+        $("#name").html(data.name);
+        if (data.update_time) $("#updateTime").html(data.update_time);
+      }
+    })
+  })
+</script>
 
 </html>

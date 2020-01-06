@@ -31,7 +31,7 @@
       <div class="layui-form-item">
         <label class="layui-form-label">出生日期</label>
         <div class="layui-input-block">
-          <input type="text" name="birthday" placeholder="请输入出生日期" class="layui-input">
+          <input type="text" name="birthday" required lay-verify="required" placeholder="请输入出生日期" class="layui-input">
         </div>
       </div>
       <div class="layui-form-item">
@@ -56,17 +56,17 @@
       <div class="layui-form-item">
         <label class="layui-form-label">居住地</label>
         <div class="layui-input-block">
-          <input type="text" name="address" placeholder="请输入居住地" class="layui-input">
+          <input type="text" name="address" placeholder="请输入居住地" required lay-verify="required" class="layui-input">
         </div>
       </div>
       <div class="layui-form-item">
         <label class="layui-form-label">求职状态</label>
         <div class="layui-input-block">
-          <select name="status">
+          <select name="status" required lay-verify="required">
             <option value=""></option>
-            <option value="0">学生</option>
-            <option value="1">在职</option>
-            <option value="2">失业</option>
+            <option value="学生">学生</option>
+            <option value="在职">在职</option>
+            <option value="失业">失业</option>
           </select>
         </div>
       </div>
@@ -184,25 +184,37 @@
   <script src="../../scripts/layui/layui.js"></script>
   <script>
     //Demo
-    layui.use('form', function () {
+    layui.use(['layer', 'form'], function () {
+      var layer = layui.layer;
       var form = layui.form;
+
+      var user = JSON.parse(localStorage.getItem("user"));
+      var user_id = user.user_id;
+      var phone = user.phone;
 
       //监听提交
       form.on('submit(formDemo)', function (data) {
-        layer.msg(JSON.stringify(data.field));
+        $.ajax({
+          type: 'POST',
+          url: '/api/updateResume',
+          dataType: "json",
+          contentType: "application/json",
+          data: JSON.stringify(Object.assign({ user_id: user_id, phone: phone }, data.field)),
+          success: function (data) {
+            if (data) { layer.msg("保存成功") }
+            else layer.msg("保存失败")
+          }
+        })
         return false;
       });
 
-      var phone = localStorage.getItem('phone');
-
       $.ajax({
         url: '/api/getResumeById',
-        data: { id: '15' },
+        data: { id: user_id },
         success: function (data) {
           form.val('example', Object.assign({ phone: phone }, data));
         }
       })
-
 
     });
   </script>

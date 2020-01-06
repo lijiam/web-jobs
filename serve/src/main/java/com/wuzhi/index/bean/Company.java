@@ -9,6 +9,42 @@ public class Company {
     private String guimo;
     private String hot_job;
     private String logo;
+    private String update_time;
+    private String fuli;
+    private String jianjie;
+    private String gongshang;
+
+    public String getFuli() {
+        return fuli;
+    }
+
+    public void setFuli(String fuli) {
+        this.fuli = fuli;
+    }
+
+    public String getJianjie() {
+        return jianjie;
+    }
+
+    public void setJianjie(String jianjie) {
+        this.jianjie = jianjie;
+    }
+
+    public String getGongshang() {
+        return gongshang;
+    }
+
+    public void setGongshang(String gongshang) {
+        this.gongshang = gongshang;
+    }
+
+    public String getUpdate_time() {
+        return update_time;
+    }
+
+    public void setUpdate_time(String update_time) {
+        this.update_time = update_time;
+    }
 
     public String getId() {
         return id;

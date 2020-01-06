@@ -12,7 +12,7 @@
 </head>
 
 <body>
-  <form class="layui-form layui-form-pane" action="">
+  <form class="layui-form layui-form-pane" lay-filter="example" action="">
     <div class="resume-item">
       <div class="title">基本信息</div>
       <div class="layui-form-item">
@@ -26,14 +26,14 @@
         <div class="layui-input-block">
           <select name="rongzi" lay-verify="required">
             <option value="">不限</option>
-            <option value="0">未融资</option>
-            <option value="1">天使轮</option>
-            <option value="2">A轮</option>
-            <option value="3">B轮</option>
-            <option value="4">C轮</option>
-            <option value="5">D轮及以上</option>
-            <option value="6">已上市</option>
-            <option value="7">不需要融资</option>
+            <option value="未融资">未融资</option>
+            <option value="天使轮">天使轮</option>
+            <option value="A轮">A轮</option>
+            <option value="B轮">B轮</option>
+            <option value="C轮">C轮</option>
+            <option value="D轮及以上">D轮及以上</option>
+            <option value="已上市">已上市</option>
+            <option value="不需要融资">不需要融资</option>
           </select>
         </div>
       </div>
@@ -42,12 +42,12 @@
         <div class="layui-input-block">
           <select name="guimo" lay-verify="required">
             <option value="">不限</option>
-            <option value="0">0-20人</option>
-            <option value="1">21-99人</option>
-            <option value="2">100-499人</option>
-            <option value="3">500-999人</option>
-            <option value="4">1000-9999人</option>
-            <option value="5">10000人及以上</option>
+            <option value="0-20人">0-20人</option>
+            <option value="20-99人">20-99人</option>
+            <option value="100-499人">100-499人</option>
+            <option value="500-999人">500-999人</option>
+            <option value="1000-9999人">1000-9999人</option>
+            <option value="10000人及以上">10000人及以上</option>
           </select>
         </div>
       </div>
@@ -87,14 +87,37 @@
   <script src="../../scripts/layui/layui.js"></script>
   <script>
     //Demo
-    layui.use('form', function () {
+    layui.use(['layer', 'form'], function () {
+      var layer = layui.layer;
       var form = layui.form;
+
+      var user = JSON.parse(localStorage.getItem("user"));
 
       //监听提交
       form.on('submit(formDemo)', function (data) {
-        layer.msg(JSON.stringify(data.field));
+        $.ajax({
+          type: 'POST',
+          url: '/api/updateCompany',
+          dataType: "json",
+          contentType: "application/json",
+          data: JSON.stringify(Object.assign({ id: user.company_id }, data.field)),
+          success: function (data) {
+            if (data) { layer.msg("保存成功") }
+            else layer.msg("保存失败")
+          }
+        })
         return false;
       });
+
+      $.ajax({
+        url: '/api/getCompanyById',
+        data: { id: user.company_id },
+        success: function (data) {
+          console.log(data);
+          form.val('example', Object.assign(data));
+        }
+      })
+
     });
   </script>
 </body>
