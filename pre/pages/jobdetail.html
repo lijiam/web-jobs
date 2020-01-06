@@ -14,8 +14,8 @@
   <div class="job-head">
     <div class="head-left">
       <div class="left-1">招聘中</div>
-      <div class="left-2">web前端<span>20-30K</span></div>
-      <div class="left-3">杭州 ｜ 3-5年 ｜ 本科</div>
+      <div class="left-2" id="nameXz">web前端<span>20-30K</span></div>
+      <div class="left-3" id="address">杭州 ｜ 3-5年 ｜ 本科</div>
       <ul class="left-4">
         <li>五险一金</li>
         <li>定期体检</li>
@@ -26,9 +26,9 @@
       </ul>
     </div>
     <div class="head-right">
-      <button type="button" class="layui-btn layui-btn-normal mybtn">立即沟通</button>
+      <button type="button" class="layui-btn layui-btn-normal mybtn">发送简历</button>
       <div class="right-d">
-        <a href="javascript:;">编辑在线简历</a>
+        <a href="javascript:window.location.href='./personal.html?id=resume';">编辑在线简历</a>
         <a href="javascript:;">上传附件简历</a>
       </div>
     </div>
@@ -38,14 +38,14 @@
       <div class="head">
         <img src="../images/biguser.png" alt="userlogo">
         <div class="head-1">
-          <div class="name">A先生</div>
-          <div class="zw">人事经理</div>
+          <div class="name" id="hrname">A先生</div>
+          <div class="zw" id="hrtype">人事经理</div>
         </div>
       </div>
       <div class="desc">
         <div class="desc-title">职位介绍</div>
         <div class="desc-content">
-          <p>岗位名称：企业IT高级技术专家</p>
+          <p>岗位名称：<span id="gwname"></span></p>
           <p>岗位背景：</p>
           <p>
             阿里巴巴集团企业IT团队，肩负着全球几十个国家数万名员工的办公设备，产品和应用等基础设施的规划，实施和服务工作。我们致力于用新的模式，新的设备，新的产品，新的技术来赋能阿里巴巴员工成为世界上工作体验最好和效能最高的人群。
@@ -102,13 +102,13 @@
     <div class="det-right">
       <div class="ri-head">公司基本信息</div>
       <div class="ri-title">
-        <img src="../images/jobdetail/logo.jpg" alt="">
-        <div class="name">阿里巴巴集团</div>
+        <img src="../images/jobdetail/logo.jpg" id="companyLogo" alt="">
+        <div class="name" id="companyName">阿里巴巴集团</div>
       </div>
       <ul class="list">
-        <li>不需要融资</li>
-        <li>10000人及以上</li>
-        <li>互联网</li>
+        <li id="list1">不需要融资</li>
+        <li id="list2">10000人及以上</li>
+        <li id="list3">互联网</li>
         <li>公司官网：https://www.alibabagroup.com/cn/global/home</li>
       </ul>
       <img src="../images/jobdetail/zm.jpg" style="width: 100%;margin-top: 30px;" alt="zm">
@@ -119,42 +119,64 @@
         <li>
           <div class="left">
             <div class="left-1">IT技术支持</div>
-            <div class="left-2">阿里巴巴集团</div>
+            <div class="left-2 left-22">阿里巴巴集团</div>
           </div>
           <div class="right">20-40K</div>
         </li>
         <li>
           <div class="left">
             <div class="left-1">IT技术支持</div>
-            <div class="left-2">阿里巴巴集团</div>
+            <div class="left-2 left-22">阿里巴巴集团</div>
           </div>
           <div class="right">20-40K</div>
         </li>
         <li>
           <div class="left">
             <div class="left-1">IT技术支持</div>
-            <div class="left-2">阿里巴巴集团</div>
+            <div class="left-2 left-22">阿里巴巴集团</div>
           </div>
           <div class="right">20-40K</div>
         </li>
         <li>
           <div class="left">
             <div class="left-1">IT技术支持</div>
-            <div class="left-2">阿里巴巴集团</div>
+            <div class="left-2 left-22">阿里巴巴集团</div>
           </div>
           <div class="right">20-40K</div>
         </li>
         <li>
           <div class="left">
             <div class="left-1">IT技术支持</div>
-            <div class="left-2">阿里巴巴集团</div>
+            <div class="left-2 left-22">阿里巴巴集团</div>
           </div>
           <div class="right">20-40K</div>
         </li>
       </ul>
     </div>
   </div>
+  <script src="../scripts/jquery.v1.7.2.js"></script>
   <script src="../scripts/layui/layui.js"></script>
+  <script>
+    $(function () {
+      $.ajax({
+        url: '/api/getJobById',
+        data: { id: window.location.search.split('=')[1] },
+        success: function (data) {
+          $("#nameXz").html(data.name + '<span>' + data.money + '</span>');
+          $("#address").html(data.city + ' ｜ ' + data.exp + ' ｜ ' + data.edu);
+          $("#hrname").html(data.hr_name);
+          $("#hrtype").html(data.hr_type);
+          $("#gwname").html(data.name);
+          $("#companyLogo").attr('src', data.company_logo);
+          $("#companyName").html(data.company_name);
+          $("#list1").html(data.company_rongzi);
+          $("#list2").html(data.company_guimo);
+          $("#list3").html(data.company_type);
+          $(".left-22").html(data.company_name);
+        }
+      })
+    })
+  </script>
 </body>
 
 </html>

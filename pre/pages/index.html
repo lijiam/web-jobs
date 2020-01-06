@@ -27,7 +27,7 @@
     </ul>
     <div class="head-right">
       <div class="app">五指APP</div>
-      <div class="user" id="user" data-islogin="0">请登录</div>
+      <div class="user" id="user">请登录</div>
     </div>
   </div>
   <div class="wrapper-body">
@@ -36,6 +36,14 @@
 </body>
 <script src="../scripts/jquery.v1.7.2.js"></script>
 <script>
+  $(function () {
+    var islogin = localStorage.getItem("islogin");
+    if (islogin !== null && islogin !== '0') {
+      $(".wrapper-head").css("background", "linear-gradient(to bottom, #CBCCFF, #9ECDFF)");
+      $("#user").html(localStorage.getItem("phone"));
+      $("#ifurl").attr("src", './personal.html');
+    }
+  })
   $("#menus > li").on("click", function () {
     $(this).addClass("active");
     $(this).siblings().removeClass("active");
@@ -43,15 +51,21 @@
     $(".wrapper-head").css("background", "linear-gradient(to bottom, #CBCCFF, #9ECDFF)");
   })
   $("#user").on("click", function () {
-    var islogin = $(this).data("islogin");
+    var islogin = localStorage.getItem("islogin");
     $("#menus").children("li").removeClass("active");
-    if (islogin === 0) {
+    if (islogin === null || islogin === '0') {
       $(".wrapper-head").css("background", "#F2F2F2");
       $("#ifurl").attr("src", './login.html');
     } else {
       $("#ifurl").attr("src", './personal.html');
     }
   })
+
+  function hadLogin() {
+    $(".wrapper-head").css("background", "linear-gradient(to bottom, #CBCCFF, #9ECDFF)");
+    $("#user").html(localStorage.getItem("phone"));
+    $("#ifurl").attr("src", './personal.html');
+  }
 </script>
 
 </html>

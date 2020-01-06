@@ -116,9 +116,10 @@ body {
 /* line 43, ../sass/comps.scss */
 .comps-list {
   width: 80%;
-  margin: 0 10%;
+  margin: 0 10% 20px 10%;
+  overflow: hidden;
 }
-/* line 47, ../sass/comps.scss */
+/* line 48, ../sass/comps.scss */
 .comps-list .comp-item {
   width: calc(33.333% - 20px);
   float: left;
@@ -126,15 +127,15 @@ body {
   background: #fff;
   cursor: pointer;
 }
-/* line 54, ../sass/comps.scss */
+/* line 55, ../sass/comps.scss */
 .comps-list .comp-item:hover {
   box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.1);
 }
-/* line 58, ../sass/comps.scss */
+/* line 59, ../sass/comps.scss */
 .comps-list .comp-item .top {
   overflow: hidden;
 }
-/* line 61, ../sass/comps.scss */
+/* line 62, ../sass/comps.scss */
 .comps-list .comp-item .top .imgg {
   width: 80px;
   height: 80px;
@@ -143,25 +144,25 @@ body {
   float: left;
   margin: 20px;
 }
-/* line 70, ../sass/comps.scss */
+/* line 71, ../sass/comps.scss */
 .comps-list .comp-item .top .right {
   float: right;
   text-align: right;
   margin-right: 20px;
   margin-top: 20px;
 }
-/* line 76, ../sass/comps.scss */
+/* line 77, ../sass/comps.scss */
 .comps-list .comp-item .top .right .name {
   font-size: 18px;
   color: #666;
   line-height: 50px;
 }
-/* line 82, ../sass/comps.scss */
+/* line 83, ../sass/comps.scss */
 .comps-list .comp-item .top .right .desc {
   font-size: 14px;
   color: #999;
 }
-/* line 89, ../sass/comps.scss */
+/* line 90, ../sass/comps.scss */
 .comps-list .comp-item .bottom {
   line-height: 50px;
   color: #999;

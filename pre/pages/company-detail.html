@@ -11,10 +11,10 @@
 
 <body>
   <div class="comp-head">
-    <div class="flex-1"><img src="../images/jobdetail/logo.jpg" alt=""></div>
+    <div class="flex-1"><img id="logo" src="../images/jobdetail/logo.jpg" alt=""></div>
     <div class="flex-2">
-      <div class="name">阿里巴巴集团</div>
-      <div class="desc">不需要融资 ｜ 10000人及以上 ｜ 互联网</div>
+      <div class="name" id="name">阿里巴巴集团</div>
+      <div class="desc" id="desc">不需要融资 ｜ 10000人及以上 ｜ 互联网</div>
       <ul class="lsit">
         <li>五险一金</li>
         <li>定期体检</li>
@@ -81,6 +81,21 @@
       </div>
     </div>
   </div>
+
+  <script src="../scripts/jquery.v1.7.2.js"></script>
+  <script>
+    $(function () {
+      $.ajax({
+        url: '/api/getCompanyById',
+        data: { id: window.location.search.split('=')[1] },
+        success: function (data) {
+          $("#desc").html(data.rongzi + ' ｜ ' + data.guimo + ' ｜ ' + data.type);
+          $("#name").html(data.name);
+          $("#logo").attr('src', data.logo);
+        }
+      })
+    })
+  </script>
 </body>
 
 </html>

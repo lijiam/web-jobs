@@ -1,10 +1,10 @@
 package com.wuzhi.index.service;
 
-public class UserService {
+public interface UserService {
 
-    void create(String name, Integer age);
-    void deleteByName(String name);
-    Integer getAllUsers();
-    void deleteAllUsers();
+    Boolean register(String user_type, String phone, String password);
 
+    Boolean login(String user_type, String phone, String password);
+
+    String getCode();
 }

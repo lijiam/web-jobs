@@ -12,8 +12,9 @@
 <body>
   <ul class="navs">
     <li class="nav-item active" data-url="./company/home.html">企业信息</li>
+    <li class="nav-item" id="edit" data-url="./company/editinfo.html">编辑信息</li>
     <li class="nav-item" data-url="./company/jobmange.html">岗位发布</li>
-    <li class="nav-item" data-url="./company/resolvejl.html">简历处理</li>
+    <li class="nav-item" id="resolvejl" data-url="./company/resolvejl.html">简历处理</li>
     <li class="nav-item" data-url="./company/msg.html">我的消息</li>
   </ul>
   <div class="right-content">
@@ -27,6 +28,12 @@
     $(this).siblings('li').removeClass('active');
     $("#rightContent").attr('src', $(this).data('url'));
   })
+
+  function openCompanytab(id) {
+    $("#" + id).addClass('active');
+    $("#" + id).siblings('li').removeClass('active');
+    $("#rightContent").attr('src', $("#" + id).data('url'));
+  }
 </script>
 
 </html>

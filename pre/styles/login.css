@@ -99,28 +99,32 @@ body {
   background: #fff;
 }
 /* line 29, ../sass/login.scss */
-.right-box .register {
+.right-box .register,
+.right-box .login {
   height: 100%;
   padding: 30px 0;
   text-align: center;
 }
-/* line 34, ../sass/login.scss */
-.right-box .register .title {
+/* line 35, ../sass/login.scss */
+.right-box .register .title,
+.right-box .login .title {
   width: 100%;
   font-size: 20px;
   color: #333;
   text-align: center;
   margin-bottom: 20px;
 }
-/* line 42, ../sass/login.scss */
-.right-box .register .user-tabs {
+/* line 43, ../sass/login.scss */
+.right-box .register .user-tabs,
+.right-box .login .user-tabs {
   width: 70%;
   height: 30px;
   margin-bottom: 10px;
   margin-left: 15%;
 }
-/* line 48, ../sass/login.scss */
-.right-box .register .user-tabs .tab {
+/* line 49, ../sass/login.scss */
+.right-box .register .user-tabs .tab,
+.right-box .login .user-tabs .tab {
   width: 50%;
   line-height: 30px;
   color: #333;
@@ -128,25 +132,29 @@ body {
   float: left;
   cursor: pointer;
 }
-/* line 56, ../sass/login.scss */
-.right-box .register .user-tabs .tab:hover {
+/* line 57, ../sass/login.scss */
+.right-box .register .user-tabs .tab:hover,
+.right-box .login .user-tabs .tab:hover {
   color: #666;
 }
-/* line 60, ../sass/login.scss */
-.right-box .register .user-tabs .tab.active {
+/* line 61, ../sass/login.scss */
+.right-box .register .user-tabs .tab.active,
+.right-box .login .user-tabs .tab.active {
   float: left;
   border-bottom: 3px solid #9ECDFF;
 }
-/* line 67, ../sass/login.scss */
-.right-box .register .item {
+/* line 68, ../sass/login.scss */
+.right-box .register .item,
+.right-box .login .item {
   height: 30px;
   line-height: 30px;
   margin-bottom: 15px;
   text-align: center;
   position: relative;
 }
-/* line 74, ../sass/login.scss */
-.right-box .register .item .inputs {
+/* line 75, ../sass/login.scss */
+.right-box .register .item .inputs,
+.right-box .login .item .inputs {
   width: 70%;
   height: 100%;
   line-height: 30px;
@@ -157,8 +165,9 @@ body {
   border-radius: 4px;
   padding: 0 5px;
 }
-/* line 86, ../sass/login.scss */
-.right-box .register .item .getcode {
+/* line 87, ../sass/login.scss */
+.right-box .register .item .getcode,
+.right-box .login .item .getcode {
   color: #fff;
   font-size: 14px;
   width: 100px;
@@ -171,12 +180,14 @@ body {
   z-index: 1;
   cursor: pointer;
 }
-/* line 99, ../sass/login.scss */
-.right-box .register .item .getcode:hover {
+/* line 100, ../sass/login.scss */
+.right-box .register .item .getcode:hover,
+.right-box .login .item .getcode:hover {
   background: #b0d6ff;
 }
-/* line 105, ../sass/login.scss */
-.right-box .register .btn {
+/* line 106, ../sass/login.scss */
+.right-box .register .btn,
+.right-box .login .btn {
   width: 70%;
   height: 40px;
   line-height: 40px;
@@ -189,34 +200,57 @@ body {
   margin: 15px 0;
   cursor: pointer;
 }
-/* line 118, ../sass/login.scss */
-.right-box .register .btn:hover {
+/* line 119, ../sass/login.scss */
+.right-box .register .btn:hover,
+.right-box .login .btn:hover {
   background: #b0d6ff;
 }
-/* line 123, ../sass/login.scss */
-.right-box .register .words {
+/* line 124, ../sass/login.scss */
+.right-box .register .words,
+.right-box .login .words {
   text-align: center;
   margin-bottom: 10px;
   color: #666;
 }
-/* line 128, ../sass/login.scss */
-.right-box .register .words > a {
+/* line 129, ../sass/login.scss */
+.right-box .register .words > a,
+.right-box .login .words > a {
   text-decoration: none;
   color: #9ECDFF;
 }
-/* line 132, ../sass/login.scss */
-.right-box .register .words > a:hover {
+/* line 133, ../sass/login.scss */
+.right-box .register .words > a:hover,
+.right-box .login .words > a:hover {
   color: #333;
   text-decoration: underline;
 }
-/* line 139, ../sass/login.scss */
-.right-box .register .gotologin {
+/* line 140, ../sass/login.scss */
+.right-box .register .gotologin,
+.right-box .login .gotologin {
   text-decoration: none;
   text-align: center;
   color: #666;
 }
-/* line 144, ../sass/login.scss */
-.right-box .register .gotologin:hover {
+/* line 145, ../sass/login.scss */
+.right-box .register .gotologin:hover,
+.right-box .login .gotologin:hover {
   color: #9ECDFF;
   text-decoration: underline;
+}
+/* line 152, ../sass/login.scss */
+.right-box .register {
+  display: none;
+}
+/* line 157, ../sass/login.scss */
+.right-box .login .user-tabs {
+  margin-bottom: 30px;
+}
+/* line 161, ../sass/login.scss */
+.right-box .login .title {
+  margin-top: 10px;
+  margin-bottom: 30px;
+}
+/* line 166, ../sass/login.scss */
+.right-box .login .gotologin {
+  display: block;
 }

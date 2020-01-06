@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.wuzhi.index.mapper.BusinessMapper">
+    <!--<resultMap id="BaseResultMap" type="com.wuzhi.index.bean.User" >-->
+    <!--<result column="id" property="id" />-->
+    <!--<result column="name" property="name" />-->
+    <!--<result column="age" property="age" />-->
+    <!--</resultMap>-->
+    <select id="getCompanies" resultType="com.wuzhi.index.bean.Company">
+        select * from company
+    </select>
+
+    <select id="getJobs" resultType="com.wuzhi.index.bean.Job" parameterType="java.util.Map">
+        SELECT
+        t1.id,
+        t1.`name`,
+        t1.money,
+        t1.address,
+        t1.edu,
+        t1.exp,
+        t1.hr_name,
+        t1.hr_type,
+        t1.fb_time,
+        t1.city,
+        t2.guimo company_guimo,
+        t2.rongzi company_rongzi,
+        t2.`name` company_name,
+        t2.type company_type
+        FROM
+        jobs t1,
+        company t2
+        WHERE
+        t1.company_id = t2.id
+        <if test="key != '' and key != null ">
+            and t1.`name` like '%${key}%'
+        </if>
+        <if test="city != '' and city != null ">
+            and t1.city like '%${city}%'
+        </if>
+        <if test="exp != '' and exp != null ">
+            and t1.exp like '%${exp}%'
+        </if>
+        <if test="edu != '' and edu != null ">
+            and t1.edu like '%${edu}%'
+        </if>
+        <if test="money != '' and money != null ">
+            and t1.money like '%${money}%'
+        </if>
+        <if test="rongzi != '' and rongzi != null ">
+            and t2.rongzi like '%${rongzi}%'
+        </if>
+        <if test="guimo != '' and guimo != null ">
+            and t2.guimo like '%${guimo}%'
+        </if>
+        ORDER BY
+        t1.fb_time DESC
+    </select>
+
+    <select id="getPersonals" resultType="com.wuzhi.index.bean.Personal" parameterType="java.util.Map">
+        select * from personal t1 where 1=1
+        <if test="key != '' and key != null ">
+            and t1.type like '%${key}%'
+        </if>
+        <if test="city != '' and city != null ">
+            and t1.city like '%${city}%'
+        </if>
+        <if test="exp != '' and exp != null ">
+            and t1.exp like '%${exp}%'
+        </if>
+        <if test="edu != '' and edu != null ">
+            and t1.edu like '%${edu}%'
+        </if>
+        <if test="money != '' and money != null ">
+            and t1.hope_money like '%${money}%'
+        </if>
+    </select>
+
+    <select id="getJobById" resultType="com.wuzhi.index.bean.Job">
+		select t1.*,t2.guimo company_guimo,
+        t2.rongzi company_rongzi,
+        t2.`name` company_name,
+        t2.type company_type,
+         t2.logo company_logo
+         from jobs t1,company t2
+         WHERE t1.company_id = t2.id and t1.id = #{id}
+	</select>
+
+    <select id="getCompanyById" resultType="com.wuzhi.index.bean.Company">
+		select * from company WHERE id = #{id}
+	</select>
+
+    <select id="getResumeById" resultType="com.wuzhi.index.bean.Resume">
+		select * from resume WHERE user_id = #{id}
+	</select>
+
+    <insert id="updateResume" parameterType="java.util.Map">
+        insert into
+        resume(user_id, name, sex, birthday,worktime,email,address,status,money,city,job_name,job_hy,workexp,projexp,studyexp,schoolstatus,skills,others)
+        values
+         (#{user_id},#{name},#{sex},#{birthday},#{worktime},#{email},#{address},#{status},#{money},#{city},#{job_name},#{job_hy},#{workexp},#{projexp},#{studyexp},#{schoolstatus},#{skills},#{others})
+         ON DUPLICATE key update
+    name = #{name}
+    </insert>
+</mapper>

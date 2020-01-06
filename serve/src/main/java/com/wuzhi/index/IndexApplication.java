@@ -1,11 +1,11 @@
 package com.wuzhi.index;
 
+import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.web.bind.annotation.RestController;
 
-@RestController
-@SpringBootApplication
+@SpringBootApplication(scanBasePackages = "com.wuzhi.*")
+@MapperScan("com.wuzhi.index.mapper")
 public class IndexApplication {
 
     public static void main(String[] args) {

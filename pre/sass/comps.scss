@@ -42,7 +42,8 @@ body {
 
 .comps-list {
   width: 80%;
-  margin: 0 10%;
+  margin: 0 10% 20px 10%;
+  overflow: hidden;
 
   .comp-item {
     width: calc(33.333% - 20px);

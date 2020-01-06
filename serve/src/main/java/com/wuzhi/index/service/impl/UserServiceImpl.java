@@ -1,33 +1,37 @@
 package com.wuzhi.index.service.impl;
 
+import com.wuzhi.index.bean.User;
+import com.wuzhi.index.mapper.UserMapper;
 import com.wuzhi.index.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
+
 @Service
-public class UserServiceImpl extends UserService {
+public class UserServiceImpl implements UserService {
 
     @Autowired
-    private JdbcTemplate jdbcTemplate;
+    private UserMapper userMapper;
 
     @Override
-    public void create(String name, Integer age) {
-        jdbcTemplate.update("insert into user(name, age) values(?, ?)", name, age);
+    public Boolean register(String user_type, String phone, String password) {
+        int count = userMapper.register(user_type, phone, password);
+        return count > 0;
     }
 
     @Override
-    public void deleteByName(String name) {
-        jdbcTemplate.update("delete from user where name = ?", name);
+    public String getCode() {
+        String verifyCode = String.valueOf((int) (Math.random() * 900000 + 100000));
+        System.out.println(verifyCode);
+        return verifyCode;
     }
 
     @Override
-    public Integer getAllUsers() {
-        return jdbcTemplate.queryForObject("select count(1) from user", Integer.class);
+    public Boolean login(String user_type, String phone, String password) {
+        List<User> count = userMapper.login(user_type, phone, password);
+        return count.size() > 0;
     }
 
-    @Override
-    public void deleteAllUsers() {
-        jdbcTemplate.update("delete from user");
-    }
 }

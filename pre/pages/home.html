@@ -52,43 +52,13 @@
   </div>
   <div class="hot-jobs">
     <div class="title">热门职位</div>
-    <div class="jobs-box">
-      <div class="job-item">
+    <div class="jobs-box" id="jobsBox">
+      <!-- <div class="job-item">
         <div class="title">IT技术支持</div>
         <div class="desc">无工作经验 本科 10月20日发布</div>
         <div class="name">阿里巴巴</div>
         <div class="address">杭州</div>
-      </div>
-      <div class="job-item">
-        <div class="title">IT技术支持</div>
-        <div class="desc">无工作经验 本科 10月20日发布</div>
-        <div class="name">阿里巴巴</div>
-        <div class="address">杭州</div>
-      </div>
-      <div class="job-item">
-        <div class="title">IT技术支持</div>
-        <div class="desc">无工作经验 本科 10月20日发布</div>
-        <div class="name">阿里巴巴</div>
-        <div class="address">杭州</div>
-      </div>
-      <div class="job-item">
-        <div class="title">IT技术支持</div>
-        <div class="desc">无工作经验 本科 10月20日发布</div>
-        <div class="name">阿里巴巴</div>
-        <div class="address">杭州</div>
-      </div>
-      <div class="job-item">
-        <div class="title">IT技术支持</div>
-        <div class="desc">无工作经验 本科 10月20日发布</div>
-        <div class="name">阿里巴巴</div>
-        <div class="address">杭州</div>
-      </div>
-      <div class="job-item">
-        <div class="title">IT技术支持</div>
-        <div class="desc">无工作经验 本科 10月20日发布</div>
-        <div class="name">阿里巴巴</div>
-        <div class="address">杭州</div>
-      </div>
+      </div> -->
     </div>
     <div class="jobs-foot"><a href="javascript:;">更多热门职位</a></div>
   </div>
@@ -118,6 +88,27 @@
       elem: '#lunbo', width: '100%', height: '100%', arrow: 'hover'
     });
   });
+  $(function () {
+    $.ajax({
+      type: 'POST',
+      url: '/api/getJobs',
+      dataType: "json",
+      contentType: "application/json",
+      data: JSON.stringify({}),
+      success: function (data) {
+        var str = '';
+        for (var i = 0, len = data.length; i < len && i < 6; i++) {
+          str += '<div class="job-item">' +
+            '<div class="title">' + data[i].name + '</div>' +
+            '<div class="desc">' + data[i].exp + ' ｜ ' + data[i].edu + ' ｜ ' + data[i].fb_time + '发布</div>' +
+            '<div class="name">' + data[i].company_name + '</div>' +
+            '<div class="address">' + data[i].city + '</div>' +
+            '</div>';
+        }
+        $("#jobsBox").html(str);
+      }
+    })
+  })
 </script>
 
 </html>
