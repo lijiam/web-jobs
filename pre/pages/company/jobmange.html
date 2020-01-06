@@ -13,17 +13,17 @@
 <body>
   <div class="body-wrapper">
     <div class="head-btn">
-      <button type="button" class="layui-btn layui-btn-normal">添加岗位</button>
+      <button type="button" class="layui-btn layui-btn-normal"
+        onclick="javascript:window.location.href='./addJob.html?type=new'">添加岗位</button>
     </div>
-    <table class="layui-table" lay-data="{width: 100%, height:100%, url:'/demo/table/user/', page:true, id:'idTest'}"
-      lay-filter="demo">
-      <thead>
+    <table class="layui-hide" id="demo" lay-filter="demo">
+      <!-- <thead>
         <tr>
           <th lay-data="{field:'name', align:'center'}">简历名称</th>
-          <th lay-data="{field:'time', align:'center'}">发布日期</th>
+          <th lay-data="{field:'fb_time', align:'center'}">发布日期</th>
           <th lay-data="{width:200, align:'center', toolbar: '#barDemo'}">操作</th>
         </tr>
-      </thead>
+      </thead> -->
     </table>
 
     <script type="text/html" id="barDemo">
@@ -32,44 +32,53 @@
     </script>
   </div>
 
+  <script src="../../scripts/jquery.v1.7.2.js"></script>
   <script src="../../scripts/layui/layui.js"></script>
 
   <script>
+
+    var jQuery = $;
+
     layui.use('table', function () {
       var table = layui.table;
+
+      var user = JSON.parse(localStorage.getItem("user"));
+      jQuery.ajax({
+        url: '/api/getJobByCompanyId',
+        data: { id: user.company_id },
+        success: function (data) {
+          table.render({
+            elem: '#demo',
+            cols: [[ //标题栏
+              { field: 'id', title: '编号' },
+              { field: 'name', title: '岗位名称' },
+              { field: 'fb_time', title: '发布时间', sort: true },
+              { title: '操作', sort: true, toolbar: '#barDemo' },
+            ]],
+            data: data, even: true
+          })
+        }
+      })
+
       //监听工具条
       table.on('tool(demo)', function (obj) {
         var data = obj.data;
         if (obj.event === 'del') {
-          layer.confirm('真的删除行么', function (index) {
-            obj.del();
-            layer.close(index);
+          layer.confirm('真的要删除吗？', function (index) {
+            jQuery.ajax({
+              url: '/api/deleteJobById',
+              data: { id: data.id },
+              success: function (tag) {
+                if (tag) {
+                  obj.del();
+                  layer.close(index);
+                }
+              }
+            });
           });
         } else if (obj.event === 'edit') {
-          layer.alert('编辑行：<br>' + JSON.stringify(data))
+          window.location.href = './addJob.html?type=edit&id=' + data.id;
         }
-      });
-
-      var $ = layui.$, active = {
-        getCheckData: function () { //获取选中数据
-          var checkStatus = table.checkStatus('idTest')
-            , data = checkStatus.data;
-          layer.alert(JSON.stringify(data));
-        }
-        , getCheckLength: function () { //获取选中数目
-          var checkStatus = table.checkStatus('idTest')
-            , data = checkStatus.data;
-          layer.msg('选中了：' + data.length + ' 个');
-        }
-        , isAll: function () { //验证是否全选
-          var checkStatus = table.checkStatus('idTest');
-          layer.msg(checkStatus.isAll ? '全选' : '未全选')
-        }
-      };
-
-      $('.demoTable .layui-btn').on('click', function () {
-        var type = $(this).data('type');
-        active[type] ? active[type].call(this) : '';
       });
     });
   </script>

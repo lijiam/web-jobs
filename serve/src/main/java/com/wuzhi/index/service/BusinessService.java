@@ -18,6 +18,10 @@ public interface BusinessService {
 
     Job getJobById(String id);
 
+    Boolean deleteJobById(String id);
+
+    List<Job> getJobByCompanyId(String id);
+
     Company getCompanyById(String id);
 
     Resume getResumeById(String id);
@@ -25,4 +29,6 @@ public interface BusinessService {
     Boolean updateResume(Map<String, String> params);
 
     Boolean updateCompany(Map<String, String> params);
+
+    Boolean updateJob(Map<String, String> params);
 }

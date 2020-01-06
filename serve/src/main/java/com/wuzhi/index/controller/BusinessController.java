@@ -40,6 +40,16 @@ public class BusinessController {
         return businessService.getJobById(id);
     }
 
+    @RequestMapping("/deleteJobById")
+    public Boolean deleteJobById(String id) {
+        return businessService.deleteJobById(id);
+    }
+
+    @RequestMapping("/getJobByCompanyId")
+    public List<Job> getJobByCompanyId(String id) {
+        return businessService.getJobByCompanyId(id);
+    }
+
     @RequestMapping("/getCompanyById")
     public Company getCompanyById(String id) {
         return businessService.getCompanyById(id);
@@ -58,5 +68,10 @@ public class BusinessController {
     @RequestMapping("/updateCompany")
     public Boolean updateCompany(@RequestBody Map<String, String> params) {
         return businessService.updateCompany(params);
+    }
+
+    @RequestMapping("/updateJob")
+    public Boolean updateJob(@RequestBody Map<String, String> params) {
+        return businessService.updateJob(params);
     }
 }

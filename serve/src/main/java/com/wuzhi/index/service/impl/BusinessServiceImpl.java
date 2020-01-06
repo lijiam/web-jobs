@@ -39,6 +39,16 @@ public class BusinessServiceImpl implements BusinessService {
     }
 
     @Override
+    public Boolean deleteJobById(String id) {
+        return businessMapper.deleteJobById(id) > 0;
+    }
+
+    @Override
+    public List<Job> getJobByCompanyId(String id) {
+        return businessMapper.getJobByCompanyId(id);
+    }
+
+    @Override
     public Company getCompanyById(String id) {
         return businessMapper.getCompanyById(id);
     }
@@ -57,6 +67,12 @@ public class BusinessServiceImpl implements BusinessService {
     @Override
     public Boolean updateCompany(Map<String, String> params) {
         int count = businessMapper.updateCompany(params);
+        return count > 0;
+    }
+
+    @Override
+    public Boolean updateJob(Map<String, String> params) {
+        int count = businessMapper.updateJob(params);
         return count > 0;
     }
 }

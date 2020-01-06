@@ -17,6 +17,33 @@ public class Job {
     private String hr_type;
     private String fb_time;
     private String city;
+    private String beijing;
+    private String zhize;
+    private String yaoqiu;
+
+    public String getBeijing() {
+        return beijing;
+    }
+
+    public void setBeijing(String beijing) {
+        this.beijing = beijing;
+    }
+
+    public String getZhize() {
+        return zhize;
+    }
+
+    public void setZhize(String zhize) {
+        this.zhize = zhize;
+    }
+
+    public String getYaoqiu() {
+        return yaoqiu;
+    }
+
+    public void setYaoqiu(String yaoqiu) {
+        this.yaoqiu = yaoqiu;
+    }
 
     public String getCompany_logo() {
         return company_logo;

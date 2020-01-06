@@ -79,6 +79,9 @@
       $("#ifurl").attr("src", './login.html');
       $("#user").html("请登录");
       $(this).hide();
+      $("#menu02").show();
+      $("#menu03").show();
+      $("#menu04").show();
     })
   })
 
@@ -87,8 +90,14 @@
     $(".wrapper-head").css("background", "linear-gradient(to bottom, #CBCCFF, #9ECDFF)");
     $("#user").html(user.phone);
     $("#exit").show();
-    if (user.user_type === '0') $("#ifurl").attr("src", './personal.html');
-    else if (user.user_type === '1') $("#ifurl").attr("src", './company.html');
+    if (user.user_type === '0') {
+      $("#menu04").hide();
+      $("#ifurl").attr("src", './personal.html');
+    } else if (user.user_type === '1') {
+      $("#menu02").hide();
+      $("#menu03").hide();
+      $("#ifurl").attr("src", './company.html');
+    }
   }
 </script>
 

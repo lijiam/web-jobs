@@ -21,6 +21,10 @@ public interface BusinessMapper {
 
     Job getJobById(@Param("id") String id);
 
+    int deleteJobById(@Param("id") String id);
+
+    List<Job> getJobByCompanyId(@Param("id") String id);
+
     Company getCompanyById(@Param("id") String id);
 
     Resume getResumeById(@Param("id") String id);
@@ -28,4 +32,7 @@ public interface BusinessMapper {
     int updateResume(Map<String, String> params);
 
     int updateCompany(Map<String, String> params);
+
+    int updateJob(Map<String, String> params);
+
 }

@@ -87,6 +87,14 @@
          WHERE t1.company_id = t2.id and t1.id = #{id}
 	</select>
 
+    <delete id="deleteJobById">
+        delete from jobs where id = #{id}
+    </delete>
+
+    <select id="getJobByCompanyId" resultType="com.wuzhi.index.bean.Job">
+		select t1.* from jobs t1 WHERE t1.company_id = #{id}
+	</select>
+
     <select id="getCompanyById" resultType="com.wuzhi.index.bean.Company">
 		select * from company WHERE id = #{id}
 	</select>
@@ -171,5 +179,24 @@ VALUES
 	jianjie = #{jianjie},
 	gongshang = #{gongshang},
 	update_time = now()
+    </insert>
+
+    <insert id="updateJob" parameterType="java.util.Map">
+      INSERT INTO jobs ( id, name, money, address, exp, edu, company_id, city, fb_time, beijing, zhize, yaoqiu, hr_name, hr_type )
+VALUES
+	( #{id}, #{name}, #{money}, #{address}, #{exp}, #{edu}, #{company_id}, #{city}, now(), #{beijing}, #{zhize}, #{yaoqiu}, #{hr_name}, '人事经理' )
+	ON DUPLICATE KEY UPDATE name = #{name},
+	money = #{money},
+	address = #{address},
+	exp = #{exp},
+	edu = #{edu},
+	company_id = #{company_id},
+	city = #{city},
+	fb_time = now(),
+	beijing = #{beijing},
+	zhize = #{zhize},
+	yaoqiu = #{yaoqiu},
+	hr_name = #{hr_name},
+	hr_type = '人事经理'
     </insert>
 </mapper>
