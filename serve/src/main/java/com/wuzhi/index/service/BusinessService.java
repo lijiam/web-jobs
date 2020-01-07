@@ -2,7 +2,6 @@ package com.wuzhi.index.service;
 
 import com.wuzhi.index.bean.Company;
 import com.wuzhi.index.bean.Job;
-import com.wuzhi.index.bean.Personal;
 import com.wuzhi.index.bean.Resume;
 
 import java.util.List;
@@ -14,7 +13,7 @@ public interface BusinessService {
 
     List<Job> getJobs(Map<String, String> params);
 
-    List<Personal> getPersonals(Map<String, String> params);
+    List<Resume> getPersonals(Map<String, String> params);
 
     Job getJobById(String id);
 

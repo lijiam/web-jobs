@@ -21,6 +21,51 @@ public class Resume {
     private String skills;
     private String others;
     private String update_time;
+    private String phone;
+    private String university;
+    private String rongyu;
+    private String edu;
+    private String exp;
+
+    public String getUniversity() {
+        return university;
+    }
+
+    public void setUniversity(String university) {
+        this.university = university;
+    }
+
+    public String getRongyu() {
+        return rongyu;
+    }
+
+    public void setRongyu(String rongyu) {
+        this.rongyu = rongyu;
+    }
+
+    public String getEdu() {
+        return edu;
+    }
+
+    public void setEdu(String edu) {
+        this.edu = edu;
+    }
+
+    public String getExp() {
+        return exp;
+    }
+
+    public void setExp(String exp) {
+        this.exp = exp;
+    }
+
+    public String getPhone() {
+        return phone;
+    }
+
+    public void setPhone(String phone) {
+        this.phone = phone;
+    }
 
     public String getUpdate_time() {
         return update_time;

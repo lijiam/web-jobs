@@ -2,7 +2,6 @@ package com.wuzhi.index.service.impl;
 
 import com.wuzhi.index.bean.Company;
 import com.wuzhi.index.bean.Job;
-import com.wuzhi.index.bean.Personal;
 import com.wuzhi.index.bean.Resume;
 import com.wuzhi.index.mapper.BusinessMapper;
 import com.wuzhi.index.service.BusinessService;
@@ -29,7 +28,7 @@ public class BusinessServiceImpl implements BusinessService {
     }
 
     @Override
-    public List<Personal> getPersonals(Map<String, String> params) {
+    public List<Resume> getPersonals(Map<String, String> params) {
         return businessMapper.getPersonals(params);
     }
 

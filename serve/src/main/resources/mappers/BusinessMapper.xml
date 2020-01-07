@@ -58,10 +58,10 @@
         t1.fb_time DESC
     </select>
 
-    <select id="getPersonals" resultType="com.wuzhi.index.bean.Personal" parameterType="java.util.Map">
-        select * from personal t1 where 1=1
+    <select id="getPersonals" resultType="com.wuzhi.index.bean.Resume" parameterType="java.util.Map">
+        select * from resume t1 where 1=1
         <if test="key != '' and key != null ">
-            and t1.type like '%${key}%'
+            and t1.job_name like '%${key}%'
         </if>
         <if test="city != '' and city != null ">
             and t1.city like '%${city}%'
@@ -73,7 +73,7 @@
             and t1.edu like '%${edu}%'
         </if>
         <if test="money != '' and money != null ">
-            and t1.hope_money like '%${money}%'
+            and t1.money like '%${money}%'
         </if>
     </select>
 
@@ -123,7 +123,12 @@
 	schoolstatus,
 	skills,
 	others,
-	update_time
+	update_time,
+	phone,
+	university,
+	rongyu,
+	edu,
+	exp
 )
 VALUES
 	(
@@ -145,7 +150,12 @@ VALUES
 		#{schoolstatus},
 		#{skills},
 		#{others},
-		now()
+		now(),
+		#{phone},
+		#{university},
+	    #{rongyu},
+	    #{edu},
+	    #{exp}
 	)
 	ON DUPLICATE KEY UPDATE NAME = #{name},
 	sex = #{sex},
@@ -164,7 +174,12 @@ VALUES
 	schoolstatus = #{schoolstatus},
 	skills = #{skills},
 	others = #{others},
-	update_time = now()
+	update_time = now(),
+	phone = #{phone},
+	university = #{university},
+	rongyu = #{rongyu},
+	edu = #{edu},
+	exp = #{exp}
     </insert>
 
     <insert id="updateCompany" parameterType="java.util.Map">

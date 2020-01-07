@@ -31,7 +31,7 @@ public class BusinessController {
     }
 
     @RequestMapping("/getPersonals")
-    public List<Personal> getPersonals(@RequestBody Map<String, String> params) {
+    public List<Resume> getPersonals(@RequestBody Map<String, String> params) {
         return businessService.getPersonals(params);
     }
 

@@ -107,10 +107,10 @@
       success: function (data) {
         var str = '';
         for (var i = 0, len = data.length; i < len; i++) {
-          str += '<div class="job-item">' +
+          str += '<div class="job-item" onclick="javascript:window.open(\'./personal/see-resume.html?id=' + data[i].user_id + '\');">' +
             '<div class="item-left">' +
-            '<div class="name">' + data[i].type + '</div>' +
-            '<div class="xz">期望月薪：<span style="color: red;">' + data[i].hope_money + '</span></div>' +
+            '<div class="name">' + data[i].job_name + '</div>' +
+            '<div class="xz">期望月薪：<span style="color: red;">' + data[i].money + '</span></div>' +
             '<div class="desc">' + data[i].address + ' ｜ ' + data[i].exp + ' ｜ ' + data[i].edu + '</div>' +
             '</div>' +
             '<div class="item-middle">' +

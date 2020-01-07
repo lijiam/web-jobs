@@ -2,7 +2,6 @@ package com.wuzhi.index.mapper;
 
 import com.wuzhi.index.bean.Company;
 import com.wuzhi.index.bean.Job;
-import com.wuzhi.index.bean.Personal;
 import com.wuzhi.index.bean.Resume;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
@@ -17,7 +16,7 @@ public interface BusinessMapper {
 
     List<Job> getJobs(Map<String, String> params);
 
-    List<Personal> getPersonals(Map<String, String> params);
+    List<Resume> getPersonals(Map<String, String> params);
 
     Job getJobById(@Param("id") String id);
 
