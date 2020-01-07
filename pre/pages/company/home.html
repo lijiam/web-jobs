@@ -30,8 +30,8 @@
     <div class="head">
       <div class="title">谁看过我</div>
     </div>
-    <ul class="list">
-      <li class="list-item">
+    <ul class="list" id="list">
+      <!-- <li class="list-item">
         <div class="left">
           <div class="name">个人A</div>
           <div class="desc">期望薪资：120/天 ｜ 居住地：杭州 ｜ 职能：实习生</div>
@@ -39,31 +39,35 @@
         <div class="right">
           2019-10-24 投递简历<button class="layui-btn layui-btn-normal" style="margin-left: 20px;">查看简历</button>
         </div>
-      </li>
-      <li class="list-item">
-        <div class="left">
-          <div class="name">个人A</div>
-          <div class="desc">期望薪资：120/天 ｜ 居住地：杭州 ｜ 职能：实习生</div>
-        </div>
-        <div class="right">
-          2019-10-24 投递简历<button class="layui-btn layui-btn-normal" style="margin-left: 20px;">查看简历</button>
-        </div>
-      </li>
-      <li class="list-item">
-        <div class="left">
-          <div class="name">个人A</div>
-          <div class="desc">期望薪资：120/天 ｜ 居住地：杭州 ｜ 职能：实习生</div>
-        </div>
-        <div class="right">
-          2019-10-24 投递简历<button class="layui-btn layui-btn-normal" style="margin-left: 20px;">查看简历</button>
-        </div>
-      </li>
+      </li> -->
     </ul>
   </div>
 </body>
 <script src="../../scripts/jquery.v1.7.2.js"></script>
 <script src="../../scripts/layui/layui.js"></script>
 <script>
+  function openResume(id, user_id, status) {
+    window.open('../personal/see-resume.html?id=' + user_id);
+    if (status === '-1') {
+      $.ajax({
+        url: '/api/updateResumeSendStatus',
+        data: { id: id, status: '0' }
+      });
+    }
+  }
+  function inviteResume(id) {
+    $.ajax({
+      url: '/api/updateResumeSendStatus',
+      data: { id: id, status: '1' },
+      success: function (tag) {
+        layui.use('layer', function (tag) {
+          var layer = layui.layer;
+          if (tag) layer.msg("邀请成功");
+          else layer.msg("邀请失败");
+        });
+      }
+    });
+  }
   $(function () {
     var user = JSON.parse(localStorage.getItem("user"));
     $.ajax({
@@ -73,6 +77,28 @@
         $("#logo").attr('src', '../' + data.logo);
         $("#name").html(data.name);
         if (data.update_time) $("#updateTime").html(data.update_time);
+      }
+    })
+    $.ajax({
+      url: '/api/getResumeSend',
+      data: { company_id: user.company_id },
+      success: function (data) {
+        var str = '';
+        if (data) {
+          for (var i = 0, len = data.length; i < len; i++) {
+            str += '<li class="list-item">' +
+              '<div class="left">' +
+              '<div class="name">' + data[i].username + '</div>' +
+              '<div class="desc">期望薪资：' + data[i].job_money + ' ｜ 居住地：' + data[i].job_city + ' ｜ 职能：' + data[i].job_name + '</div>' +
+              '</div>' +
+              '<div class="right">' + data[i].send_time.substring(0, 10) +
+              ' 投递简历<button class="layui-btn layui-btn-normal" style="margin-left: 20px;" onclick="openResume(\'' + data[i].id + '\',\'' + data[i].user_id + '\',\'' + data[i].status + '\')">查看简历</button>' +
+              '<button class="layui-btn layui-btn-normal" style="margin-left: 20px;" onclick="inviteResume(\'' + data[i].id + '\')">邀请面试</button>' +
+              '</div>' +
+              '</li>';
+          }
+          $("#list").html(str);
+        }
       }
     })
   })

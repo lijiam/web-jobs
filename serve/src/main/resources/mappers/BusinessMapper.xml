@@ -214,4 +214,44 @@ VALUES
 	hr_name = #{hr_name},
 	hr_type = '人事经理'
     </insert>
+
+    <insert id="sendResume" parameterType="java.util.Map">
+        INSERT INTO resume_send (job_id,user_id,send_time) VALUES (#{job_id},#{user_id},now())
+    </insert>
+
+    <select id="getResumeSend" resultType="com.wuzhi.index.bean.ResumeSend">
+        SELECT
+        t1.id,
+        t1.user_id,
+        t1.job_id,
+        t3.NAME job_name,
+        t3.money job_money,
+        t2.NAME company_name,
+        t3.city job_city,
+        t1.send_time,
+        t4.name username,
+        t1.status
+        FROM
+        resume_send t1,
+        company t2,
+        jobs t3,
+        user t4
+        WHERE
+        t1.job_id = t3.id
+        AND t3.company_id = t2.id
+        AND t1.user_id = t4.id
+        <if test="user_id != '' and user_id != null ">
+            AND t1.user_id = #{user_id}
+        </if>
+        <if test="status != '' and status != null ">
+            AND t1.status = #{status}
+        </if>
+        <if test="company_id != '' and company_id != null ">
+            AND t3.company_id = #{company_id}
+        </if>
+    </select>
+
+    <update id="updateResumeSendStatus">
+        UPDATE resume_send set status = #{status} WHERE id = #{id}
+    </update>
 </mapper>

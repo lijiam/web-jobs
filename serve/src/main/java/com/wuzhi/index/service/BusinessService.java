@@ -3,6 +3,7 @@ package com.wuzhi.index.service;
 import com.wuzhi.index.bean.Company;
 import com.wuzhi.index.bean.Job;
 import com.wuzhi.index.bean.Resume;
+import com.wuzhi.index.bean.ResumeSend;
 
 import java.util.List;
 import java.util.Map;
@@ -30,4 +31,10 @@ public interface BusinessService {
     Boolean updateCompany(Map<String, String> params);
 
     Boolean updateJob(Map<String, String> params);
+
+    Boolean sendResume(Map<String, String> params);
+
+    List<ResumeSend> getResumeSend(String user_id, String status, String company_id);
+
+    Boolean updateResumeSendStatus(String id, String status);
 }

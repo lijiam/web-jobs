@@ -3,6 +3,7 @@ package com.wuzhi.index.mapper;
 import com.wuzhi.index.bean.Company;
 import com.wuzhi.index.bean.Job;
 import com.wuzhi.index.bean.Resume;
+import com.wuzhi.index.bean.ResumeSend;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 
@@ -34,4 +35,9 @@ public interface BusinessMapper {
 
     int updateJob(Map<String, String> params);
 
+    int sendResume(Map<String, String> params);
+
+    List<ResumeSend> getResumeSend(@Param("user_id") String user_id, @Param("status") String status, @Param("company_id") String company_id);
+
+    int updateResumeSendStatus(@Param("id") String id, @Param("status") String status);
 }

@@ -3,6 +3,7 @@ package com.wuzhi.index.service.impl;
 import com.wuzhi.index.bean.Company;
 import com.wuzhi.index.bean.Job;
 import com.wuzhi.index.bean.Resume;
+import com.wuzhi.index.bean.ResumeSend;
 import com.wuzhi.index.mapper.BusinessMapper;
 import com.wuzhi.index.service.BusinessService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -72,6 +73,23 @@ public class BusinessServiceImpl implements BusinessService {
     @Override
     public Boolean updateJob(Map<String, String> params) {
         int count = businessMapper.updateJob(params);
+        return count > 0;
+    }
+
+    @Override
+    public Boolean sendResume(Map<String, String> params) {
+        int count = businessMapper.sendResume(params);
+        return count > 0;
+    }
+
+    @Override
+    public List<ResumeSend> getResumeSend(String user_id, String status, String company_id) {
+        return businessMapper.getResumeSend(user_id, status, company_id);
+    }
+
+    @Override
+    public Boolean updateResumeSendStatus(String id, String status) {
+        int count = businessMapper.updateResumeSendStatus(id, status);
         return count > 0;
     }
 }
