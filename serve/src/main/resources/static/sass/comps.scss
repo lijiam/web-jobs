@@ -1,0 +1,98 @@
+@import "./common.scss";
+
+body {
+  background: #F2F2F2;
+}
+
+.conds {
+  background: #fff;
+  padding: 10px 30px;
+  box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.1);
+
+  .cond-item {
+    margin: 20px 0;
+    color: #333;
+
+    &>li {
+      display: inline-block;
+      margin-right: 30px;
+      cursor: pointer;
+      font-size: 16px;
+      color: #666;
+
+      &:hover {
+        color: #999;
+      }
+    }
+  }
+}
+
+.comp-form {
+  line-height: 60px;
+  padding-left: 10%;
+  width: 320px;
+
+  .myblock {
+    width: 140px;
+    float: right;
+    margin-left: 0;
+    margin-top: 10px;
+  }
+}
+
+.comps-list {
+  width: 80%;
+  margin: 0 10% 20px 10%;
+  overflow: hidden;
+
+  .comp-item {
+    width: calc(33.333% - 20px);
+    float: left;
+    margin: 10px;
+    background: #fff;
+    cursor: pointer;
+
+    &:hover {
+      box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.1);
+    }
+
+    .top {
+      overflow: hidden;
+
+      .imgg {
+        width: 80px;
+        height: 80px;
+        border-radius: 10px;
+        border: 1px solid #eee;
+        float: left;
+        margin: 20px;
+      }
+
+      .right {
+        float: right;
+        text-align: right;
+        margin-right: 20px;
+        margin-top: 20px;
+
+        .name {
+          font-size: 18px;
+          color: #666;
+          line-height: 50px;
+        }
+
+        .desc {
+          font-size: 14px;
+          color: #999;
+        }
+      }
+    }
+
+    .bottom {
+      line-height: 50px;
+      color: #999;
+      font-size: 14px;
+      margin: 0 20px;
+      border-top: 1px dashed #ccc;
+    }
+  }
+}

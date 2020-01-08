@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>我的消息</title>
+  <link rel="stylesheet" href="../../scripts/layui/css/layui.css">
+  <link rel="stylesheet" href="../../styles/company/msg.css">
+</head>
+
+<body>
+  <div class="body-wrapper">
+    <div class="layui-tab layui-tab-brief">
+      <ul class="layui-tab-title">
+        <li class="layui-this">站内消息</li>
+        <li>联系人</li>
+      </ul>
+      <div class="layui-tab-content">
+        <div class="layui-tab-item layui-show">
+          <div class="list-item">
+            <div class="left">
+              <div class="item-type">求职者推荐</div>
+              <div class="item-desc">个人A</div>
+              <div class="item-bom">期望薪资：120/天 ｜ 居住地：杭州 ｜ 职能：实习生</div>
+            </div>
+            <div class="right">
+              <button type="button" class="layui-btn layui-btn-normal">查看简历</button>
+              <button type="button" class="layui-btn layui-btn-normal">邀请面试</button>
+            </div>
+          </div>
+        </div>
+        <div class="layui-tab-item"></div>
+      </div>
+    </div>
+  </div>
+</body>
+
+<script src="../../scripts/layui/layui.js"></script>
+<script>
+  //注意：选项卡 依赖 element 模块，否则无法进行功能性操作
+  layui.use('element', function () {
+    var element = layui.element;
+
+    //…
+  });
+</script>
+
+</html>

@@ -1,0 +1,142 @@
+@import "./common.scss";
+
+body {
+  background: #F2F2F2;
+}
+
+.comp-head {
+  background: #fff;
+  padding: 30px;
+  box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.1);
+  display: flex;
+
+  .flex-1 {
+    width: 150px;
+
+    &>img {
+      width: 100%;
+      border-radius: 8px;
+    }
+  }
+
+  .flex-2 {
+    flex: 1;
+
+    .name {
+      color: #000;
+      font-size: 24px;
+      margin-left: 20px;
+      margin-top: 10px;
+    }
+
+    .desc {
+      margin-top: 15px;
+      margin-left: 20px;
+      color: #999;
+      font-size: 16px;
+    }
+
+    .lsit {
+      margin-left: 20px;
+      margin-top: 15px;
+
+      &>li {
+        font-size: 14px;
+        color: #fff;
+        background: #1E9FFF;
+        float: left;
+        padding: 5px 10px;
+        margin-right: 15px;
+        border-radius: 12px;
+      }
+    }
+  }
+
+  .flex-3 {
+    text-align: center;
+    width: 150px;
+
+    &>div {
+      line-height: 50px;
+      color: #999999;
+      font-size: 16px;
+
+      &:first-child {
+        color: #333;
+        font-size: 24px;
+      }
+    }
+  }
+
+  .flex-4 {
+    text-align: center;
+    width: 150px;
+
+    &>div {
+      line-height: 50px;
+      color: #999999;
+      font-size: 16px;
+
+      &:first-child {
+        color: #333;
+        font-size: 24px;
+      }
+    }
+  }
+}
+
+.comp-body {
+  padding: 0 30px 30px 30px;
+
+  .desc {
+    margin-top: 40px;
+
+    .desc-title {
+      padding-bottom: 5px;
+      border-bottom: 2px solid #1E9FFF;
+      color: #333;
+      font-size: 16px;
+    }
+
+    .desc-content {
+      margin-top: 20px;
+      color: #666;
+      font-size: 14px;
+
+      &>p {
+        margin: 15px 0;
+        line-height: 20px;
+      }
+
+      .myitem {
+        padding: 10px;
+        overflow: hidden;
+
+        &>img {
+          float: left;
+          width: 100px;
+          border-radius: 10px;
+        }
+
+        .rightt {
+          float: left;
+          padding-top: 20px;
+
+          .ri-1 {
+            margin: 20px;
+            color: #333;
+            text-decoration: none;
+
+            &:hover {
+              color: #999;
+            }
+          }
+
+          .ri-2 {
+            margin: 20px;
+          }
+        }
+      }
+    }
+  }
+}

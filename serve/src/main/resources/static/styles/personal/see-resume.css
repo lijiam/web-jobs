@@ -1,0 +1,154 @@
+/* line 5, ../../../../../../.rvm/gems/ruby-2.5.3/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font: inherit;
+  font-size: 100%;
+  vertical-align: baseline;
+}
+
+/* line 22, ../../../../../../.rvm/gems/ruby-2.5.3/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+html {
+  line-height: 1;
+}
+
+/* line 24, ../../../../../../.rvm/gems/ruby-2.5.3/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+ol, ul {
+  list-style: none;
+}
+
+/* line 26, ../../../../../../.rvm/gems/ruby-2.5.3/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+/* line 28, ../../../../../../.rvm/gems/ruby-2.5.3/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+caption, th, td {
+  text-align: left;
+  font-weight: normal;
+  vertical-align: middle;
+}
+
+/* line 30, ../../../../../../.rvm/gems/ruby-2.5.3/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+q, blockquote {
+  quotes: none;
+}
+/* line 103, ../../../../../../.rvm/gems/ruby-2.5.3/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+q:before, q:after, blockquote:before, blockquote:after {
+  content: "";
+  content: none;
+}
+
+/* line 32, ../../../../../../.rvm/gems/ruby-2.5.3/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+a img {
+  border: none;
+}
+
+/* line 116, ../../../../../../.rvm/gems/ruby-2.5.3/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+article, aside, details, figcaption, figure, footer, header, hgroup, main, menu, nav, section, summary {
+  display: block;
+}
+
+/* line 3, ../../sass/common.scss */
+html,
+body {
+  height: 100%;
+  font-family: "Microsoft YaHei";
+}
+
+/* line 3, ../../sass/personal/see-resume.scss */
+body {
+  background: #f2f2f2;
+  width: 100%;
+  height: 100%;
+  padding-top: 20px;
+}
+/* line 9, ../../sass/personal/see-resume.scss */
+body .wrapper-border {
+  width: 1300px;
+  background: #fff;
+  margin: 0 auto;
+  border: 1px solid #ddd;
+  margin-bottom: 20px;
+}
+/* line 16, ../../sass/personal/see-resume.scss */
+body .wrapper-border .head {
+  height: 160px;
+  margin: 0 auto;
+  display: flex;
+  background: #99CDCD;
+  padding: 20px 50px;
+}
+/* line 23, ../../sass/personal/see-resume.scss */
+body .wrapper-border .head > img {
+  width: 120px;
+  height: 120px;
+  margin-top: 20px;
+}
+/* line 29, ../../sass/personal/see-resume.scss */
+body .wrapper-border .head .head-right {
+  flex: 1;
+  padding-left: 30px;
+}
+/* line 33, ../../sass/personal/see-resume.scss */
+body .wrapper-border .head .head-right .myicon {
+  font-size: 16px;
+  color: #333;
+  margin-right: 3px;
+}
+/* line 39, ../../sass/personal/see-resume.scss */
+body .wrapper-border .head .head-right .right1 {
+  font-size: 30px;
+  color: #000;
+  margin-top: 30px;
+}
+/* line 45, ../../sass/personal/see-resume.scss */
+body .wrapper-border .head .head-right .right2 {
+  font-size: 16px;
+  color: #333;
+  margin-top: 25px;
+}
+/* line 51, ../../sass/personal/see-resume.scss */
+body .wrapper-border .head .head-right .right3 {
+  font-size: 16px;
+  color: #333;
+  margin-top: 10px;
+}
+/* line 59, ../../sass/personal/see-resume.scss */
+body .wrapper-border .myitem {
+  margin: 20px 0;
+  padding: 0 50px 20px 50px;
+  border-bottom: 1px solid #ddd;
+}
+/* line 64, ../../sass/personal/see-resume.scss */
+body .wrapper-border .myitem .item-title {
+  font-size: 20px;
+  color: #000;
+  margin-bottom: 10px;
+  line-height: 30px;
+  border-bottom: 1px solid #efefef;
+}
+/* line 72, ../../sass/personal/see-resume.scss */
+body .wrapper-border .myitem .item-content {
+  font-size: 16px;
+  color: #333;
+  line-height: 30px;
+}
+/* line 78, ../../sass/personal/see-resume.scss */
+body .wrapper-border .myitem .item-textarea {
+  min-height: 150px;
+}

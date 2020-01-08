@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>公司详情</title>
+  <link rel="stylesheet" href="../styles/company-detail.css">
+</head>
+
+<body>
+  <div class="comp-head">
+    <div class="flex-1"><img id="logo" src="../images/jobdetail/logo.jpg" alt=""></div>
+    <div class="flex-2">
+      <div class="name" id="name">阿里巴巴集团</div>
+      <div class="desc" id="desc">不需要融资 ｜ 10000人及以上 ｜ 互联网</div>
+      <ul class="lsit">
+        <li>五险一金</li>
+        <li>定期体检</li>
+        <li>年终奖</li>
+        <li>股票期权</li>
+        <li>带薪年假</li>
+        <li>节日福利</li>
+      </ul>
+    </div>
+    <div class="flex-3">
+      <div>9134</div>
+      <div>在招岗位</div>
+    </div>
+    <div class="flex-4">
+      <div>4124</div>
+      <div>人事经理</div>
+    </div>
+  </div>
+  <div class="comp-body">
+    <div class="desc">
+      <div class="desc-title">集团简介</div>
+      <div class="desc-content">
+        <p>阿里巴巴集团的使命是让天下没有难做的生意。</p>
+        <p>
+          我们旨在赋能企业改变营销、销售和经营的方式。我们为商家、品牌及其他企业提供基本的互联网基础设施以及营销平台，让其可借助互联网的力量与用户和客户互动。我们的业务包括核心电商、云计算、数字媒体和娱乐以及创新项目和其他业务。我们并通过子公司菜鸟网络及所投资的关联公司口碑，参与物流和本地服务行业，同时与蚂蚁金融服务集团有战略合作，该金融服务集团主要通过中国领先的第三方网上支付平台支付宝运营。
+        </p>
+        <p>我们的愿景</p>
+        <p>我们旨在构建未来的商务生态系统。我们的愿景是让客户相会、工作和生活在阿里巴巴，并持续发展最少102年。</p>
+      </div>
+    </div>
+    <div class="desc">
+      <div class="desc-title">产品介绍</div>
+      <div class="desc-content">
+        <div class="myitem">
+          <img src="../images/comps/1.jpg" alt="">
+          <div class="rightt">
+            <a href="http://www.alibaba.com" class="ri-1">Alibaba.com开拓海外客户，承接老外OEM/ODM订单或者打造自己的海外品牌！</a>
+            <div class="ri-2">http://www.alibaba.com</div>
+          </div>
+        </div>
+        <div class="myitem">
+          <img src="../images/comps/2.jpg" alt="">
+          <div class="rightt">
+            <a href="http://www.taobao.com" class="ri-1">天猫优品服务站买家电，上天猫优品电器合作店！家门口的超值好货！</a>
+            <div class="ri-2">http://www.taobao.com</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="desc">
+      <div class="desc-title">工商信息</div>
+      <div class="desc-content">
+        <p>阿里巴巴（中国）有限公司</p>
+        <p>法人代表：张勇 </p>
+        <p>注册资金：15298万美元</p>
+        <p>企业类型：有限责任公司（台港澳法人独资） </p>
+        <p>经营状态：存续</p>
+      </div>
+    </div>
+    <div class="desc">
+      <div class="desc-title">工作地址</div>
+      <div class="desc-content">
+        <img src="../images/jobdetail/map.jpg" alt="" style="width: 100%;">
+      </div>
+    </div>
+  </div>
+
+  <script src="../scripts/jquery.v1.7.2.js"></script>
+  <script>
+    $(function () {
+      $.ajax({
+        url: '/api/getCompanyById',
+        data: { id: window.location.search.split('=')[1] },
+        success: function (data) {
+          $("#desc").html(data.rongzi + ' ｜ ' + data.guimo + ' ｜ ' + data.type);
+          $("#name").html(data.name);
+          $("#logo").attr('src', data.logo);
+        }
+      })
+    })
+  </script>
+</body>
+
+</html>

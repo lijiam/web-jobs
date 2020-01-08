@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>我的消息</title>
+  <link rel="stylesheet" href="../../scripts/layui/css/layui.css">
+  <link rel="stylesheet" href="../../styles/personal/msg.css">
+</head>
+
+<body>
+  <div class="body-wrapper">
+    <div class="layui-tab layui-tab-brief">
+      <ul class="layui-tab-title">
+        <li class="layui-this">站内消息</li>
+        <li>联系人</li>
+      </ul>
+      <div class="layui-tab-content">
+        <div class="layui-tab-item layui-show">
+          <div class="list-item">
+            <div class="left">
+              <div class="item-type">职位推荐</div>
+              <div class="item-desc">IT技术支持<span>互联网 ｜ 不需要融资 ｜ 10000人及以上</span></div>
+              <div class="item-bom">阿里巴巴集团</div>
+            </div>
+            <div class="right">
+              <button type="button" class="layui-btn layui-btn-normal">了解详情</button>
+              <button type="button" class="layui-btn layui-btn-normal">投个简历</button>
+            </div>
+          </div>
+        </div>
+        <div class="layui-tab-item"></div>
+      </div>
+    </div>
+  </div>
+</body>
+
+<script src="../../scripts/layui/layui.js"></script>
+<script>
+  //注意：选项卡 依赖 element 模块，否则无法进行功能性操作
+  layui.use('element', function () {
+    var element = layui.element;
+
+    //…
+  });
+</script>
+
+</html>
