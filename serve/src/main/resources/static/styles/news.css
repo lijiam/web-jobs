@@ -1,0 +1,171 @@
+/* line 5, ../../../../../.rvm/gems/ruby-2.5.3/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font: inherit;
+  font-size: 100%;
+  vertical-align: baseline;
+}
+
+/* line 22, ../../../../../.rvm/gems/ruby-2.5.3/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+html {
+  line-height: 1;
+}
+
+/* line 24, ../../../../../.rvm/gems/ruby-2.5.3/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+ol, ul {
+  list-style: none;
+}
+
+/* line 26, ../../../../../.rvm/gems/ruby-2.5.3/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+/* line 28, ../../../../../.rvm/gems/ruby-2.5.3/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+caption, th, td {
+  text-align: left;
+  font-weight: normal;
+  vertical-align: middle;
+}
+
+/* line 30, ../../../../../.rvm/gems/ruby-2.5.3/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+q, blockquote {
+  quotes: none;
+}
+/* line 103, ../../../../../.rvm/gems/ruby-2.5.3/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+q:before, q:after, blockquote:before, blockquote:after {
+  content: "";
+  content: none;
+}
+
+/* line 32, ../../../../../.rvm/gems/ruby-2.5.3/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+a img {
+  border: none;
+}
+
+/* line 116, ../../../../../.rvm/gems/ruby-2.5.3/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+article, aside, details, figcaption, figure, footer, header, hgroup, main, menu, nav, section, summary {
+  display: block;
+}
+
+/* line 3, ../sass/common.scss */
+html,
+body {
+  height: 100%;
+  font-family: "Microsoft YaHei";
+}
+
+/* line 3, ../sass/news.scss */
+body {
+  background: #f2f2f2;
+}
+
+/* line 7, ../sass/news.scss */
+.page-title {
+  font-size: 30px;
+  font-weight: 500;
+  color: #000;
+  line-height: 150px;
+  text-align: center;
+}
+
+/* line 15, ../sass/news.scss */
+.box1 {
+  width: 80%;
+  margin: 0 auto;
+  display: flex;
+  background: #fff;
+  border: 1px solid #ccc;
+  border-radius: 20px;
+  box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.1);
+  padding: 20px;
+}
+/* line 25, ../sass/news.scss */
+.box1 .box1-item {
+  flex: 1;
+  margin: 20px;
+}
+/* line 29, ../sass/news.scss */
+.box1 .box1-item .title {
+  display: inline-block;
+  margin-left: 50%;
+  transform: translate(-50%);
+  font-size: 24px;
+  color: #333;
+  padding-bottom: 5px;
+  border-bottom: 5px solid #99CCCC;
+}
+/* line 39, ../sass/news.scss */
+.box1 .box1-item .imgand {
+  margin-top: 30px;
+}
+/* line 42, ../sass/news.scss */
+.box1 .box1-item .imgand > img {
+  width: 90%;
+  margin: 0 5%;
+}
+/* line 47, ../sass/news.scss */
+.box1 .box1-item .imgand .desc {
+  width: 80%;
+  margin: 0 auto;
+  text-align: center;
+  margin-top: 20px;
+  font-size: 18px;
+  color: #333;
+}
+
+/* line 59, ../sass/news.scss */
+.box2 {
+  width: 80%;
+  margin: 100px auto;
+  background: #fff;
+  border: 1px solid #ccc;
+  border-radius: 20px;
+  box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.1);
+  padding: 20px;
+}
+/* line 68, ../sass/news.scss */
+.box2 .box2-item {
+  width: 80%;
+  margin: 0 auto;
+  padding: 30px 0;
+  display: flex;
+  border-bottom: 1px solid #ddd;
+}
+/* line 75, ../sass/news.scss */
+.box2 .box2-item > img {
+  flex: 1;
+}
+/* line 79, ../sass/news.scss */
+.box2 .box2-item .right {
+  flex: 2;
+}
+/* line 82, ../sass/news.scss */
+.box2 .box2-item .right .title2 {
+  font-size: 24px;
+  color: #000;
+  margin-left: 20px;
+  margin-top: 20px;
+}
+/* line 89, ../sass/news.scss */
+.box2 .box2-item .right .desc2 {
+  font-size: 18px;
+  color: #333;
+  margin-left: 20px;
+  margin-top: 20px;
+}

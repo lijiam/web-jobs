@@ -1,0 +1,172 @@
+/* line 5, ../../../../../.rvm/gems/ruby-2.5.3/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font: inherit;
+  font-size: 100%;
+  vertical-align: baseline;
+}
+
+/* line 22, ../../../../../.rvm/gems/ruby-2.5.3/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+html {
+  line-height: 1;
+}
+
+/* line 24, ../../../../../.rvm/gems/ruby-2.5.3/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+ol, ul {
+  list-style: none;
+}
+
+/* line 26, ../../../../../.rvm/gems/ruby-2.5.3/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+/* line 28, ../../../../../.rvm/gems/ruby-2.5.3/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+caption, th, td {
+  text-align: left;
+  font-weight: normal;
+  vertical-align: middle;
+}
+
+/* line 30, ../../../../../.rvm/gems/ruby-2.5.3/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+q, blockquote {
+  quotes: none;
+}
+/* line 103, ../../../../../.rvm/gems/ruby-2.5.3/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+q:before, q:after, blockquote:before, blockquote:after {
+  content: "";
+  content: none;
+}
+
+/* line 32, ../../../../../.rvm/gems/ruby-2.5.3/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+a img {
+  border: none;
+}
+
+/* line 116, ../../../../../.rvm/gems/ruby-2.5.3/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+article, aside, details, figcaption, figure, footer, header, hgroup, main, menu, nav, section, summary {
+  display: block;
+}
+
+/* line 3, ../sass/common.scss */
+html,
+body {
+  height: 100%;
+  font-family: "Microsoft YaHei";
+}
+
+/* line 3, ../sass/comps.scss */
+body {
+  background: #F2F2F2;
+}
+
+/* line 7, ../sass/comps.scss */
+.conds {
+  background: #fff;
+  padding: 10px 30px;
+  box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.1);
+}
+/* line 12, ../sass/comps.scss */
+.conds .cond-item {
+  margin: 20px 0;
+  color: #333;
+}
+/* line 16, ../sass/comps.scss */
+.conds .cond-item > li {
+  display: inline-block;
+  margin-right: 30px;
+  cursor: pointer;
+  font-size: 16px;
+  color: #666;
+}
+/* line 23, ../sass/comps.scss */
+.conds .cond-item > li:hover {
+  color: #999;
+}
+
+/* line 30, ../sass/comps.scss */
+.comp-form {
+  line-height: 60px;
+  padding-left: 10%;
+  width: 320px;
+}
+/* line 35, ../sass/comps.scss */
+.comp-form .myblock {
+  width: 140px;
+  float: right;
+  margin-left: 0;
+  margin-top: 10px;
+}
+
+/* line 43, ../sass/comps.scss */
+.comps-list {
+  width: 80%;
+  margin: 0 10% 20px 10%;
+  overflow: hidden;
+}
+/* line 48, ../sass/comps.scss */
+.comps-list .comp-item {
+  width: calc(33.333% - 20px);
+  float: left;
+  margin: 10px;
+  background: #fff;
+  cursor: pointer;
+}
+/* line 55, ../sass/comps.scss */
+.comps-list .comp-item:hover {
+  box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.1);
+}
+/* line 59, ../sass/comps.scss */
+.comps-list .comp-item .top {
+  overflow: hidden;
+}
+/* line 62, ../sass/comps.scss */
+.comps-list .comp-item .top .imgg {
+  width: 80px;
+  height: 80px;
+  border-radius: 10px;
+  border: 1px solid #eee;
+  float: left;
+  margin: 20px;
+}
+/* line 71, ../sass/comps.scss */
+.comps-list .comp-item .top .right {
+  float: right;
+  text-align: right;
+  margin-right: 20px;
+  margin-top: 20px;
+}
+/* line 77, ../sass/comps.scss */
+.comps-list .comp-item .top .right .name {
+  font-size: 18px;
+  color: #666;
+  line-height: 50px;
+}
+/* line 83, ../sass/comps.scss */
+.comps-list .comp-item .top .right .desc {
+  font-size: 14px;
+  color: #999;
+}
+/* line 90, ../sass/comps.scss */
+.comps-list .comp-item .bottom {
+  line-height: 50px;
+  color: #999;
+  font-size: 14px;
+  margin: 0 20px;
+  border-top: 1px dashed #ccc;
+}

@@ -1,0 +1,186 @@
+/* line 5, ../../../../../.rvm/gems/ruby-2.5.3/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font: inherit;
+  font-size: 100%;
+  vertical-align: baseline;
+}
+
+/* line 22, ../../../../../.rvm/gems/ruby-2.5.3/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+html {
+  line-height: 1;
+}
+
+/* line 24, ../../../../../.rvm/gems/ruby-2.5.3/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+ol, ul {
+  list-style: none;
+}
+
+/* line 26, ../../../../../.rvm/gems/ruby-2.5.3/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+/* line 28, ../../../../../.rvm/gems/ruby-2.5.3/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+caption, th, td {
+  text-align: left;
+  font-weight: normal;
+  vertical-align: middle;
+}
+
+/* line 30, ../../../../../.rvm/gems/ruby-2.5.3/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+q, blockquote {
+  quotes: none;
+}
+/* line 103, ../../../../../.rvm/gems/ruby-2.5.3/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+q:before, q:after, blockquote:before, blockquote:after {
+  content: "";
+  content: none;
+}
+
+/* line 32, ../../../../../.rvm/gems/ruby-2.5.3/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+a img {
+  border: none;
+}
+
+/* line 116, ../../../../../.rvm/gems/ruby-2.5.3/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+article, aside, details, figcaption, figure, footer, header, hgroup, main, menu, nav, section, summary {
+  display: block;
+}
+
+/* line 3, ../sass/common.scss */
+html,
+body {
+  height: 100%;
+  font-family: "Microsoft YaHei";
+}
+
+/* line 3, ../sass/jobs.scss */
+body {
+  background: #F2F2F2;
+}
+
+/* line 7, ../sass/jobs.scss */
+.search-area {
+  background: #fff;
+  padding: 30px;
+  box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.1);
+}
+/* line 12, ../sass/jobs.scss */
+.search-area .search-box {
+  display: flex;
+  width: 70%;
+}
+/* line 16, ../sass/jobs.scss */
+.search-area .search-box .city-select {
+  width: 100px;
+}
+/* line 21, ../sass/jobs.scss */
+.search-area .search-conds {
+  display: flex;
+  width: 100%;
+  margin-top: 20px;
+}
+/* line 26, ../sass/jobs.scss */
+.search-area .search-conds .item-select {
+  width: 120px;
+  padding-right: 20px;
+}
+/* line 30, ../sass/jobs.scss */
+.search-area .search-conds .item-select .layui-form-select .layui-input {
+  border: none;
+}
+/* line 34, ../sass/jobs.scss */
+.search-area .search-conds .item-select:last-child {
+  padding-right: 0;
+}
+
+/* line 41, ../sass/jobs.scss */
+.jobs-list {
+  margin: 30px 10%;
+  background: #fff;
+}
+/* line 45, ../sass/jobs.scss */
+.jobs-list .job-item {
+  display: flex;
+  padding: 30px;
+  border-bottom: 1px solid #eee;
+  cursor: pointer;
+}
+/* line 51, ../sass/jobs.scss */
+.jobs-list .job-item:hover {
+  background: #f8f8f8;
+}
+/* line 55, ../sass/jobs.scss */
+.jobs-list .job-item:last-child {
+  border: none;
+}
+/* line 59, ../sass/jobs.scss */
+.jobs-list .job-item .item-left {
+  flex: 3;
+}
+/* line 62, ../sass/jobs.scss */
+.jobs-list .job-item .item-left .name {
+  color: #99CCCC;
+  font-size: 18px;
+  float: left;
+  margin-right: 30px;
+}
+/* line 69, ../sass/jobs.scss */
+.jobs-list .job-item .item-left .xz {
+  color: red;
+  font-size: 18px;
+}
+/* line 74, ../sass/jobs.scss */
+.jobs-list .job-item .item-left .desc {
+  display: block;
+  color: #999;
+  font-size: 14px;
+  margin-top: 20px;
+}
+/* line 82, ../sass/jobs.scss */
+.jobs-list .job-item .item-middle {
+  flex: 3;
+}
+/* line 85, ../sass/jobs.scss */
+.jobs-list .job-item .item-middle .name {
+  color: #666;
+  font-size: 18px;
+}
+/* line 90, ../sass/jobs.scss */
+.jobs-list .job-item .item-middle .desc {
+  color: #999;
+  font-size: 14px;
+  margin-top: 20px;
+}
+/* line 97, ../sass/jobs.scss */
+.jobs-list .job-item .item-right {
+  flex: 2;
+  color: #666;
+  font-size: 16px;
+  margin-top: 20px;
+  text-align: right;
+  line-height: 30px;
+}
+/* line 105, ../sass/jobs.scss */
+.jobs-list .job-item .item-right .myusericon {
+  font-size: 30px;
+  color: #1E9FFF;
+  vertical-align: bottom;
+  margin-right: 10px;
+}

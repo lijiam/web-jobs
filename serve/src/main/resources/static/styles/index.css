@@ -1,0 +1,206 @@
+/* line 5, ../../../../../.rvm/gems/ruby-2.5.3/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font: inherit;
+  font-size: 100%;
+  vertical-align: baseline;
+}
+
+/* line 22, ../../../../../.rvm/gems/ruby-2.5.3/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+html {
+  line-height: 1;
+}
+
+/* line 24, ../../../../../.rvm/gems/ruby-2.5.3/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+ol, ul {
+  list-style: none;
+}
+
+/* line 26, ../../../../../.rvm/gems/ruby-2.5.3/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+/* line 28, ../../../../../.rvm/gems/ruby-2.5.3/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+caption, th, td {
+  text-align: left;
+  font-weight: normal;
+  vertical-align: middle;
+}
+
+/* line 30, ../../../../../.rvm/gems/ruby-2.5.3/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+q, blockquote {
+  quotes: none;
+}
+/* line 103, ../../../../../.rvm/gems/ruby-2.5.3/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+q:before, q:after, blockquote:before, blockquote:after {
+  content: "";
+  content: none;
+}
+
+/* line 32, ../../../../../.rvm/gems/ruby-2.5.3/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+a img {
+  border: none;
+}
+
+/* line 116, ../../../../../.rvm/gems/ruby-2.5.3/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+article, aside, details, figcaption, figure, footer, header, hgroup, main, menu, nav, section, summary {
+  display: block;
+}
+
+/* line 3, ../sass/common.scss */
+html,
+body {
+  height: 100%;
+  font-family: "Microsoft YaHei";
+}
+
+/* line 3, ../sass/index.scss */
+.wrapper-head {
+  height: 60px;
+  line-height: 60px;
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 0;
+  background: linear-gradient(to bottom, #CBCCFF, #9ECDFF);
+  padding: 0 20px;
+}
+/* line 13, ../sass/index.scss */
+.wrapper-head .head-left {
+  float: left;
+}
+/* line 16, ../sass/index.scss */
+.wrapper-head .head-left .name {
+  float: left;
+  font-size: 28px;
+  font-weight: 500;
+  color: #000;
+}
+/* line 22, ../sass/index.scss */
+.wrapper-head .head-left .name::before {
+  content: ' ';
+  width: 35px;
+  height: 35px;
+  display: inline-block;
+  background: url(../images/logo.png) no-repeat;
+  background-size: 100% 100%;
+  margin-right: 10px;
+  position: relative;
+  top: 8px;
+}
+/* line 35, ../sass/index.scss */
+.wrapper-head .head-left .desc {
+  float: left;
+  margin: 0 20px;
+  padding-top: 12px;
+}
+/* line 40, ../sass/index.scss */
+.wrapper-head .head-left .desc > div {
+  line-height: 18px;
+  text-align: center;
+  font-size: 14px;
+  color: #666;
+}
+/* line 49, ../sass/index.scss */
+.wrapper-head .menus {
+  float: left;
+}
+/* line 52, ../sass/index.scss */
+.wrapper-head .menus > li {
+  float: left;
+  padding: 0 20px;
+  cursor: pointer;
+  font-size: 16px;
+  color: #333;
+}
+/* line 59, ../sass/index.scss */
+.wrapper-head .menus > li:hover {
+  background: rgba(0, 0, 0, 0.1);
+}
+/* line 63, ../sass/index.scss */
+.wrapper-head .menus > li.active {
+  color: #fff;
+}
+/* line 69, ../sass/index.scss */
+.wrapper-head .head-right {
+  float: right;
+  font-size: 16px;
+  color: #333;
+}
+/* line 74, ../sass/index.scss */
+.wrapper-head .head-right .app {
+  float: left;
+  cursor: pointer;
+}
+/* line 78, ../sass/index.scss */
+.wrapper-head .head-right .app:hover {
+  color: #666;
+}
+/* line 82, ../sass/index.scss */
+.wrapper-head .head-right .app::before {
+  content: ' ';
+  display: inline-block;
+  width: 18px;
+  height: 18px;
+  background: url(../images/phone.png) no-repeat;
+  background-size: contain;
+  position: relative;
+  top: 2px;
+  margin-right: 2px;
+}
+/* line 95, ../sass/index.scss */
+.wrapper-head .head-right .user {
+  float: left;
+  margin-left: 20px;
+  cursor: pointer;
+}
+/* line 100, ../sass/index.scss */
+.wrapper-head .head-right .user:hover {
+  color: #666;
+}
+/* line 104, ../sass/index.scss */
+.wrapper-head .head-right .user::before {
+  content: ' ';
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  background: url(../images/user.png) no-repeat;
+  background-size: contain;
+  position: relative;
+  top: 4px;
+  margin-right: 3px;
+}
+/* line 117, ../sass/index.scss */
+.wrapper-head .head-right .exit {
+  float: left;
+  margin-left: 20px;
+  cursor: pointer;
+  display: none;
+}
+/* line 123, ../sass/index.scss */
+.wrapper-head .head-right .exit:hover {
+  color: #666;
+}
+
+/* line 130, ../sass/index.scss */
+.wrapper-body {
+  position: relative;
+  top: 60px;
+  height: calc(100% - 60px);
+}

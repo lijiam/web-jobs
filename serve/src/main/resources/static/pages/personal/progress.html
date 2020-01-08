@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>投递进展</title>
+  <link rel="stylesheet" href="../../scripts/layui/css/layui.css">
+  <link rel="stylesheet" href="../../styles/personal/progress.css">
+</head>
+
+<body>
+  <div class="body-wrapper">
+    <div class="layui-tab layui-tab-brief" lay-filter="test">
+      <ul class="layui-tab-title">
+        <li class="layui-this">全部</li>
+        <li>未被查阅</li>
+        <li>已被查阅</li>
+        <li>邀面试</li>
+      </ul>
+      <div class="layui-tab-content">
+        <div class="layui-tab-item layui-show" id="status">
+          <!-- <div class="list-item">
+            <div class="left">
+              <div class="top">企业IT高级技术专家 <span>30-60k</span></div>
+              <div class="bottom">阿里巴巴集团 ｜ 杭州市滨江区</div>
+            </div>
+            <div class="middle">
+              <div class="time">申请于：2019-10-21</div>
+              <div class="docs">申请简历：我的简历1</div>
+            </div>
+            <div class="right">近两月申请：<span>76人</span></div>
+          </div> -->
+        </div>
+        <div class="layui-tab-item" id="status-1"></div>
+        <div class="layui-tab-item" id="status0"></div>
+        <div class="layui-tab-item" id="status1"></div>
+      </div>
+    </div>
+  </div>
+
+  <script src="../../scripts/jquery.v1.7.2.js"></script>
+  <script src="../../scripts/layui/layui.js"></script>
+  <script>
+    function getResumeSend(status) {
+      var user = JSON.parse(localStorage.getItem("user"));
+      $.ajax({
+        url: '/api/getResumeSend',
+        data: { user_id: user.id, status: status },
+        success: function (data) {
+          var str = '';
+          if (data) {
+            for (var i = 0, len = data.length; i < len; i++) {
+              str += '<div class="list-item">' +
+                '<div class="left">' +
+                '<div class="top">' + data[i].job_name + ' <span>' + data[i].job_money + '</span></div>' +
+                '<div class="bottom">' + data[i].company_name + ' ｜ ' + data[i].job_city + '</div>' +
+                '</div>' +
+                '<div class="middle">' +
+                '<div class="time">申请于：' + data[i].send_time.substring(0, 10) + '</div>' +
+                '<div class="docs">申请简历：我的简历</div>' +
+                '</div>' +
+                '<div class="right">近两月申请：<span>' + (Math.random() * 1000).toFixed(0) + '人</span></div>' +
+                '</div>';
+            }
+            switch (status) {
+              case '-1':
+                $("#status-1").html(str);
+                break;
+              case '0':
+                $("#status0").html(str);
+                break;
+              case '1':
+                $("#status1").html(str);
+                break;
+              default:
+                $("#status").html(str);
+                break;
+            }
+          }
+        }
+      })
+    }
+    //注意：选项卡 依赖 element 模块，否则无法进行功能性操作
+    layui.use('element', function () {
+      var element = layui.element;
+      element.on('tab(test)', function (elem) {
+        if (elem.index === 0) {
+          getResumeSend();
+        } else if (elem.index === 1) {
+          getResumeSend('-1');
+        } else if (elem.index === 2) {
+          getResumeSend('0');
+        } else if (elem.index === 3) {
+          getResumeSend('1');
+        }
+      });
+    });
+
+    $(function () {
+      getResumeSend()
+    })
+  </script>
+</body>
+
+</html>
