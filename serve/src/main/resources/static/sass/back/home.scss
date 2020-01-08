@@ -1,0 +1,149 @@
+@import "../common.scss";
+
+body {
+  background: #F9F9F9;
+}
+
+.cards {
+  width: 90%;
+  min-width: 1000px;
+  overflow: hidden;
+  margin: 20px auto;
+
+  .card-item {
+    float: left;
+    width: calc(25% - 15px);
+    background: #fff;
+    border: 1px solid #ddd;
+    margin-right: 20px;
+    box-sizing: border-box;
+    padding: 10px 0;
+
+    &:last-child {
+      margin: 0;
+    }
+
+    .right {
+      float: left;
+      padding-top: 20px;
+
+      .title {
+        font-size: 16px;
+        color: #999;
+      }
+
+      .num {
+        font-size: 20px;
+        color: #333;
+        margin-top: 10px;
+      }
+    }
+
+    .card-icon {
+      float: left;
+      font-size: 80px;
+      color: #009688;
+      margin: 0 20px;
+    }
+  }
+}
+
+.mycard {
+  width: 90%;
+  margin: 20px auto;
+  border: 1px solid #ddd;
+
+  .card-head {
+    height: 40px;
+    line-height: 40px;
+    background: #F3F3F3;
+    font-size: 16px;
+    font-weight: 500;
+    color: #000;
+    padding-left: 10px;
+  }
+
+  .card-content {
+    padding: 20px;
+    background: #fff;
+
+    .dclsw {
+      overflow: hidden;
+
+      &>li {
+        width: calc(33.333% - 20px);
+        float: left;
+        margin-right: 30px;
+        padding-bottom: 10px;
+        margin-bottom: 10px;
+        border-bottom: 1px solid #eee;
+
+        &:last-child {
+          margin-right: 0;
+        }
+
+        &>span {
+          float: right;
+        }
+      }
+    }
+
+    .yykjrk {
+      overflow: hidden;
+
+      &>li {
+        float: left;
+        width: 11.111%;
+        color: #333;
+        text-align: center;
+        cursor: pointer;
+        padding: 15px 0;
+
+        &:hover {
+          background: #eee;
+          color: #009688;
+        }
+
+        .yykjrk-icon {
+          font-size: 60px;
+          color: #999;
+        }
+
+        &>div {
+          margin-top: 10px;
+        }
+      }
+    }
+
+    .xxzl {
+      overflow: hidden;
+
+      &>li {
+        float: left;
+        width: 25%;
+        text-align: center;
+
+        &>div:first-child {
+          font-size: 24px;
+          color: red;
+          margin-bottom: 10px;
+        }
+
+        &>div:last-child {
+          color: #333;
+          font-size: 16px;
+        }
+      }
+    }
+  }
+
+  .chart-div {
+    height: 300px;
+  }
+}
+
+.pf-card {
+  width: calc(45% - 10px);
+  margin: 0 20px 0 5%;
+  float: left;
+}

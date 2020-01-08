@@ -10,4 +10,9 @@ public class IndexController {
     public String index(){
         return "pages/index";
     }
+
+    @RequestMapping("/back")
+    public String back(){
+        return "pages/back-index";
+    }
 }

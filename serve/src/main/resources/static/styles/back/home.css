@@ -1,0 +1,223 @@
+/* line 5, ../../../../../../../../../../.rvm/gems/ruby-2.5.3/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font: inherit;
+  font-size: 100%;
+  vertical-align: baseline;
+}
+
+/* line 22, ../../../../../../../../../../.rvm/gems/ruby-2.5.3/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+html {
+  line-height: 1;
+}
+
+/* line 24, ../../../../../../../../../../.rvm/gems/ruby-2.5.3/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+ol, ul {
+  list-style: none;
+}
+
+/* line 26, ../../../../../../../../../../.rvm/gems/ruby-2.5.3/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+/* line 28, ../../../../../../../../../../.rvm/gems/ruby-2.5.3/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+caption, th, td {
+  text-align: left;
+  font-weight: normal;
+  vertical-align: middle;
+}
+
+/* line 30, ../../../../../../../../../../.rvm/gems/ruby-2.5.3/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+q, blockquote {
+  quotes: none;
+}
+/* line 103, ../../../../../../../../../../.rvm/gems/ruby-2.5.3/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+q:before, q:after, blockquote:before, blockquote:after {
+  content: "";
+  content: none;
+}
+
+/* line 32, ../../../../../../../../../../.rvm/gems/ruby-2.5.3/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+a img {
+  border: none;
+}
+
+/* line 116, ../../../../../../../../../../.rvm/gems/ruby-2.5.3/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+article, aside, details, figcaption, figure, footer, header, hgroup, main, menu, nav, section, summary {
+  display: block;
+}
+
+/* line 3, ../../sass/common.scss */
+html,
+body {
+  height: 100%;
+  font-family: "Microsoft YaHei";
+}
+
+/* line 3, ../../sass/back/home.scss */
+body {
+  background: #F9F9F9;
+}
+
+/* line 7, ../../sass/back/home.scss */
+.cards {
+  width: 90%;
+  min-width: 1000px;
+  overflow: hidden;
+  margin: 20px auto;
+}
+/* line 13, ../../sass/back/home.scss */
+.cards .card-item {
+  float: left;
+  width: calc(25% - 15px);
+  background: #fff;
+  border: 1px solid #ddd;
+  margin-right: 20px;
+  box-sizing: border-box;
+  padding: 10px 0;
+}
+/* line 22, ../../sass/back/home.scss */
+.cards .card-item:last-child {
+  margin: 0;
+}
+/* line 26, ../../sass/back/home.scss */
+.cards .card-item .right {
+  float: left;
+  padding-top: 20px;
+}
+/* line 30, ../../sass/back/home.scss */
+.cards .card-item .right .title {
+  font-size: 16px;
+  color: #999;
+}
+/* line 35, ../../sass/back/home.scss */
+.cards .card-item .right .num {
+  font-size: 20px;
+  color: #333;
+  margin-top: 10px;
+}
+/* line 42, ../../sass/back/home.scss */
+.cards .card-item .card-icon {
+  float: left;
+  font-size: 80px;
+  color: #009688;
+  margin: 0 20px;
+}
+
+/* line 51, ../../sass/back/home.scss */
+.mycard {
+  width: 90%;
+  margin: 20px auto;
+  border: 1px solid #ddd;
+}
+/* line 56, ../../sass/back/home.scss */
+.mycard .card-head {
+  height: 40px;
+  line-height: 40px;
+  background: #F3F3F3;
+  font-size: 16px;
+  font-weight: 500;
+  color: #000;
+  padding-left: 10px;
+}
+/* line 66, ../../sass/back/home.scss */
+.mycard .card-content {
+  padding: 20px;
+  background: #fff;
+}
+/* line 70, ../../sass/back/home.scss */
+.mycard .card-content .dclsw {
+  overflow: hidden;
+}
+/* line 73, ../../sass/back/home.scss */
+.mycard .card-content .dclsw > li {
+  width: calc(33.333% - 20px);
+  float: left;
+  margin-right: 30px;
+  padding-bottom: 10px;
+  margin-bottom: 10px;
+  border-bottom: 1px solid #eee;
+}
+/* line 81, ../../sass/back/home.scss */
+.mycard .card-content .dclsw > li:last-child {
+  margin-right: 0;
+}
+/* line 85, ../../sass/back/home.scss */
+.mycard .card-content .dclsw > li > span {
+  float: right;
+}
+/* line 91, ../../sass/back/home.scss */
+.mycard .card-content .yykjrk {
+  overflow: hidden;
+}
+/* line 94, ../../sass/back/home.scss */
+.mycard .card-content .yykjrk > li {
+  float: left;
+  width: 11.111%;
+  color: #333;
+  text-align: center;
+  cursor: pointer;
+  padding: 15px 0;
+}
+/* line 102, ../../sass/back/home.scss */
+.mycard .card-content .yykjrk > li:hover {
+  background: #eee;
+  color: #009688;
+}
+/* line 107, ../../sass/back/home.scss */
+.mycard .card-content .yykjrk > li .yykjrk-icon {
+  font-size: 60px;
+  color: #999;
+}
+/* line 112, ../../sass/back/home.scss */
+.mycard .card-content .yykjrk > li > div {
+  margin-top: 10px;
+}
+/* line 118, ../../sass/back/home.scss */
+.mycard .card-content .xxzl {
+  overflow: hidden;
+}
+/* line 121, ../../sass/back/home.scss */
+.mycard .card-content .xxzl > li {
+  float: left;
+  width: 25%;
+  text-align: center;
+}
+/* line 126, ../../sass/back/home.scss */
+.mycard .card-content .xxzl > li > div:first-child {
+  font-size: 24px;
+  color: red;
+  margin-bottom: 10px;
+}
+/* line 132, ../../sass/back/home.scss */
+.mycard .card-content .xxzl > li > div:last-child {
+  color: #333;
+  font-size: 16px;
+}
+/* line 140, ../../sass/back/home.scss */
+.mycard .chart-div {
+  height: 300px;
+}
+
+/* line 145, ../../sass/back/home.scss */
+.pf-card {
+  width: calc(45% - 10px);
+  margin: 0 20px 0 5%;
+  float: left;
+}

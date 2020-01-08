@@ -1,0 +1,43 @@
+@import "../common.scss";
+
+.body-head {
+  height: 60px;
+  line-height: 60px;
+  padding: 0 20px;
+  background: #009688;
+
+  .head-title {
+    float: left;
+    font-size: 20px;
+    font-weight: 400;
+    color: #fff;
+
+    &::before {
+      content: ' ';
+      width: 35px;
+      height: 35px;
+      display: inline-block;
+      background: url(../../images/logo.png) no-repeat;
+      background-size: 100% 100%;
+      margin-right: 10px;
+      position: relative;
+      top: 11px;
+    }
+  }
+}
+
+.body-container {
+  height: calc(100% - 60px);
+
+  .container-left {
+    width: 220px;
+    height: 100%;
+    float: left;
+  }
+
+  .container-right {
+    float: left;
+    width: calc(100% - 220px);
+    height: 100%;
+  }
+}

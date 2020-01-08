@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>系统首页</title>
+  <link rel="stylesheet" href="../scripts/layui/css/layui.css">
+  <link rel="stylesheet" href="../styles/back/home.css">
+</head>
+
+<body>
+  <div class="cards">
+    <div class="card-item">
+      <i class="layui-icon layui-icon-form card-icon"></i>
+      <div class="right">
+        <div class="title">今日人才简历数</div>
+        <div class="num">123</div>
+      </div>
+    </div>
+    <div class="card-item">
+      <i class="layui-icon layui-icon-form card-icon"></i>
+      <div class="right">
+        <div class="title">今日企业招聘信息数</div>
+        <div class="num">209</div>
+      </div>
+    </div>
+    <div class="card-item">
+      <i class="layui-icon layui-icon-form card-icon"></i>
+      <div class="right">
+        <div class="title">今日新闻待审核</div>
+        <div class="num">279</div>
+      </div>
+    </div>
+    <div class="card-item">
+      <i class="layui-icon layui-icon-form card-icon"></i>
+      <div class="right">
+        <div class="title">近7天成功匹配数</div>
+        <div class="num">345</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="mycard">
+    <div class="card-head">待处理事务</div>
+    <div class="card-content">
+      <ul class="dclsw">
+        <li><a href="">待审核人才简历</a><span>(10)</span></li>
+        <li><a href="">待审核企业信息</a><span>(10)</span></li>
+        <li><a href="">待审核新闻信息</a><span>(10)</span></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="mycard">
+    <div class="card-head">运营快捷入口</div>
+    <div class="card-content">
+      <ul class="yykjrk">
+        <li><i class="layui-icon layui-icon-file yykjrk-icon"></i>
+          <div>人才简历</div>
+        </li>
+        <li><i class="layui-icon layui-icon-user yykjrk-icon"></i>
+          <div>人才信息</div>
+        </li>
+        <li><i class="layui-icon layui-icon-auz yykjrk-icon"></i>
+          <div>企业管理</div>
+        </li>
+        <li><i class="layui-icon layui-icon-form yykjrk-icon"></i>
+          <div>招聘信息</div>
+        </li>
+        <li><i class="layui-icon layui-icon-website yykjrk-icon"></i>
+          <div>新闻管理</div>
+        </li>
+        <li><i class="layui-icon layui-icon-rate yykjrk-icon"></i>
+          <div>个性化管理</div>
+        </li>
+        <li><i class="layui-icon layui-icon-theme yykjrk-icon"></i>
+          <div>专题管理</div>
+        </li>
+        <li><i class="layui-icon layui-icon-notice yykjrk-icon"></i>
+          <div>推送提醒</div>
+        </li>
+        <li><i class="layui-icon layui-icon-tips yykjrk-icon"></i>
+          <div>消息通知</div>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="mycard pf-card">
+    <div class="card-head">人才信息总览</div>
+    <div class="card-content">
+      <ul class="xxzl">
+        <li>
+          <div>100</div>
+          <div>待审核</div>
+        </li>
+        <li>
+          <div>400</div>
+          <div>已审核</div>
+        </li>
+        <li>
+          <div>50</div>
+          <div>已发送匹配</div>
+        </li>
+        <li>
+          <div>500</div>
+          <div>总人才数</div>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="mycard pf-card" style="margin-left: 0;margin-right: 0;">
+    <div class="card-head">企业信息总览</div>
+    <div class="card-content">
+      <ul class="xxzl">
+        <li>
+          <div>10</div>
+          <div>今日新增</div>
+        </li>
+        <li>
+          <div>20</div>
+          <div>昨日新增</div>
+        </li>
+        <li>
+          <div>100</div>
+          <div>本月新增</div>
+        </li>
+        <li>
+          <div>500</div>
+          <div>企业总数</div>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <div style="clear: both;"></div>
+
+  <div class="mycard">
+    <div class="card-head">人才统计</div>
+    <div class="card-content chart-div" id="chart1"></div>
+  </div>
+
+  <div class="mycard">
+    <div class="card-head">企业统计</div>
+    <div class="card-content chart-div" id="chart2"></div>
+  </div>
+
+  <div class="mycard">
+    <div class="card-head">流量统计</div>
+    <div class="card-content chart-div" id="chart3"></div>
+  </div>
+
+  <div class="mycard">
+    <div class="card-head">会员统计</div>
+    <div class="card-content chart-div" id="chart4"></div>
+  </div>
+
+  <div class="mycard">
+    <div class="card-head">搜索统计</div>
+    <div class="card-content chart-div" id="chart5"></div>
+  </div>
+
+  <div class="mycard">
+    <div class="card-head">系统匹配统计</div>
+    <div class="card-content chart-div" id="chart6"></div>
+  </div>
+
+  <script src="../scripts/jquery.v1.7.2.js"></script>
+  <script src="../scripts/echarts.min.4.1.0.js"></script>
+  <script>
+    var option1 = {
+      grid: {
+        left: '5%',
+        right: '5%',
+        top: 20,
+        bottom: 30
+      },
+      tooltip: {
+        trigger: 'axis',
+        axisPointer: {
+          lineStyle: {
+            color: '#ddd'
+          }
+        },
+        backgroundColor: 'rgba(255,255,255,1)',
+        padding: [5, 10],
+        textStyle: {
+          color: '#7588E4',
+        },
+        extraCssText: 'box-shadow: 0 0 5px rgba(0,0,0,0.3)'
+      },
+      xAxis: {
+        type: 'category',
+        data: ['周一', '周二', '周三', '周四', '周五', '周六', '周日'],
+        boundaryGap: false,
+        splitLine: {
+          show: true,
+          interval: 'auto',
+          lineStyle: {
+            color: ['#D4DFF5']
+          }
+        },
+        axisTick: {
+          show: false
+        },
+        axisLine: {
+          lineStyle: {
+            color: '#609ee9'
+          }
+        },
+        axisLabel: {
+          margin: 10,
+          textStyle: {
+            fontSize: 14
+          }
+        }
+      },
+      yAxis: {
+        type: 'value',
+        splitLine: {
+          lineStyle: {
+            color: ['#D4DFF5']
+          }
+        },
+        axisTick: {
+          show: false
+        },
+        axisLine: {
+          lineStyle: {
+            color: '#609ee9'
+          }
+        },
+        axisLabel: {
+          margin: 10,
+          textStyle: {
+            fontSize: 14
+          }
+        }
+      },
+      series: [{
+        name: '数量',
+        type: 'line',
+        smooth: true,
+        showSymbol: false,
+        symbol: 'circle',
+        symbolSize: 6,
+        data: ['1200', '1400', '808', '811', '626', '488', '1600'],
+        areaStyle: {
+          normal: {
+            color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [{
+              offset: 0,
+              color: 'rgba(216, 244, 247,1)'
+            }, {
+              offset: 1,
+              color: 'rgba(216, 244, 247,1)'
+            }], false)
+          }
+        },
+        itemStyle: {
+          normal: {
+            color: '#58c8da'
+          }
+        },
+        lineStyle: {
+          normal: {
+            width: 3
+          }
+        }
+      }]
+    };
+    var option3 = {
+      tooltip: {
+        trigger: 'axis'
+      },
+      legend: {
+        color: ["#F58080", "#47D8BE"],
+        data: ['浏览次数(PV)', '独立访客(UV)'],
+        left: 'center',
+        bottom: 'bottom'
+      },
+      grid: {
+        top: 'middle',
+        left: '3%',
+        right: '4%',
+        bottom: '3%',
+        height: '80%',
+        containLabel: true
+      },
+      xAxis: {
+        type: 'category',
+        data: ['周一', '周二', '周三', '周四', '周五', '周六', '周日'],
+        axisLine: {
+          lineStyle: {
+            color: "#999"
+          }
+        }
+      },
+      yAxis: {
+        type: 'value',
+        splitLine: {
+          lineStyle: {
+            type: 'dashed',
+            color: '#DDD'
+          }
+        },
+        axisLine: {
+          show: false,
+          lineStyle: {
+            color: "#333"
+          },
+        },
+        nameTextStyle: {
+          color: "#999"
+        },
+        splitArea: {
+          show: false
+        },
+        axisTick: {
+          show: false
+        }
+      },
+      series: [{
+        name: '浏览次数(PV)',
+        type: 'line',
+        data: [800, 900, 220, 130, 660, 289, 158],
+        color: "#F58080",
+        lineStyle: {
+          normal: {
+            width: 5,
+            color: {
+              type: 'linear',
+
+              colorStops: [{
+                offset: 0,
+                color: '#FFCAD4' // 0% 处的颜色
+              }, {
+                offset: 0.4,
+                color: '#F58080' // 100% 处的颜色
+              }, {
+                offset: 1,
+                color: '#F58080' // 100% 处的颜色
+              }],
+              globalCoord: false // 缺省为 false
+            },
+            shadowColor: 'rgba(245,128,128, 0.5)',
+            shadowBlur: 10,
+            shadowOffsetY: 7
+          }
+        },
+        itemStyle: {
+          normal: {
+            color: '#F58080',
+            borderWidth: 10,
+            /*shadowColor: 'rgba(72,216,191, 0.3)',
+             shadowBlur: 100,*/
+            borderColor: "#F58080"
+          }
+        },
+        smooth: true
+      },
+      {
+        name: '独立访客(UV)',
+        type: 'line',
+        data: [123, 568, 111, 222, 123, 56, 210],
+        lineStyle: {
+          normal: {
+            width: 5,
+            color: {
+              type: 'linear',
+
+              colorStops: [{
+                offset: 0,
+                color: '#AAF487' // 0% 处的颜色
+              },
+              {
+                offset: 0.4,
+                color: '#47D8BE' // 100% 处的颜色
+              }, {
+                offset: 1,
+                color: '#47D8BE' // 100% 处的颜色
+              }
+              ],
+              globalCoord: false // 缺省为 false
+            },
+            shadowColor: 'rgba(71,216,190, 0.5)',
+            shadowBlur: 10,
+            shadowOffsetY: 7
+          }
+        },
+        itemStyle: {
+          normal: {
+            color: '#AAF487',
+            borderWidth: 10,
+            /*shadowColor: 'rgba(72,216,191, 0.3)',
+             shadowBlur: 100,*/
+            borderColor: "#AAF487"
+          }
+        },
+        smooth: true
+      }
+      ]
+    };
+    var chart1 = echarts.init(document.getElementById("chart1"));
+    var chart2 = echarts.init(document.getElementById("chart2"));
+    var chart3 = echarts.init(document.getElementById("chart3"));
+    var chart4 = echarts.init(document.getElementById("chart4"));
+    var chart5 = echarts.init(document.getElementById("chart5"));
+    var chart6 = echarts.init(document.getElementById("chart6"));
+    chart1.setOption(option1);
+    chart2.setOption(option1);
+    chart3.setOption(option3);
+    chart4.setOption(option1);
+    chart5.setOption(option1);
+    chart6.setOption(option1);
+
+  </script>
+</body>
+
+</html>
