@@ -31,3 +31,4 @@ build/
 .vscode/
 
 **/*/.sass-cache
+**/*/.DS_Store
