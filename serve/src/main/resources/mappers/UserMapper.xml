@@ -82,4 +82,12 @@
     <update id="updateBackuserById" parameterType="java.util.Map">
         update backuser set username = #{username}, name = #{name}, email = #{email}, depart = #{depart} where id = #{id}
     </update>
+    
+    <select id="checkBackuser" resultType="com.wuzhi.index.bean.BackUser">
+        select * from backuser where username = #{username}
+    </select>
+
+    <insert id="addBackuser" parameterType="java.util.Map">
+        insert into backuser(username, password, name, email, depart) values(#{username},#{password},#{name},#{email},#{depart})
+    </insert>
 </mapper>

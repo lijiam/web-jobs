@@ -24,6 +24,12 @@
         company t2
         WHERE
         t1.company_id = t2.id
+        <if test="name != '' and name != null ">
+            and t1.`name` like '%${name}%'
+        </if>
+        <if test="company_name != '' and company_name != null ">
+            and t2.`name` like '%${company_name}%'
+        </if>
         <if test="key != '' and key != null ">
             and t1.`name` like '%${key}%'
         </if>
@@ -44,6 +50,9 @@
         </if>
         <if test="guimo != '' and guimo != null ">
             and t2.guimo like '%${guimo}%'
+        </if>
+        <if test="fb_time != '' and fb_time != null ">
+            and t1.fb_time like '%${fb_time}%'
         </if>
         ORDER BY
         t1.fb_time DESC
@@ -196,9 +205,7 @@ VALUES
 	address = #{address},
 	exp = #{exp},
 	edu = #{edu},
-	company_id = #{company_id},
 	city = #{city},
-	fb_time = now(),
 	beijing = #{beijing},
 	zhize = #{zhize},
 	yaoqiu = #{yaoqiu},
@@ -244,5 +251,9 @@ VALUES
 
     <update id="updateResumeSendStatus">
         UPDATE resume_send set status = #{status} WHERE id = #{id}
+    </update>
+
+    <update id="updateJobIsuse">
+        update jobs set is_use = #{is_use} where id = #{id}
     </update>
 </mapper>

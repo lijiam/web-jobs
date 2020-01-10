@@ -38,4 +38,6 @@ public interface UserService {
     Boolean updateBackIsuse(String is_use, String id);
 
     Boolean deleteBackuserById(String id);
+
+    Boolean addBackuser(Map<String, String> params);
 }

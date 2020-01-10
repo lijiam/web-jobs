@@ -18,13 +18,13 @@
     <div class="layui-fluid layui-form common-content">
       <div class="layui-row layui-col-space30">
         <div class="layui-col-md4">
-          <input type="text" name="id" placeholder="请输入招聘信息编号" autocomplete="off" class="layui-input">
+          <input type="text" name="company_name" placeholder="请输入招聘企业名称" autocomplete="off" class="layui-input">
         </div>
         <div class="layui-col-md4">
           <input type="text" name="name" placeholder="请输入招聘岗位名称" autocomplete="off" class="layui-input">
         </div>
         <div class="layui-col-md4">
-          <input type="text" name="add_time" class="layui-input" id="add_time" placeholder="注册时间">
+          <input type="text" name="fb_time" class="layui-input" id="fb_time" placeholder="发布时间">
         </div>
       </div>
       <div class="layui-row" style="text-align: center;">
@@ -52,23 +52,23 @@
   <script src="../../scripts/layui/layui.js"></script>
   <script>
     var commonTable = [
-      { field: 'id', title: '编号', sort: true },
-      { field: 'company_name', title: '企业名称' },
-      { field: 'company_type', title: '行业' },
-      { field: 'name', title: '招聘岗位名称', edit: 'name' },
-      { field: 'address', title: '招聘岗位地址', edit: 'address' },
-      { field: 'exp', title: '岗位经验要求', sort: true },
-      { field: 'edu', title: '岗位学历要求', sort: true },
-      { field: 'money', title: '岗位薪资', sort: true },
-      { field: 'number', title: '招聘人数', sort: true, edit: 'number' },
-      { field: 'beijing', title: '背景', edit: 'beijing' },
-      { field: 'zhize', title: '职责', edit: 'zhize' },
-      { field: 'yaoqiu', title: '要求', edit: 'yaoqiu' },
-      { field: 'hr_name', title: '发布人姓名' },
-      { field: 'hr_type', title: '发布人职位' },
-      { field: 'fb_time', title: '发布时间' },
-      { field: 'is_use', title: '审核状态', templet: '#switchTpl' },
-      { title: '操作', toolbar: '#barDemo' }
+      { field: 'id', title: '编号', sort: true, width: 100, fixed: 'left' },
+      { field: 'company_name', title: '企业名称', width: 150 },
+      { field: 'company_type', title: '行业', width: 200 },
+      { field: 'name', title: '岗位名称', edit: 'name', width: 200 },
+      { field: 'address', title: '岗位地址', edit: 'address', width: 200 },
+      { field: 'exp', title: '岗位经验要求', sort: true, width: 200 },
+      { field: 'edu', title: '岗位学历要求', sort: true, width: 200 },
+      { field: 'money', title: '岗位薪资', sort: true, width: 200 },
+      { field: 'number', title: '招聘人数', sort: true, edit: 'number', width: 200 },
+      { field: 'beijing', title: '背景', edit: 'beijing', width: 200 },
+      { field: 'zhize', title: '职责', edit: 'zhize', width: 200 },
+      { field: 'yaoqiu', title: '要求', edit: 'yaoqiu', width: 200 },
+      { field: 'hr_name', title: '发布人姓名', width: 200 },
+      { field: 'hr_type', title: '发布人职位', width: 200 },
+      { field: 'fb_time', title: '发布时间', width: 200 },
+      { field: 'is_use', title: '审核状态', templet: '#switchTpl', width: 100, fixed: 'right' },
+      { title: '操作', toolbar: '#barDemo', width: 100, fixed: 'right' }
     ]
     function doSearch(params, success) {
       jQuery.ajax({
@@ -102,7 +102,7 @@
 
       //执行一个laydate实例
       laydate.render({
-        elem: '#add_time'
+        elem: '#fb_time'
       });
 
       doSearch({}, function (res) {

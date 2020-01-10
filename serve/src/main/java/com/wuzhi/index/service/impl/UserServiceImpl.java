@@ -103,4 +103,11 @@ public class UserServiceImpl implements UserService {
         return userMapper.deleteBackuserById(id) > 0;
     }
 
+    @Override
+    public Boolean addBackuser(Map<String, String> params) {
+        List<BackUser> list = userMapper.checkBackuser(params.get("username"));
+        if (list.size() > 0) return false;
+        return userMapper.addBackuser(params) > 0;
+    }
+
 }

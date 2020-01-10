@@ -93,4 +93,9 @@ public class UserController {
     public Boolean deleteBackuserById(String id) {
         return userService.deleteBackuserById(id);
     }
+
+    @RequestMapping("/addBackuser")
+    public Boolean addBackuser(@RequestBody Map<String, String> params) {
+        return userService.addBackuser(params);
+    }
 }

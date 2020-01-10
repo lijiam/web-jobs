@@ -32,6 +32,7 @@
   <div class="common-box">
     <div class="common-title">
       <i class="layui-icon layui-icon-form myicon"></i>数据列表
+      <div class="right-btn"><button type="button" class="layui-btn layui-btn-sm" id="addnew">添加</button></div>
     </div>
     <div class="common-table">
       <table class="layui-hide" id="demo" lay-filter="demo"></table>
@@ -76,6 +77,14 @@
       var form = layui.form;
       var table = layui.table;
       var layer = layui.layer;
+      $("#addnew").on('click', function () {
+        layer.open({
+          type: 2,
+          title: '添加用户',
+          content: './newuser.html',
+          area: ['700px', '500px']
+        });
+      })
       //监听提交
       form.on('submit(formDemo)', function (data) {
         doSearch(data.field, function (res) {

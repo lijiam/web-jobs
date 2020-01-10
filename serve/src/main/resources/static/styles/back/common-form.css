@@ -70,52 +70,13 @@ body {
   font-family: "Microsoft YaHei";
 }
 
-/* line 3, ../../sass/back/common-search.scss */
+/* line 3, ../../sass/back/common-form.scss */
 body {
-  background: #F9F9F9;
+  height: 100%;
 }
 
-/* line 7, ../../sass/back/common-search.scss */
-.common-box {
+/* line 7, ../../sass/back/common-form.scss */
+.my-form {
   width: 90%;
-  min-width: 1000px;
-  overflow: hidden;
-  margin: 0 auto 20px auto;
-}
-/* line 13, ../../sass/back/common-search.scss */
-.common-box:first-child {
-  padding-top: 20px;
-}
-/* line 17, ../../sass/back/common-search.scss */
-.common-box .common-title {
-  line-height: 40px;
-  height: 40px;
-  font-size: 18px;
-  color: #000;
-  background: #F3F3F3;
-  padding-left: 12px;
-  border: 1px solid #ddd;
-}
-/* line 26, ../../sass/back/common-search.scss */
-.common-box .common-title .myicon {
-  font-size: 20px;
-  color: #333;
-  margin-right: 5px;
-}
-/* line 32, ../../sass/back/common-search.scss */
-.common-box .common-title .right-btn {
-  float: right;
-  margin-right: 8px;
-}
-/* line 38, ../../sass/back/common-search.scss */
-.common-box .common-content {
-  background: #ffffff;
-  padding: 12px;
-  border: 1px solid #ddd;
-  border-top: none;
-  overflow: hidden;
-}
-/* line 47, ../../sass/back/common-search.scss */
-.common-box .common-table .layui-table-view {
-  margin: 0;
+  margin: 0 auto;
 }

@@ -40,4 +40,8 @@ public interface UserMapper {
     int updateBackIsuse(@Param("is_use") String is_use, @Param("id") String id);
 
     int deleteBackuserById(@Param("id") String id);
+
+    List<BackUser> checkBackuser(@Param("username") String username);
+
+    int addBackuser(Map<String, String> params);
 }

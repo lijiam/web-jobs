@@ -8,7 +8,11 @@ body {
   width: 90%;
   min-width: 1000px;
   overflow: hidden;
-  margin: 20px auto;
+  margin: 0 auto 20px auto;
+
+  &:first-child {
+    padding-top: 20px;
+  }
 
   .common-title {
     line-height: 40px;
@@ -23,6 +27,11 @@ body {
       font-size: 20px;
       color: #333;
       margin-right: 5px;
+    }
+
+    .right-btn {
+      float: right;
+      margin-right: 8px;
     }
   }
 

@@ -104,7 +104,7 @@ body {
 }
 /* line 33, ../../sass/back/index.scss */
 .body-head .head-right .right-item {
-  display: inline-block;
+  float: right;
   margin-left: 10px;
   cursor: pointer;
 }
