@@ -116,7 +116,7 @@
 
       form.on('switch(sexDemo)', function (obj) {
         $.ajax({
-          url: '/api/user/updateIsuse',
+          url: '/api/updateJobIsuse',
           data: { id: this.value, is_use: obj.elem.checked ? '1' : '0' }
         })
       });
