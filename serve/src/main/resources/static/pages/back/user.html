@@ -105,7 +105,7 @@
 
       form.on('switch(sexDemo)', function (obj) {
         $.ajax({
-          url: '/api/user/updateBackuserById',
+          url: '/api/user/updateBackIsuse',
           data: { id: this.value, is_use: obj.elem.checked ? '1' : '0' }
         })
       });

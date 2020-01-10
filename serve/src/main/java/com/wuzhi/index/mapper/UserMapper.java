@@ -34,4 +34,10 @@ public interface UserMapper {
     int updateBackLoginTime(@Param("id") String id);
 
     List<BackUser> getAllBackuser(Map<String, String> params);
+
+    int updateBackuserById(Map<String, String> params);
+
+    int updateBackIsuse(@Param("is_use") String is_use, @Param("id") String id);
+
+    int deleteBackuserById(@Param("id") String id);
 }

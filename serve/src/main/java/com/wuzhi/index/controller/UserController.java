@@ -78,4 +78,19 @@ public class UserController {
     public List<BackUser> getAllBackuser(@RequestBody Map<String, String> params) {
         return userService.getAllBackuser(params);
     }
+
+    @RequestMapping("/updateBackIsuse")
+    public Boolean updateBackIsuse(String is_use, String id) {
+        return userService.updateBackIsuse(is_use, id);
+    }
+
+    @RequestMapping("/updateBackuserById")
+    public Boolean updateBackuserById(@RequestBody Map<String, String> params) {
+        return userService.updateBackuserById(params);
+    }
+
+    @RequestMapping("/deleteBackuserById")
+    public Boolean deleteBackuserById(String id) {
+        return userService.deleteBackuserById(id);
+    }
 }

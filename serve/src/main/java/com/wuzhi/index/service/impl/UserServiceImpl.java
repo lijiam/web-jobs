@@ -88,4 +88,19 @@ public class UserServiceImpl implements UserService {
         return userMapper.getAllBackuser(params);
     }
 
+    @Override
+    public Boolean updateBackuserById(Map<String, String> params) {
+        return userMapper.updateBackuserById(params) > 0;
+    }
+
+    @Override
+    public Boolean updateBackIsuse(String is_use, String id) {
+        return userMapper.updateBackIsuse(is_use, id) > 0;
+    }
+
+    @Override
+    public Boolean deleteBackuserById(String id) {
+        return userMapper.deleteBackuserById(id) > 0;
+    }
+
 }

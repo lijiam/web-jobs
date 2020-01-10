@@ -166,4 +166,9 @@ public class BusinessController {
     public Boolean updateResumeSendStatus(String id, String status) {
         return businessService.updateResumeSendStatus(id, status);
     }
+
+    @RequestMapping("/updateJobIsuse")
+    public Boolean updateJobIsuse(String id, String is_use) {
+        return businessService.updateJobIsuse(id, is_use);
+    }
 }

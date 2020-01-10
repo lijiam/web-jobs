@@ -54,7 +54,7 @@
     </delete>
 
     <select id="backLogin" resultType="com.wuzhi.index.bean.BackUser">
-        select * from backuser where username = #{username} and password = #{password} limit 1
+        select * from backuser where username = #{username} and password = #{password} and is_use = '1' limit 1
     </select>
 
     <update id="updateBackLoginTime">
@@ -70,4 +70,16 @@
             and depart like '%${depart}%'
         </if>
     </select>
+
+    <update id="updateBackIsuse">
+        update backuser set is_use = #{is_use} where id = #{id}
+    </update>
+
+    <delete id="deleteBackuserById">
+        delete from backuser where id = #{id}
+    </delete>
+
+    <update id="updateBackuserById" parameterType="java.util.Map">
+        update backuser set username = #{username}, name = #{name}, email = #{email}, depart = #{depart} where id = #{id}
+    </update>
 </mapper>

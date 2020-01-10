@@ -37,4 +37,6 @@ public interface BusinessService {
     List<ResumeSend> getResumeSend(String user_id, String status, String company_id);
 
     Boolean updateResumeSendStatus(String id, String status);
+
+    Boolean updateJobIsuse(String id, String is_use);
 }

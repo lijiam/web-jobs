@@ -40,4 +40,6 @@ public interface BusinessMapper {
     List<ResumeSend> getResumeSend(@Param("user_id") String user_id, @Param("status") String status, @Param("company_id") String company_id);
 
     int updateResumeSendStatus(@Param("id") String id, @Param("status") String status);
+
+    int updateJobIsuse(@Param("id") String id, @Param("is_use") String is_use);
 }

@@ -14,16 +14,7 @@
 
     <select id="getJobs" resultType="com.wuzhi.index.bean.Job" parameterType="java.util.Map">
         SELECT
-        t1.id,
-        t1.`name`,
-        t1.money,
-        t1.address,
-        t1.edu,
-        t1.exp,
-        t1.hr_name,
-        t1.hr_type,
-        t1.fb_time,
-        t1.city,
+        t1.*,
         t2.guimo company_guimo,
         t2.rongzi company_rongzi,
         t2.`name` company_name,

@@ -32,4 +32,10 @@ public interface UserService {
     BackUser backLogin(String username, String password);
 
     List<BackUser> getAllBackuser(Map<String, String> params);
+
+    Boolean updateBackuserById(Map<String, String> params);
+
+    Boolean updateBackIsuse(String is_use, String id);
+
+    Boolean deleteBackuserById(String id);
 }

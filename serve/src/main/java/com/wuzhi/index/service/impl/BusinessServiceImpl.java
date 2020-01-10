@@ -92,4 +92,9 @@ public class BusinessServiceImpl implements BusinessService {
         int count = businessMapper.updateResumeSendStatus(id, status);
         return count > 0;
     }
+
+    @Override
+    public Boolean updateJobIsuse(String id, String is_use) {
+        return businessMapper.updateJobIsuse(id, is_use) > 0;
+    }
 }
