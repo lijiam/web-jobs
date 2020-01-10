@@ -70,87 +70,43 @@ body {
   font-family: "Microsoft YaHei";
 }
 
-/* line 3, ../../sass/back/index.scss */
-.body-head {
-  height: 60px;
-  line-height: 60px;
-  padding: 0 20px;
-  background: #009688;
-}
-/* line 9, ../../sass/back/index.scss */
-.body-head .head-title {
-  float: left;
-  font-size: 20px;
-  font-weight: 400;
-  color: #fff;
-}
-/* line 15, ../../sass/back/index.scss */
-.body-head .head-title::before {
-  content: ' ';
-  width: 35px;
-  height: 35px;
-  display: inline-block;
-  background: url(../../images/logo.png) no-repeat;
-  background-size: 100% 100%;
-  margin-right: 10px;
-  position: relative;
-  top: 11px;
-}
-/* line 28, ../../sass/back/index.scss */
-.body-head .head-right {
-  float: right;
-  min-width: 300px;
-  text-align: right;
-}
-/* line 33, ../../sass/back/index.scss */
-.body-head .head-right .right-item {
-  display: inline-block;
-  margin-left: 10px;
-  cursor: pointer;
-}
-/* line 38, ../../sass/back/index.scss */
-.body-head .head-right .right-item > img {
-  float: left;
-  width: 40px;
-  position: relative;
-  top: 10px;
-}
-/* line 45, ../../sass/back/index.scss */
-.body-head .head-right .right-item #username {
-  float: left;
-  margin-left: 5px;
-  font-size: 18px;
-  color: #333;
-  font-weight: 400;
-  max-width: 150px;
-  text-overflow: ellipsis;
-  overflow: hidden;
-  white-space: nowrap;
-}
-/* line 57, ../../sass/back/index.scss */
-.body-head .head-right .right-item#exit {
-  display: none;
-}
-/* line 60, ../../sass/back/index.scss */
-.body-head .head-right .right-item#exit > a {
-  float: left;
-  color: #333;
-  font-size: 18px;
+/* line 3, ../../sass/back/common-search.scss */
+body {
+  background: #F9F9F9;
 }
 
-/* line 70, ../../sass/back/index.scss */
-.body-container {
-  height: calc(100% - 60px);
+/* line 7, ../../sass/back/common-search.scss */
+.common-box {
+  width: 90%;
+  min-width: 1000px;
+  overflow: hidden;
+  margin: 20px auto;
 }
-/* line 73, ../../sass/back/index.scss */
-.body-container .container-left {
-  width: 220px;
-  height: 100%;
-  float: left;
+/* line 13, ../../sass/back/common-search.scss */
+.common-box .common-title {
+  line-height: 40px;
+  height: 40px;
+  font-size: 18px;
+  color: #000;
+  background: #F3F3F3;
+  padding-left: 12px;
+  border: 1px solid #ddd;
 }
-/* line 79, ../../sass/back/index.scss */
-.body-container .container-right {
-  float: left;
-  width: calc(100% - 220px);
-  height: 100%;
+/* line 22, ../../sass/back/common-search.scss */
+.common-box .common-title .myicon {
+  font-size: 20px;
+  color: #333;
+  margin-right: 5px;
+}
+/* line 29, ../../sass/back/common-search.scss */
+.common-box .common-content {
+  background: #ffffff;
+  padding: 12px;
+  border: 1px solid #ddd;
+  border-top: none;
+  overflow: hidden;
+}
+/* line 38, ../../sass/back/common-search.scss */
+.common-box .common-table .layui-table-view {
+  margin: 0;
 }

@@ -70,87 +70,50 @@ body {
   font-family: "Microsoft YaHei";
 }
 
-/* line 3, ../../sass/back/index.scss */
-.body-head {
-  height: 60px;
-  line-height: 60px;
-  padding: 0 20px;
-  background: #009688;
-}
-/* line 9, ../../sass/back/index.scss */
-.body-head .head-title {
-  float: left;
-  font-size: 20px;
-  font-weight: 400;
-  color: #fff;
-}
-/* line 15, ../../sass/back/index.scss */
-.body-head .head-title::before {
-  content: ' ';
-  width: 35px;
-  height: 35px;
-  display: inline-block;
-  background: url(../../images/logo.png) no-repeat;
-  background-size: 100% 100%;
-  margin-right: 10px;
-  position: relative;
-  top: 11px;
-}
-/* line 28, ../../sass/back/index.scss */
-.body-head .head-right {
-  float: right;
-  min-width: 300px;
-  text-align: right;
-}
-/* line 33, ../../sass/back/index.scss */
-.body-head .head-right .right-item {
-  display: inline-block;
-  margin-left: 10px;
-  cursor: pointer;
-}
-/* line 38, ../../sass/back/index.scss */
-.body-head .head-right .right-item > img {
-  float: left;
-  width: 40px;
-  position: relative;
-  top: 10px;
-}
-/* line 45, ../../sass/back/index.scss */
-.body-head .head-right .right-item #username {
-  float: left;
-  margin-left: 5px;
-  font-size: 18px;
-  color: #333;
-  font-weight: 400;
-  max-width: 150px;
-  text-overflow: ellipsis;
-  overflow: hidden;
-  white-space: nowrap;
-}
-/* line 57, ../../sass/back/index.scss */
-.body-head .head-right .right-item#exit {
-  display: none;
-}
-/* line 60, ../../sass/back/index.scss */
-.body-head .head-right .right-item#exit > a {
-  float: left;
-  color: #333;
-  font-size: 18px;
+/* line 3, ../../sass/back/login.scss */
+body {
+  background: #1ABC9C;
 }
 
-/* line 70, ../../sass/back/index.scss */
-.body-container {
-  height: calc(100% - 60px);
+/* line 7, ../../sass/back/login.scss */
+.myimg {
+  width: 100%;
+  position: absolute;
+  top: 10%;
 }
-/* line 73, ../../sass/back/index.scss */
-.body-container .container-left {
-  width: 220px;
-  height: 100%;
-  float: left;
+
+/* line 13, ../../sass/back/login.scss */
+.myimg2 {
+  width: 180px;
+  position: absolute;
+  top: 10%;
+  left: 50%;
+  transform: translateX(-50%);
 }
-/* line 79, ../../sass/back/index.scss */
-.body-container .container-right {
-  float: left;
-  width: calc(100% - 220px);
-  height: 100%;
+
+/* line 21, ../../sass/back/login.scss */
+.login-box {
+  width: 350px;
+  height: 350px;
+  margin: 0 auto;
+  padding: 20px 50px;
+  position: relative;
+  top: calc(10% + 180px);
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.2);
+}
+/* line 32, ../../sass/back/login.scss */
+.login-box .box-head {
+  margin: 20px 0;
+  text-align: center;
+  font-size: 30px;
+  color: #1ABC9C;
+}
+/* line 39, ../../sass/back/login.scss */
+.login-box .box-desc {
+  margin-top: 5px;
+  text-align: center;
+  font-size: 20px;
+  color: #1ABC9C;
 }

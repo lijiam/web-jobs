@@ -8,6 +8,33 @@ public class User {
     private String password;
     private String user_type;
     private String company_id;
+    private String add_time;
+    private String grade;
+    private String is_use;
+
+    public String getIs_use() {
+        return is_use;
+    }
+
+    public void setIs_use(String is_use) {
+        this.is_use = is_use;
+    }
+
+    public String getGrade() {
+        return grade;
+    }
+
+    public void setGrade(String grade) {
+        this.grade = grade;
+    }
+
+    public String getAdd_time() {
+        return add_time;
+    }
+
+    public void setAdd_time(String add_time) {
+        this.add_time = add_time;
+    }
 
     public String getCompany_id() {
         return company_id;

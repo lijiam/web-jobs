@@ -24,6 +24,47 @@
       top: 11px;
     }
   }
+
+  .head-right {
+    float: right;
+    min-width: 300px;
+    text-align: right;
+
+    .right-item {
+      display: inline-block;
+      margin-left: 10px;
+      cursor: pointer;
+
+      &>img {
+        float: left;
+        width: 40px;
+        position: relative;
+        top: 10px;
+      }
+
+      #username {
+        float: left;
+        margin-left: 5px;
+        font-size: 18px;
+        color: #333;
+        font-weight: 400;
+        max-width: 150px;
+        text-overflow: ellipsis;
+        overflow: hidden;
+        white-space: nowrap;
+      }
+
+      &#exit {
+        display: none;
+
+        &>a {
+          float: left;
+          color: #333;
+          font-size: 18px;
+        }
+      }
+    }
+  }
 }
 
 .body-container {

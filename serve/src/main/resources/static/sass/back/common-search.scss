@@ -1,0 +1,42 @@
+@import "../common.scss";
+
+body {
+  background: #F9F9F9;
+}
+
+.common-box {
+  width: 90%;
+  min-width: 1000px;
+  overflow: hidden;
+  margin: 20px auto;
+
+  .common-title {
+    line-height: 40px;
+    height: 40px;
+    font-size: 18px;
+    color: #000;
+    background: #F3F3F3;
+    padding-left: 12px;
+    border: 1px solid #ddd;
+
+    .myicon {
+      font-size: 20px;
+      color: #333;
+      margin-right: 5px;
+    }
+  }
+
+  .common-content {
+    background: #ffffff;
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-top: none;
+    overflow: hidden;
+  }
+
+  .common-table {
+    .layui-table-view {
+      margin: 0;
+    }
+  }
+}

@@ -5,14 +5,18 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>五指网后台管理系统</title>
+  <title>五指网后台业务管理系统</title>
   <link rel="stylesheet" href="../scripts/layui/css/layui.css">
   <link rel="stylesheet" href="../styles/back/index.css">
 </head>
 
 <body class="layui-layout-body">
   <div class="body-head">
-    <div class="head-title">五指网后台管理系统</div>
+    <div class="head-title">五指网后台业务管理系统</div>
+    <div class="head-right">
+      <div class="right-item"><img src="../images/user.png" alt=""><span id="username" title="请登录">请登录</span></div>
+      <div class="right-item" id="exit"><a href="">退出</a></div>
+    </div>
   </div>
   <div class="body-container">
     <div class="container-left">
@@ -22,28 +26,28 @@
         <li class="layui-nav-item">
           <a href="javascript:;">人才用户</a>
           <dl class="layui-nav-child">
-            <dd><a href="javascript:$('#container').attr('src','./back/home.html');">人才用户列表</a></dd>
-            <dd><a href="javascript:$('#container').attr('src','./back/home.html');">人才推送管理</a></dd>
-            <dd><a href="javascript:$('#container').attr('src','./back/home.html');">用户标签</a></dd>
+            <dd><a href="javascript:$('#container').attr('src','./back/rc-list.html');">人才用户管理</a></dd>
+            <dd><a href="javascript:$('#container').attr('src','./back/rc-tag.html');">用户标签</a></dd>
           </dl>
         </li>
         <li class="layui-nav-item">
           <a href="javascript:;">企业用户</a>
           <dl class="layui-nav-child">
-            <dd><a href="javascript:$('#container').attr('src','./back/home.html');">企业用户列表</a></dd>
-            <dd><a href="javascript:$('#container').attr('src','./back/home.html');">企业推送管理</a></dd>
-            <dd><a href="javascript:$('#container').attr('src','./back/home.html');">用户标签</a></dd>
+            <dd><a href="javascript:$('#container').attr('src','./back/qy-list.html');">企业用户管理</a></dd>
+            <dd><a href="javascript:$('#container').attr('src','./back/qy-tag.html');">用户标签</a></dd>
           </dl>
         </li>
         <li class="layui-nav-item">
           <a href="javascript:;">招聘管理</a>
           <dl class="layui-nav-child">
-            <dd><a href="javascript:$('#container').attr('src','./back/home.html');">信息审核</a></dd>
+            <dd><a href="javascript:$('#container').attr('src','./back/zhaop-shenhe.html');">信息审核</a></dd>
           </dl>
         </li>
-        <li class="layui-nav-item"><a href="javascript:;">新闻管理</a></li>
-        <li class="layui-nav-item"><a href="javascript:;">个性化管理</a></li>
-        <li class="layui-nav-item"><a href="javascript:;">用户管理</a></li>
+        <li class="layui-nav-item"><a href="javascript:$('#container').attr('src','./back/zhaop-shenhe.html');">新闻管理</a>
+        </li>
+        <li class="layui-nav-item"><a
+            href="javascript:$('#container').attr('src','./back/zhaop-shenhe.html');">个性化管理</a></li>
+        <li class="layui-nav-item"><a href="javascript:$('#container').attr('src','./back/user.html');">用户管理</a></li>
       </ul>
     </div>
     <div class="container-right">
@@ -54,6 +58,18 @@
   <script src="../scripts/jquery.v1.7.2.js"></script>
   <script src="../scripts/layui/layui.js"></script>
   <script>
+    var backuser = JSON.parse(localStorage.getItem("backuser"));
+    if (!backuser) window.location.href = '/back/login';
+    else {
+      $("#username").html(backuser.username);
+      $("#username").attr('title', backuser.username);
+      $("#exit").css('display', 'inline-block');
+      $("#exit").on('click', function () {
+        localStorage.removeItem('backuser');
+        $("#exit").css('display', 'none');
+        window.location.href = "/back/login";
+      })
+    }
     //注意：导航 依赖 element 模块，否则无法进行功能性操作
     layui.use('element', function () {
       var element = layui.element;

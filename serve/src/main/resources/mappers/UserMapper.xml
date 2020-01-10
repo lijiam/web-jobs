@@ -9,10 +9,65 @@
     <!--<result column="age" property="age" />-->
     <!--</resultMap>-->
     <select id="login" resultType="com.wuzhi.index.bean.User">
-        select * from user where phone = #{phone} and password = ${password} and user_type = #{user_type}
+        select * from user where phone = #{phone} and password = ${password} and user_type = #{user_type} and is_use = '1'
     </select>
 
     <insert id="register">
         insert into user(phone, password, user_type) values(#{phone},#{password},#{user_type})
     </insert>
+
+    <select id="getAllRc" parameterType="java.util.Map" resultType="com.wuzhi.index.bean.User">
+        select * from user where user_type = #{user_type}
+        <if test="phone != '' and phone != null">
+            and phone like '%${phone}%'
+        </if>
+        <if test="name != '' and name != null">
+            and name like '%${name}%'
+        </if>
+        <if test="add_time != '' and add_time != null">
+            and add_time like '%${add_time}%'
+        </if>
+    </select>
+
+    <update id="updateIsuse">
+        update user set is_use = #{is_use} where id = #{id}
+    </update>
+
+    <delete id="deleteUserById">
+        delete from user where id = #{id}
+    </delete>
+
+    <update id="updateUserById" parameterType="java.util.Map">
+        update user set phone = #{phone}, name = #{name}, grade = #{grade} where id = #{id}
+    </update>
+
+    <select id="getAllRcTag" resultType="com.wuzhi.index.bean.Tag">
+        select * from tag where type = #{type}
+    </select>
+
+    <update id="updateTag" parameterType="java.util.Map">
+        update tag set name = #{name}, number = #{number}, cond = #{cond} where id = #{id}
+    </update>
+
+    <delete id="deleteTagById">
+        delete from tag where id = #{id}
+    </delete>
+
+    <select id="backLogin" resultType="com.wuzhi.index.bean.BackUser">
+        select * from backuser where username = #{username} and password = #{password} limit 1
+    </select>
+
+    <update id="updateBackLoginTime">
+        update backuser set login_time = now() where id = #{id}
+    </update>
+
+    <select id="getAllBackuser" parameterType="java.util.Map" resultType="com.wuzhi.index.bean.BackUser">
+        select * from backuser where 1 = 1
+        <if test="username != '' and username != null">
+            and username like '%${username}%'
+        </if>
+        <if test="depart != '' and depart != null">
+            and depart like '%${depart}%'
+        </if>
+    </select>
 </mapper>

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>五指网后台业务管理系统</title>
+  <link rel="stylesheet" href="../../scripts/layui/css/layui.css">
+  <link rel="stylesheet" href="../../styles/back/login.css">
+</head>
+
+<body>
+  <img class="myimg" src="../../images/u0_state0.png" alt="aaa">
+  <img class="myimg2" src="../../images/logo.png" alt="logo">
+  <div class="login-box">
+    <div class="box-head">五指网后台业务管理系统</div>
+    <div class="box-desc">找好工作，易如反掌</div>
+    <form class="layui-form" action="" style="margin-top: 50px;">
+      <div class="layui-form-item">
+        <input type="text" name="username" required lay-verify="required" placeholder="请输入用户名" autocomplete="off"
+          class="layui-input">
+      </div>
+      <div class="layui-form-item" style="margin-top: 30px;">
+        <input type="password" name="password" required lay-verify="required" placeholder="请输入密码" autocomplete="off"
+          class="layui-input">
+      </div>
+      <div class="layui-form-item" style="text-align: center;">
+        <button class="layui-btn" style="width: 100%;margin-top: 30px;" lay-submit lay-filter="formDemo">登录</button>
+      </div>
+    </form>
+  </div>
+
+  <script src="../../scripts/jquery.v1.7.2.js"></script>
+  <script src="../../scripts/layui/layui.js"></script>
+  <script>
+    layui.use(['form', 'layer'], function () {
+      var form = layui.form;
+      var layer = layui.layer;
+
+      var backuser = localStorage.getItem("backuser");
+      if (backuser) {
+        layer.msg('您已登录，无需重复登录', {
+          time: 2000, end: function () {
+            window.location.href = '/back';
+          }
+        })
+      }
+
+      //监听提交
+      form.on('submit(formDemo)', function (data) {
+        $.ajax({
+          url: '/api/user/backLogin',
+          data: data.field,
+          success: function (res) {
+            if (res) {
+              layer.msg('登录成功', {
+                time: 1000, end: function () {
+                  localStorage.setItem('backuser', JSON.stringify(res));
+                  window.location.href = '/back';
+                }
+              })
+            } else layer.msg('用户名不存在或密码错误');
+          }
+        })
+        return false;
+      });
+    });
+  </script>
+</body>
+
+</html>

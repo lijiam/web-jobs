@@ -15,4 +15,9 @@ public class IndexController {
     public String back(){
         return "pages/back-index";
     }
+
+    @RequestMapping("/back/login")
+    public String backlogin(){
+        return "pages/back/login";
+    }
 }
