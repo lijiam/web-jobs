@@ -256,4 +256,14 @@ VALUES
     <update id="updateJobIsuse">
         update jobs set is_use = #{is_use} where id = #{id}
     </update>
+
+    <select id="getAllNews" resultType="com.wuzhi.index.bean.New" parameterType="java.util.Map">
+        select * from news t1 where 1=1
+        <if test="name != '' and name != null ">
+            and t1.name like '%${name}%'
+        </if>
+        <if test="type != '' and type != null ">
+            and t1.type like '%${type}%'
+        </if>
+    </select>
 </mapper>

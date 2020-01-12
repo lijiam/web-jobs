@@ -1,9 +1,6 @@
 package com.wuzhi.index.controller;
 
-import com.wuzhi.index.bean.Company;
-import com.wuzhi.index.bean.Job;
-import com.wuzhi.index.bean.Resume;
-import com.wuzhi.index.bean.ResumeSend;
+import com.wuzhi.index.bean.*;
 import com.wuzhi.index.service.BusinessService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -170,5 +167,10 @@ public class BusinessController {
     @RequestMapping("/updateJobIsuse")
     public Boolean updateJobIsuse(String id, String is_use) {
         return businessService.updateJobIsuse(id, is_use);
+    }
+
+    @RequestMapping("/getAllNews")
+    public List<New> getAllNews(@RequestBody Map<String, String> params) {
+        return businessService.getAllNews(params);
     }
 }

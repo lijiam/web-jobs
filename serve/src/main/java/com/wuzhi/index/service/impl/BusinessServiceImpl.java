@@ -1,9 +1,6 @@
 package com.wuzhi.index.service.impl;
 
-import com.wuzhi.index.bean.Company;
-import com.wuzhi.index.bean.Job;
-import com.wuzhi.index.bean.Resume;
-import com.wuzhi.index.bean.ResumeSend;
+import com.wuzhi.index.bean.*;
 import com.wuzhi.index.mapper.BusinessMapper;
 import com.wuzhi.index.service.BusinessService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -96,5 +93,10 @@ public class BusinessServiceImpl implements BusinessService {
     @Override
     public Boolean updateJobIsuse(String id, String is_use) {
         return businessMapper.updateJobIsuse(id, is_use) > 0;
+    }
+
+    @Override
+    public List<New> getAllNews(Map<String, String> params) {
+        return businessMapper.getAllNews(params);
     }
 }

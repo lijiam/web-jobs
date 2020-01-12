@@ -1,9 +1,6 @@
 package com.wuzhi.index.service;
 
-import com.wuzhi.index.bean.Company;
-import com.wuzhi.index.bean.Job;
-import com.wuzhi.index.bean.Resume;
-import com.wuzhi.index.bean.ResumeSend;
+import com.wuzhi.index.bean.*;
 
 import java.util.List;
 import java.util.Map;
@@ -39,4 +36,6 @@ public interface BusinessService {
     Boolean updateResumeSendStatus(String id, String status);
 
     Boolean updateJobIsuse(String id, String is_use);
+
+    List<New> getAllNews(Map<String, String> params);
 }
