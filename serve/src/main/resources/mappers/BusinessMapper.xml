@@ -266,4 +266,8 @@ VALUES
             and t1.type like '%${type}%'
         </if>
     </select>
+
+    <insert id="addNewTag" parameterType="java.util.Map">
+        INSERT INTO tag (name,number,cond,type) VALUES (#{name},#{number},#{cond},#{type})
+    </insert>
 </mapper>

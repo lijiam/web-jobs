@@ -14,6 +14,7 @@
   <div class="common-box">
     <div class="common-title">
       <i class="layui-icon layui-icon-form myicon"></i>数据列表
+      <div class="right-btn"><button type="button" class="layui-btn layui-btn-sm" id="addnew">添加</button></div>
     </div>
     <div class="common-table">
       <table class="layui-hide" id="demo" lay-filter="demo"></table>
@@ -37,6 +38,15 @@
     layui.use(['table', 'layer'], function () {
       var table = layui.table;
       var layer = layui.layer;
+
+      $("#addnew").on('click', function () {
+        layer.open({
+          type: 2,
+          title: '添加企业标签',
+          content: './new-qy-tag.html',
+          area: ['400px', '300px']
+        });
+      })
 
       jQuery.ajax({
         url: '/api/user/getAllRcTag',

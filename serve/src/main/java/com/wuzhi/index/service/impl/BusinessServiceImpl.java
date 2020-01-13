@@ -99,4 +99,9 @@ public class BusinessServiceImpl implements BusinessService {
     public List<New> getAllNews(Map<String, String> params) {
         return businessMapper.getAllNews(params);
     }
+
+    @Override
+    public Boolean addNewTag(Map<String, String> params) {
+        return businessMapper.addNewTag(params);
+    }
 }

@@ -41,4 +41,6 @@ public interface BusinessMapper {
     int updateJobIsuse(@Param("id") String id, @Param("is_use") String is_use);
 
     List<New> getAllNews(Map<String, String> params);
+
+    Boolean addNewTag(Map<String, String> params);
 }

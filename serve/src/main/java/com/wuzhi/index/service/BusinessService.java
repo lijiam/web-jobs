@@ -38,4 +38,6 @@ public interface BusinessService {
     Boolean updateJobIsuse(String id, String is_use);
 
     List<New> getAllNews(Map<String, String> params);
+
+    Boolean addNewTag(Map<String, String> params);
 }

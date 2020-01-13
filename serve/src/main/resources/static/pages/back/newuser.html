@@ -82,7 +82,7 @@
           data: JSON.stringify(data.field),
           success: function (tag) {
             if (tag) {
-              layer.msg('添加成功');
+              layer.msg('添加成功', { time: 1500, end: function () { parent.location.reload() } });
             } else layer.msg('账号已存在或其他系统原因');
           }
         })

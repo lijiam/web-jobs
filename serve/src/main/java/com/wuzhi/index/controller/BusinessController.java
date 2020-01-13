@@ -173,4 +173,9 @@ public class BusinessController {
     public List<New> getAllNews(@RequestBody Map<String, String> params) {
         return businessService.getAllNews(params);
     }
+
+    @RequestMapping("/addNewTag")
+    public Boolean addNewTag(@RequestBody Map<String, String> params) {
+        return businessService.addNewTag(params);
+    }
 }
