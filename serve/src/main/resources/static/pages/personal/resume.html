@@ -266,7 +266,9 @@
         url: '/api/getResumeById',
         data: { id: user_id },
         success: function (data) {
-          form.val('example', Object.assign(data, { phone: phone }));
+          var obj = { phone: phone };
+          if (data !== '') obj = Object.assign(data, { phone: phone });
+          form.val('example', obj);
         }
       })
 
