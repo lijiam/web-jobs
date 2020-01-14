@@ -11,7 +11,7 @@
  Target Server Version : 80018
  File Encoding         : 65001
 
- Date: 11/01/2020 13:19:47
+ Date: 14/01/2020 14:21:50
 */
 
 SET NAMES utf8mb4;
@@ -22,15 +22,15 @@ SET FOREIGN_KEY_CHECKS = 0;
 -- ----------------------------
 DROP TABLE IF EXISTS `backuser`;
 CREATE TABLE `backuser` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `username` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
-  `password` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL DEFAULT '0',
-  `name` varchar(255) DEFAULT NULL,
-  `email` varchar(255) DEFAULT NULL,
-  `depart` varchar(255) DEFAULT NULL,
-  `login_time` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  `register_time` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  `is_use` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL DEFAULT '1',
+  `id` int(11) NOT NULL AUTO_INCREMENT COMMENT '用户编号',
+  `username` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL COMMENT '用户名',
+  `password` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL DEFAULT '0' COMMENT '密码',
+  `name` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL COMMENT '昵称',
+  `email` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL COMMENT '邮箱',
+  `depart` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL COMMENT '所属部门',
+  `login_time` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '最后一次登录时间',
+  `register_time` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '注册时间',
+  `is_use` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL DEFAULT '1' COMMENT '是否为有效账户',
   PRIMARY KEY (`id`,`username`) USING BTREE
 ) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
@@ -45,8 +45,6 @@ INSERT INTO `backuser` VALUES (4, 'admin3', '123', '管理员3', '541545@qq.com'
 INSERT INTO `backuser` VALUES (5, 'admin4', '123', '塞法', '583586309@qq.com', '技术部', '2020-01-10 19:56:22', '2020-01-10 19:56:22', '1');
 INSERT INTO `backuser` VALUES (6, 'admin5', '123', '1', '1', '1', '2020-01-10 19:57:28', '2020-01-10 19:57:28', '1');
 INSERT INTO `backuser` VALUES (7, 'admin66', '123', '66', '583586309@qq.com', '66', '2020-01-10 19:59:50', '2020-01-10 19:59:50', '1');
-INSERT INTO `backuser` VALUES (8, 'admin44', '123', '33', '33', '33', '2020-01-10 20:00:35', '2020-01-10 20:00:35', '1');
-INSERT INTO `backuser` VALUES (9, 'admin32453', '123', '34', '23', '23', '2020-01-10 20:02:21', '2020-01-10 20:02:21', '1');
 COMMIT;
 
 -- ----------------------------
@@ -54,17 +52,17 @@ COMMIT;
 -- ----------------------------
 DROP TABLE IF EXISTS `company`;
 CREATE TABLE `company` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `name` varchar(255) DEFAULT NULL,
-  `type` varchar(255) DEFAULT NULL,
-  `rongzi` varchar(255) DEFAULT NULL,
-  `guimo` varchar(255) DEFAULT NULL,
-  `hot_job` varchar(255) DEFAULT NULL,
-  `logo` varchar(255) DEFAULT NULL,
-  `update_time` datetime DEFAULT NULL,
-  `fuli` varchar(255) DEFAULT NULL,
-  `jianjie` varchar(255) DEFAULT NULL,
-  `gongshang` varchar(255) DEFAULT NULL,
+  `id` int(11) NOT NULL AUTO_INCREMENT COMMENT '公司编号',
+  `name` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL COMMENT '公司名称',
+  `type` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL COMMENT '公司类型',
+  `rongzi` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL COMMENT '融资',
+  `guimo` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL COMMENT '规模',
+  `hot_job` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL COMMENT '热招岗位',
+  `logo` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL COMMENT 'logo',
+  `update_time` datetime DEFAULT NULL COMMENT '更新时间',
+  `fuli` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL COMMENT '福利',
+  `jianjie` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL COMMENT '简介',
+  `gongshang` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL COMMENT '工商信息',
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
@@ -94,22 +92,22 @@ COMMIT;
 -- ----------------------------
 DROP TABLE IF EXISTS `jobs`;
 CREATE TABLE `jobs` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `name` varchar(255) DEFAULT NULL,
-  `money` varchar(255) DEFAULT NULL,
-  `address` varchar(255) DEFAULT NULL,
-  `exp` varchar(255) DEFAULT NULL,
-  `edu` varchar(255) DEFAULT NULL,
-  `company_id` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL,
-  `hr_name` varchar(255) DEFAULT NULL,
-  `hr_type` varchar(255) DEFAULT NULL,
-  `fb_time` varchar(255) DEFAULT NULL,
-  `city` varchar(255) DEFAULT NULL,
-  `beijing` varchar(255) DEFAULT NULL,
-  `zhize` varchar(255) DEFAULT NULL,
-  `yaoqiu` varchar(255) DEFAULT NULL,
-  `is_use` varchar(255) NOT NULL DEFAULT '1',
-  `number` varchar(255) DEFAULT NULL,
+  `id` int(11) NOT NULL AUTO_INCREMENT COMMENT '岗位编号',
+  `name` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL COMMENT '岗位名称',
+  `money` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL COMMENT '岗位薪资',
+  `address` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL COMMENT '工作地址',
+  `exp` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL COMMENT '经验要求',
+  `edu` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL COMMENT '学历要求',
+  `company_id` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL COMMENT '公司编号',
+  `hr_name` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL COMMENT 'HR姓名',
+  `hr_type` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL COMMENT 'HR职位',
+  `fb_time` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL COMMENT '发布时间',
+  `city` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL COMMENT '岗位所在城市',
+  `beijing` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL COMMENT '岗位背景',
+  `zhize` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL COMMENT '岗位职责',
+  `yaoqiu` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL COMMENT '岗位要求',
+  `is_use` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL DEFAULT '1' COMMENT '是否为有效岗位',
+  `number` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL COMMENT '招聘人数',
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
@@ -129,6 +127,35 @@ INSERT INTO `jobs` VALUES (9, '前端专家', '20-30K', '杭州 滨江区 ', '3-
 INSERT INTO `jobs` VALUES (10, '推荐算法', '20-30K', '杭州 余杭区 西溪', '3-5年', '本科', '10', '李先生', '人事经理', '2020-01-01', '杭州', NULL, NULL, NULL, '1', '66');
 INSERT INTO `jobs` VALUES (12, '需求工程师', '20-30K', '滨江区南环路3738号', '应届生', '大专', '3', '小李', '人事经理', '2020-01-10 16:41:41', '杭州', '背景122', '职责', '要求', '1', '334');
 INSERT INTO `jobs` VALUES (15, '新增的岗位', '3-5K', '滨江区南环路3738号', '应届生', '大专', '7', '小丽', '人事经理', '2020-01-10 16:48:13', '北京', '', '', '', '1', NULL);
+COMMIT;
+
+-- ----------------------------
+-- Table structure for news
+-- ----------------------------
+DROP TABLE IF EXISTS `news`;
+CREATE TABLE `news` (
+  `id` int(11) NOT NULL AUTO_INCREMENT COMMENT '新闻编号',
+  `name` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL COMMENT '新闻名称',
+  `type` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL COMMENT '新闻类型',
+  `company_id` int(11) NOT NULL DEFAULT '1' COMMENT '公司编号',
+  `fb_time` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '发布时间',
+  `shoucang` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL DEFAULT '0' COMMENT '收藏数量',
+  `yuedu` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL DEFAULT '0' COMMENT '阅读数量',
+  `pinglun` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL DEFAULT '0' COMMENT '评论数量',
+  `is_use` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL DEFAULT '1' COMMENT '是否为有效新闻',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+-- ----------------------------
+-- Records of news
+-- ----------------------------
+BEGIN;
+INSERT INTO `news` VALUES (1, '仙风锦鲤杯的诞生1123', '餐厨专题1', 1, '2020-01-12 13:23:51', '0', '0', '0', '1');
+INSERT INTO `news` VALUES (2, '仙风锦鲤杯的诞生2234', '餐厨专题2', 2, '2020-01-12 13:23:51', '0', '0', '0', '0');
+INSERT INTO `news` VALUES (3, '仙风锦鲤杯的诞生2435', '餐厨专题4', 1, '2020-01-12 13:23:51', '0', '0', '0', '1');
+INSERT INTO `news` VALUES (4, '仙风锦鲤杯的诞生7654', '餐厨专题556', 4, '2020-01-12 13:23:51', '0', '0', '0', '0');
+INSERT INTO `news` VALUES (5, '仙风锦鲤杯的诞生3456', '餐厨专题2345', 4, '2020-01-12 13:23:51', '0', '0', '0', '1');
+INSERT INTO `news` VALUES (6, '仙风锦鲤杯的诞生8812', '餐厨专题24', 6, '2020-01-12 13:23:51', '0', '0', '0', '1');
 COMMIT;
 
 -- ----------------------------
@@ -179,34 +206,48 @@ CREATE TABLE `personal_info` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 -- ----------------------------
+-- Table structure for push_msg
+-- ----------------------------
+DROP TABLE IF EXISTS `push_msg`;
+CREATE TABLE `push_msg` (
+  `id` int(11) NOT NULL AUTO_INCREMENT COMMENT '推送编号',
+  `rcuser_id` int(11) DEFAULT NULL COMMENT '人才用户ID',
+  `qyuser_id` int(11) DEFAULT NULL COMMENT '企业用户ID',
+  `push_time` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '推送时间',
+  `push_type` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL DEFAULT '0' COMMENT '0表示企业推至人才，1表示人才推至企业',
+  `push_name` varchar(255) DEFAULT NULL COMMENT '推送名称',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=36 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+-- ----------------------------
 -- Table structure for resume
 -- ----------------------------
 DROP TABLE IF EXISTS `resume`;
 CREATE TABLE `resume` (
-  `user_id` int(11) NOT NULL,
-  `birthday` varchar(255) DEFAULT NULL,
-  `worktime` varchar(255) DEFAULT NULL,
-  `email` varchar(255) DEFAULT NULL,
-  `address` varchar(255) DEFAULT NULL,
-  `status` varchar(255) DEFAULT NULL,
-  `money` varchar(255) DEFAULT NULL,
-  `city` varchar(255) DEFAULT NULL,
-  `job_name` varchar(255) DEFAULT NULL,
-  `job_hy` varchar(255) DEFAULT NULL,
-  `workexp` varchar(255) DEFAULT NULL,
-  `projexp` varchar(255) DEFAULT NULL,
-  `studyexp` varchar(255) DEFAULT NULL,
-  `schoolstatus` varchar(255) DEFAULT NULL,
-  `skills` varchar(255) DEFAULT NULL,
-  `others` varchar(255) DEFAULT NULL,
-  `update_time` datetime DEFAULT NULL,
-  `phone` varchar(255) DEFAULT NULL,
-  `university` varchar(255) DEFAULT NULL,
-  `rongyu` varchar(255) DEFAULT NULL,
-  `edu` varchar(255) DEFAULT NULL,
-  `exp` varchar(255) DEFAULT NULL,
-  `name` varchar(255) DEFAULT NULL,
-  `sex` varchar(255) DEFAULT NULL,
+  `user_id` int(11) NOT NULL COMMENT '用户ID',
+  `birthday` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL COMMENT '生日',
+  `worktime` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL COMMENT '开始工作时间',
+  `email` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL COMMENT '邮箱',
+  `address` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL COMMENT '居住地',
+  `status` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL COMMENT '当前工作状态',
+  `money` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL COMMENT '期望薪资',
+  `city` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL COMMENT '工作城市',
+  `job_name` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL COMMENT '期望岗位',
+  `job_hy` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL COMMENT '期望行业',
+  `workexp` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL COMMENT '工作经验',
+  `projexp` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL COMMENT '项目经验',
+  `studyexp` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL COMMENT '教育经验',
+  `schoolstatus` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL COMMENT '在校情况',
+  `skills` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL COMMENT '技能特长',
+  `others` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL COMMENT '其他',
+  `update_time` datetime DEFAULT NULL COMMENT '更新时间',
+  `phone` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL COMMENT '手机号',
+  `university` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL COMMENT '毕业院校',
+  `rongyu` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL COMMENT '在校荣誉',
+  `edu` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL COMMENT '学历',
+  `exp` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL COMMENT '工作经验',
+  `name` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL COMMENT '姓名',
+  `sex` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL COMMENT '性别',
   PRIMARY KEY (`user_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
@@ -222,11 +263,11 @@ COMMIT;
 -- ----------------------------
 DROP TABLE IF EXISTS `resume_send`;
 CREATE TABLE `resume_send` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `job_id` int(11) DEFAULT NULL,
-  `status` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL DEFAULT '-1',
-  `user_id` int(11) DEFAULT NULL,
-  `send_time` datetime DEFAULT NULL,
+  `id` int(11) NOT NULL AUTO_INCREMENT COMMENT '简历发送编号',
+  `job_id` int(11) DEFAULT NULL COMMENT '岗位编号',
+  `status` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL DEFAULT '-1' COMMENT '用户查看状态',
+  `user_id` int(11) DEFAULT NULL COMMENT '用户ID',
+  `send_time` datetime DEFAULT NULL COMMENT '发送时间',
   `is_inner` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT '0' COMMENT '是否站内消息',
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
@@ -251,21 +292,25 @@ COMMIT;
 -- ----------------------------
 DROP TABLE IF EXISTS `tag`;
 CREATE TABLE `tag` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `name` varchar(255) DEFAULT NULL,
-  `number` varchar(11) DEFAULT NULL,
-  `update_time` datetime DEFAULT NULL,
-  `cond` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL,
-  `type` varchar(255) DEFAULT NULL COMMENT '0表示人才标签，1表示企业标签',
+  `id` int(11) NOT NULL AUTO_INCREMENT COMMENT '标签ID',
+  `name` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL COMMENT '标签名称',
+  `number` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL COMMENT '打标数量',
+  `update_time` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '更新时间',
+  `cond` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL COMMENT '打标条件',
+  `type` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL COMMENT '0表示人才标签，1表示企业标签',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 -- ----------------------------
 -- Records of tag
 -- ----------------------------
 BEGIN;
 INSERT INTO `tag` VALUES (1, '优质用户', '100', '2020-01-09 18:34:46', '填写完全简历信息，成功就职一次以上', '0');
-INSERT INTO `tag` VALUES (2, '优质用户', '100', '2020-01-09 18:34:46', '填写完全简历信息，成功就职一次以上', '1');
+INSERT INTO `tag` VALUES (2, '一般用户', '100', '2020-01-09 18:34:46', '填写完全企业信息', '1');
+INSERT INTO `tag` VALUES (3, '一般用户', '100', '2020-01-13 09:27:47', '填写完全简历信息', '0');
+INSERT INTO `tag` VALUES (4, '优质用户', '110', '2020-01-13 09:29:22', '填写完全企业信息，成功招聘一次以上', '1');
+INSERT INTO `tag` VALUES (5, '潜在用户', '23', '2020-01-13 09:45:31', '在平台进行消费后', '0');
+INSERT INTO `tag` VALUES (8, '潜在用户', '22', '2020-01-13 09:52:41', '在平台进行消费后', '1');
 COMMIT;
 
 -- ----------------------------
@@ -273,26 +318,27 @@ COMMIT;
 -- ----------------------------
 DROP TABLE IF EXISTS `user`;
 CREATE TABLE `user` (
-  `id` int(1) NOT NULL AUTO_INCREMENT,
-  `password` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
-  `phone` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
+  `id` int(1) NOT NULL AUTO_INCREMENT COMMENT '用户ID',
+  `password` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL COMMENT '密码',
+  `phone` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL COMMENT '手机号',
   `user_type` char(1) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL COMMENT '0表示求职者，1表示招聘者',
   `company_id` int(11) NOT NULL DEFAULT '1' COMMENT '公司表中的主键id',
-  `name` varchar(255) DEFAULT NULL,
+  `name` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL COMMENT '姓名',
   `add_time` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '注册时间',
-  `grade` varchar(255) NOT NULL DEFAULT '1' COMMENT '用户等级',
   `is_use` varchar(255) NOT NULL DEFAULT '1' COMMENT '是否有效账户',
+  `tag_id` int(11) DEFAULT NULL COMMENT '标签id',
+  `grade` varchar(255) NOT NULL DEFAULT 'LV1' COMMENT '用户等级',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=20 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=21 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 -- ----------------------------
 -- Records of user
 -- ----------------------------
 BEGIN;
-INSERT INTO `user` VALUES (15, '123', '17826808951', '0', -1, '小王', '2020-01-09 15:46:25', 'LV1', '1');
-INSERT INTO `user` VALUES (16, '1', '17826808950', '1', 7, '小丽', '2020-01-09 15:46:25', 'LV1', '1');
-INSERT INTO `user` VALUES (17, '000', '13650213512', '0', -1, '李四', '2020-01-09 16:03:46', 'LV1', '1');
-INSERT INTO `user` VALUES (18, '000', '13650213513', '0', -1, '李四22', '2020-01-09 16:03:46', 'LV1', '1');
+INSERT INTO `user` VALUES (15, '123', '13666213512', '0', -1, '小王', '2020-01-09 15:46:25', '1', 1, 'LV1');
+INSERT INTO `user` VALUES (16, '123', '13650213510', '1', 7, '小丽', '2020-01-09 15:46:25', '1', 2, 'LV1');
+INSERT INTO `user` VALUES (17, '000', '13650213512', '0', -1, '李四', '2020-01-09 16:03:46', '1', 1, 'LV1');
+INSERT INTO `user` VALUES (18, '000', '13650213513', '0', -1, '张三', '2020-01-09 16:03:46', '1', 3, 'LV1');
 COMMIT;
 
 SET FOREIGN_KEY_CHECKS = 1;
