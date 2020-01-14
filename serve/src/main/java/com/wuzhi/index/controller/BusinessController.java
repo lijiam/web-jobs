@@ -178,4 +178,24 @@ public class BusinessController {
     public Boolean addNewTag(@RequestBody Map<String, String> params) {
         return businessService.addNewTag(params);
     }
+
+    @RequestMapping("/pushMsg")
+    public Boolean pushMsg(@RequestBody Map<String, String> params) {
+        return businessService.pushMsg(params);
+    }
+
+    @RequestMapping("/getInnerMsg")
+    public List<Company> getInnerMsg(String id) {
+        return businessService.getInnerMsg(id);
+    }
+
+    @RequestMapping("/getInnerMsg2")
+    public List<Resume> getInnerMsg2(String id) {
+        return businessService.getInnerMsg2(id);
+    }
+
+    @RequestMapping("/getPushMsg")
+    public List<PushMsg> getPushMsg(@RequestBody Map<String, String> params) {
+        return businessService.getPushMsg(params);
+    }
 }

@@ -18,10 +18,13 @@
     <div class="layui-fluid layui-form common-content">
       <div class="layui-row layui-col-space30">
         <div class="layui-col-md4">
-          <input type="text" name="phone" placeholder="请输入用户名" autocomplete="off" class="layui-input">
+          <input type="text" name="rcuser_name" placeholder="请输入人才用户姓名" autocomplete="off" class="layui-input">
         </div>
         <div class="layui-col-md4">
-          <input type="text" name="phone" placeholder="请输入所属部门" autocomplete="off" class="layui-input">
+          <input type="text" name="qyuser_name" placeholder="请输入企业用户姓名" autocomplete="off" class="layui-input">
+        </div>
+        <div class="layui-col-md4">
+          <input type="text" name="push_time" class="layui-input" id="push_time" placeholder="推送时间">
         </div>
       </div>
       <div class="layui-row" style="text-align: center;">
@@ -32,17 +35,9 @@
   <div class="common-box">
     <div class="common-title">
       <i class="layui-icon layui-icon-form myicon"></i>数据列表
-      <div class="right-btn"><button type="button" class="layui-btn layui-btn-sm" id="addnew">添加</button></div>
     </div>
     <div class="common-table">
       <table class="layui-hide" id="demo" lay-filter="demo"></table>
-      <script type="text/html" id="barDemo">
-        <a class="layui-btn layui-btn-danger layui-btn-xs" lay-event="del">删除</a>
-      </script>
-      <script type="text/html" id="switchTpl">
-      <input type="checkbox" name="sex" value="{{d.id}}" lay-skin="switch" lay-text="启用|关闭" lay-filter="sexDemo"
-        {{ d.is_use == 1 ? 'checked' : '' }}>
-      </script>
     </div>
   </div>
 
@@ -50,20 +45,18 @@
   <script src="../../scripts/layui/layui.js"></script>
   <script>
     var commonTable = [
-      { field: 'id', title: '用户ID', sort: true },
-      { field: 'username', title: '用户账号', edit: 'username' },
-      { field: 'name', title: '用户昵称', edit: 'name' },
-      { field: 'email', title: '邮箱地址', edit: 'email' },
-      { field: 'depart', title: '所属部门', sort: true, edit: 'depart' },
-      { field: 'register_time', title: '注册时间', sort: true },
-      { field: 'login_time', title: '最后登录时间', sort: true },
-      { field: 'is_use', title: '账户启用状态', templet: '#switchTpl' },
-      { title: '操作', toolbar: '#barDemo' }
+      { field: 'id', title: '推送编号', sort: true },
+      { field: 'push_name', title: '推送名称' },
+      { field: 'rcuser_name', title: '人才用户姓名', sort: true },
+      { field: 'qyuser_name', title: '企业用户姓名', sort: true },
+      { field: 'push_time', title: '推送时间', sort: true },
+      { field: 'push_typename', title: '推送类型', sort: true },
+      { field: 'push_times', title: '推送次数', sort: true }
     ]
     function doSearch(params, success) {
       jQuery.ajax({
         type: 'POST',
-        url: '/api/user/getAllBackuser',
+        url: '/api/getPushMsg',
         dataType: "json",
         contentType: "application/json",
         data: JSON.stringify(params),
@@ -77,14 +70,6 @@
       var form = layui.form;
       var table = layui.table;
       var layer = layui.layer;
-      $("#addnew").on('click', function () {
-        layer.open({
-          type: 2,
-          title: '添加用户',
-          content: './newuser.html',
-          area: ['700px', '500px']
-        });
-      })
       //监听提交
       form.on('submit(formDemo)', function (data) {
         doSearch(data.field, function (res) {
@@ -92,7 +77,8 @@
             elem: '#demo',
             cols: [commonTable],
             data: res,
-            even: true
+            even: true,
+            page: true
           })
         })
         return false;
@@ -100,7 +86,7 @@
 
       //执行一个laydate实例
       laydate.render({
-        elem: '#add_time'
+        elem: '#push_time'
       });
 
       doSearch({}, function (res) {
@@ -108,50 +94,10 @@
           elem: '#demo',
           cols: [commonTable],
           data: res,
-          even: true
+          even: true,
+          page: true
         })
       })
-
-      form.on('switch(sexDemo)', function (obj) {
-        $.ajax({
-          url: '/api/user/updateBackIsuse',
-          data: { id: this.value, is_use: obj.elem.checked ? '1' : '0' }
-        })
-      });
-
-      //监听单元格编辑
-      table.on('edit(demo)', function (obj) {
-        $.ajax({
-          type: 'POST',
-          url: '/api/user/updateBackuserById',
-          dataType: "json",
-          contentType: "application/json",
-          data: JSON.stringify(obj.data),
-          success: function (tag) {
-            if (tag) layer.msg('更新成功');
-            else layer.msg('更新失败');
-          }
-        })
-      });
-
-      //监听工具条
-      table.on('tool(demo)', function (obj) {
-        var data = obj.data;
-        if (obj.event === 'del') {
-          layer.confirm('真的要删除吗？', function (index) {
-            jQuery.ajax({
-              url: '/api/user/deleteBackuserById',
-              data: { id: data.id },
-              success: function (tag) {
-                if (tag) {
-                  obj.del();
-                  layer.close(index);
-                }
-              }
-            });
-          });
-        }
-      });
     });
   </script>
 </body>

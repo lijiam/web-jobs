@@ -270,4 +270,47 @@ VALUES
     <insert id="addNewTag" parameterType="java.util.Map">
         INSERT INTO tag (name,number,cond,type) VALUES (#{name},#{number},#{cond},#{type})
     </insert>
+
+    <insert id="pushMsg" parameterType="java.util.ArrayList">
+        insert into push_msg(rcuser_id,qyuser_id,push_type,push_name) values
+        <foreach collection="list" index="index" separator="," item="item">
+            (#{item.rcuser_id},#{item.qyuser_id},#{item.push_type},#{item.push_name})
+        </foreach>
+    </insert>
+
+    <select id="getInnerMsg" resultType="com.wuzhi.index.bean.Company">
+        select t1.* from company t1, user t2 where t1.id = t2.company_id and t2.id = #{id}
+    </select>
+
+    <select id="getInnerMsg2" resultType="com.wuzhi.index.bean.Resume">
+        select * from resume where user_id = #{id}
+    </select>
+
+    <select id="getPushMsg" parameterType="java.util.Map" resultType="com.wuzhi.index.bean.PushMsg">
+        SELECT
+        t3.*,
+        CASE
+
+        WHEN t3.push_type = '0' THEN
+        '企业用户推至人才用户'
+        WHEN t3.push_type = '1' THEN
+        '人才用户推至企业用户'
+        END push_typename,
+        t4.NAME qyuser_name,
+        '1' push_times
+        FROM
+        ( SELECT t1.*, t2.NAME rcuser_name FROM push_msg t1, USER t2 WHERE t1.rcuser_id = t2.id ) t3,
+        USER t4
+        WHERE
+        t3.qyuser_id = t4.id
+        <if test="qyuser_name != '' and qyuser_name != null ">
+            AND t4.NAME LIKE '%${qyuser_name}%'
+        </if>
+        <if test="rcuser_name != '' and rcuser_name != null ">
+            AND t3.rcuser_name LIKE '%${rcuser_name}%'
+        </if>
+        <if test="push_time != '' and push_time != null ">
+            AND t3.push_time LIKE '%${push_time}%'
+        </if>
+    </select>
 </mapper>

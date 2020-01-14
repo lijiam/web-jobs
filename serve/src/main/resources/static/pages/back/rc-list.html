@@ -11,6 +11,28 @@
 </head>
 
 <body>
+  <div class="common-layer" id="hiddenLayer">
+    <form class="layui-form" action="">
+      <div class="layui-form-item">
+        <label class="layui-form-label">推送名称</label>
+        <div class="layui-input-block">
+          <input type="text" name="push_name" required lay-verify="required" placeholder="请输入推送名称" autocomplete="off"
+            class="layui-input">
+        </div>
+      </div>
+      <div class="layui-form-item">
+        <label class="layui-form-label">被推送对象</label>
+        <div class="layui-input-block">
+          <select name="touserid" lay-verify="required" id="tsdxList"></select>
+        </div>
+      </div>
+      <div class="layui-form-item">
+        <div class="layui-input-block">
+          <button class="layui-btn" lay-submit lay-filter="formDemo2">立即推送</button>
+        </div>
+      </div>
+    </form>
+  </div>
   <div class="common-box">
     <div class="common-title">
       <i class="layui-icon layui-icon-search myicon"></i>筛选条件
@@ -27,6 +49,11 @@
           <input type="text" name="add_time" class="layui-input" id="add_time" placeholder="注册时间">
         </div>
       </div>
+      <div class="layui-row layui-col-space30">
+        <div class="layui-col-md4">
+          <input type="text" name="tag_id" placeholder="请输入用户标签ID" autocomplete="off" class="layui-input">
+        </div>
+      </div>
       <div class="layui-row" style="text-align: center;">
         <button class="layui-btn" lay-submit lay-filter="formDemo">查询</button>
       </div>
@@ -35,6 +62,7 @@
   <div class="common-box">
     <div class="common-title">
       <i class="layui-icon layui-icon-form myicon"></i>数据列表
+      <div class="right-btn"><button type="button" class="layui-btn layui-btn-sm" id="send">推送</button></div>
     </div>
     <div class="common-table">
       <table class="layui-hide" id="demo" lay-filter="demo"></table>
@@ -52,9 +80,11 @@
   <script src="../../scripts/layui/layui.js"></script>
   <script>
     var commonTable = [
-      { field: 'id', title: '用户ID', sort: true },
+      { type: 'checkbox' },
+      { id: 'id', field: 'id', title: '用户ID', sort: true },
       { field: 'phone', title: '用户账号', edit: 'phone' },
       { field: 'name', title: '用户昵称', edit: 'name' },
+      { field: 'tag_id', title: '用户标签ID', edit: 'tag_id' },
       { field: 'grade', title: '会员等级', sort: true, edit: 'grade' },
       { field: 'add_time', title: '注册时间', sort: true },
       { field: 'is_use', title: '账户启用状态', templet: '#switchTpl' },
@@ -77,14 +107,69 @@
       var form = layui.form;
       var table = layui.table;
       var layer = layui.layer;
+
+      var checkids = [];
+
+      $("#send").on('click', function () {
+        var checkStatus = table.checkStatus('idTest'); //idTest 即为基础参数 id 对应的值
+        if (checkStatus.data.length > 0) {
+          checkStatus.data.forEach(function (item) {
+            checkids.push(item.id);
+          });
+          layer.open({
+            type: 1,
+            title: '推送',
+            content: $('#hiddenLayer'),
+            area: ['400px', '250px']
+          });
+        } else {
+          layer.msg('请先选择推送目标');
+        }
+      })
+
+      jQuery.ajax({
+        type: 'POST',
+        url: '/api/user/getAllRc',
+        dataType: "json",
+        contentType: "application/json",
+        data: JSON.stringify({ user_type: '1' }),
+        success: function (data) {
+          var str = '<option value=""></option>';
+          data.forEach(function (item) {
+            str += '<option value="' + item.id + '">' + item.name + '</option>';
+          });
+          $("#tsdxList").html(str);
+          form.render('select');
+        }
+      })
+
+      //监听提交
+      form.on('submit(formDemo2)', function (data) {
+        var params = Object.assign({ userids: checkids.join(','), push_type: '0' }, data.field);
+        jQuery.ajax({
+          type: 'POST',
+          url: '/api/pushMsg',
+          dataType: "json",
+          contentType: "application/json",
+          data: JSON.stringify(params),
+          success: function (tag) {
+            if (tag) layer.msg('推送成功', { time: 1500, end: function () { window.location.reload(); } });
+            else layer.msg('推送失败');
+          }
+        })
+        return false;
+      });
+
       //监听提交
       form.on('submit(formDemo)', function (data) {
         doSearch(data.field, function (res) {
           table.render({
+            id: 'idTest',
             elem: '#demo',
             cols: [commonTable],
             data: res,
-            even: true
+            even: true,
+            page: true
           })
         })
         return false;
@@ -97,10 +182,12 @@
 
       doSearch({}, function (res) {
         table.render({
+          id: 'idTest',
           elem: '#demo',
           cols: [commonTable],
           data: res,
-          even: true
+          even: true,
+          page: true
         })
       })
 

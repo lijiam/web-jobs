@@ -113,7 +113,6 @@
         url: '/api/getCompanyById',
         data: { id: user.company_id },
         success: function (data) {
-          console.log(data);
           form.val('example', Object.assign(data));
         }
       })

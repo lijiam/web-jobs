@@ -40,4 +40,12 @@ public interface BusinessService {
     List<New> getAllNews(Map<String, String> params);
 
     Boolean addNewTag(Map<String, String> params);
+
+    Boolean pushMsg(Map<String, String> params);
+
+    List<Company> getInnerMsg(String id);
+
+    List<Resume> getInnerMsg2(String id);
+
+    List<PushMsg> getPushMsg(Map<String, String> params);
 }

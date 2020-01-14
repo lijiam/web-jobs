@@ -3,17 +3,21 @@ package com.wuzhi.index.service.impl;
 import com.wuzhi.index.bean.*;
 import com.wuzhi.index.mapper.BusinessMapper;
 import com.wuzhi.index.service.BusinessService;
+import com.wuzhi.index.websocket.WebSocketService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.List;
-import java.util.Map;
+import java.lang.reflect.Array;
+import java.util.*;
 
 @Service
 public class BusinessServiceImpl implements BusinessService {
 
     @Autowired
     private BusinessMapper businessMapper;
+
+    @Autowired
+    private WebSocketService webSocketService;
 
     @Override
     public List<Company> getCompanies() {
@@ -103,5 +107,52 @@ public class BusinessServiceImpl implements BusinessService {
     @Override
     public Boolean addNewTag(Map<String, String> params) {
         return businessMapper.addNewTag(params);
+    }
+
+    @Override
+    public Boolean pushMsg(Map<String, String> params) {
+        String ids = params.get("userids");
+        List<String> idArr = Arrays.asList(ids.split(","));
+        String push_type = params.get("push_type");
+        String push_name = params.get("push_name");
+        String touserid = params.get("touserid");
+        ArrayList<Map> arrayList = new ArrayList<>();
+        if ("0".equals(push_type)) { //企业推至人才
+            for (int i = 0; i < idArr.size(); i++) {
+                Map<String, String> map = new HashMap<>();
+                map.put("rcuser_id", idArr.get(i));
+                map.put("qyuser_id", touserid);
+                map.put("push_type", push_type);
+                map.put("push_name", push_name);
+                arrayList.add(map);
+            }
+        } else if ("1".equals(push_type)) { //人才推至企业
+            for (int i = 0; i < idArr.size(); i++) {
+                Map<String, String> map = new HashMap<>();
+                map.put("rcuser_id", touserid);
+                map.put("qyuser_id", idArr.get(i));
+                map.put("push_type", push_type);
+                map.put("push_name", push_name);
+                arrayList.add(map);
+            }
+        }
+        Boolean tag = businessMapper.pushMsg(arrayList) == idArr.size();
+        if (tag) webSocketService.sendMessage(touserid, idArr);
+        return tag;
+    }
+
+    @Override
+    public List<Company> getInnerMsg(String id) {
+        return businessMapper.getInnerMsg(id);
+    }
+
+    @Override
+    public List<Resume> getInnerMsg2(String id) {
+        return businessMapper.getInnerMsg2(id);
+    }
+
+    @Override
+    public List<PushMsg> getPushMsg(Map<String, String> params) {
+        return businessMapper.getPushMsg(params);
     }
 }

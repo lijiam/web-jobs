@@ -15,11 +15,11 @@
     <div class="layui-tab layui-tab-brief">
       <ul class="layui-tab-title">
         <li class="layui-this">站内消息</li>
-        <li>联系人</li>
+        <!-- <li>联系人</li> -->
       </ul>
       <div class="layui-tab-content">
-        <div class="layui-tab-item layui-show">
-          <div class="list-item">
+        <div class="layui-tab-item layui-show" id="list">
+          <!-- <div class="list-item">
             <div class="left">
               <div class="item-type">职位推荐</div>
               <div class="item-desc">IT技术支持<span>互联网 ｜ 不需要融资 ｜ 10000人及以上</span></div>
@@ -29,21 +29,67 @@
               <button type="button" class="layui-btn layui-btn-normal">了解详情</button>
               <button type="button" class="layui-btn layui-btn-normal">投个简历</button>
             </div>
-          </div>
+          </div> -->
         </div>
-        <div class="layui-tab-item"></div>
+        <!-- <div class="layui-tab-item"></div> -->
       </div>
     </div>
   </div>
 </body>
 
+<script src="../../scripts/jquery.v1.7.2.js"></script>
 <script src="../../scripts/layui/layui.js"></script>
 <script>
   //注意：选项卡 依赖 element 模块，否则无法进行功能性操作
-  layui.use('element', function () {
+  layui.use(['element', 'layer'], function () {
     var element = layui.element;
-
-    //…
+    var layer = layui.layer;
+    var user = JSON.parse(localStorage.getItem("user"));
+    var webSocket = null;
+    //判断当前浏览器是否支持WebSocket
+    if ('WebSocket' in window) {
+      webSocket = new WebSocket('ws://localhost:8080/websocket/' + user.id);
+    } else {
+      alert("当前浏览器不支持WebSocket消息推送");
+    }
+    //连接成功建立的回调方法
+    webSocket.onopen = function (event) {
+      console.log("连接成功");
+    };
+    //接收到消息的回调方法
+    webSocket.onmessage = function (event) {
+      console.log(event);
+      $.ajax({
+        url: '/api/getInnerMsg',
+        data: { id: event.data },
+        success: function (res) {
+          var str = '';
+          if (res) {
+            res.forEach(function (item) {
+              str += '<div class="list-item">' +
+                '<div class="left">' +
+                '<div class="item-type">公司推荐</div>' +
+                '<div class="item-desc">' + item.name + '<span>' + item.type + ' ｜ ' + item.rongzi + ' ｜ ' + item.guimo + '</span></div>' +
+                '<div class="item-bom">热招：' + item.hot_job + '</div>' +
+                '</div>' +
+                '<div class="right">' +
+                '<button type="button" class="layui-btn layui-btn-normal" onclick="window.open(\'../company-detail.html?id=' + item.id + '\')">了解详情</button>' +
+                '</div>' +
+                '</div>';
+            });
+            $("#list").html(str);
+          }
+        }
+      })
+    };
+    //连接关闭的回调方法
+    webSocket.onclose = function () {
+      console.log("连接关闭");
+    };
+    //连接发生错误的回调方法
+    webSocket.onerror = function () {
+      console.log("发生错误");
+    };
   });
 </script>
 

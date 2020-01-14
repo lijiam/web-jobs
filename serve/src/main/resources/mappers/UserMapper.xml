@@ -24,6 +24,9 @@
         <if test="name != '' and name != null">
             and name like '%${name}%'
         </if>
+        <if test="tag_id != '' and tag_id != null">
+            and tag_id like '%${tag_id}%'
+        </if>
         <if test="add_time != '' and add_time != null">
             and add_time like '%${add_time}%'
         </if>
@@ -38,7 +41,7 @@
     </delete>
 
     <update id="updateUserById" parameterType="java.util.Map">
-        update user set phone = #{phone}, name = #{name}, grade = #{grade} where id = #{id}
+        update user set phone = #{phone}, name = #{name}, grade = #{grade}, tag_id = #{tag_id} where id = #{id}
     </update>
 
     <select id="getAllRcTag" resultType="com.wuzhi.index.bean.Tag">

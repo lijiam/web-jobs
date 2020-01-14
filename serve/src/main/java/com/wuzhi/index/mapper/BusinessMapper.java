@@ -4,6 +4,7 @@ import com.wuzhi.index.bean.*;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
@@ -43,4 +44,12 @@ public interface BusinessMapper {
     List<New> getAllNews(Map<String, String> params);
 
     Boolean addNewTag(Map<String, String> params);
+
+    int pushMsg(ArrayList<Map> list);
+
+    List<Company> getInnerMsg(@Param("id") String id);
+
+    List<Resume> getInnerMsg2(@Param("id") String id);
+
+    List<PushMsg> getPushMsg(Map<String, String> params);
 }

@@ -76,17 +76,23 @@ body {
 }
 
 /* line 7, ../../sass/back/common-search.scss */
+.common-layer {
+  display: none;
+  padding: 20px;
+}
+
+/* line 12, ../../sass/back/common-search.scss */
 .common-box {
   width: 90%;
   min-width: 1000px;
   overflow: hidden;
   margin: 0 auto 20px auto;
 }
-/* line 13, ../../sass/back/common-search.scss */
+/* line 18, ../../sass/back/common-search.scss */
 .common-box:first-child {
   padding-top: 20px;
 }
-/* line 17, ../../sass/back/common-search.scss */
+/* line 22, ../../sass/back/common-search.scss */
 .common-box .common-title {
   line-height: 40px;
   height: 40px;
@@ -96,18 +102,18 @@ body {
   padding-left: 12px;
   border: 1px solid #ddd;
 }
-/* line 26, ../../sass/back/common-search.scss */
+/* line 31, ../../sass/back/common-search.scss */
 .common-box .common-title .myicon {
   font-size: 20px;
   color: #333;
   margin-right: 5px;
 }
-/* line 32, ../../sass/back/common-search.scss */
+/* line 37, ../../sass/back/common-search.scss */
 .common-box .common-title .right-btn {
   float: right;
   margin-right: 8px;
 }
-/* line 38, ../../sass/back/common-search.scss */
+/* line 43, ../../sass/back/common-search.scss */
 .common-box .common-content {
   background: #ffffff;
   padding: 12px;
@@ -115,7 +121,7 @@ body {
   border-top: none;
   overflow: hidden;
 }
-/* line 47, ../../sass/back/common-search.scss */
+/* line 52, ../../sass/back/common-search.scss */
 .common-box .common-table .layui-table-view {
   margin: 0;
 }

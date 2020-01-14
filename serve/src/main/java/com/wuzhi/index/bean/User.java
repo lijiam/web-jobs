@@ -11,6 +11,15 @@ public class User {
     private String add_time;
     private String grade;
     private String is_use;
+    private String tag_id;
+
+    public String getTag_id() {
+        return tag_id;
+    }
+
+    public void setTag_id(String tag_id) {
+        this.tag_id = tag_id;
+    }
 
     public String getIs_use() {
         return is_use;
