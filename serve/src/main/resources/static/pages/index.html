@@ -62,13 +62,14 @@
     })
 
     $("#user").on("click", function () {
+      var userObj = JSON.parse(localStorage.getItem("user"));
       $("#menus").children("li").removeClass("active");
-      if (!user) {
+      if (!userObj) {
         $(".wrapper-head").css("background", "#F2F2F2");
         $("#ifurl").attr("src", './login.html');
       } else {
-        if (user.user_type === '0') $("#ifurl").attr("src", './personal.html');
-        else if (user.user_type === '1') $("#ifurl").attr("src", './company.html');
+        if (userObj.user_type === '0') $("#ifurl").attr("src", './personal.html');
+        else if (userObj.user_type === '1') $("#ifurl").attr("src", './company.html');
       }
     })
 

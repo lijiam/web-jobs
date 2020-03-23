@@ -44,4 +44,6 @@ public interface UserMapper {
     List<BackUser> checkBackuser(@Param("username") String username);
 
     int addBackuser(Map<String, String> params);
+
+    int updateUsernameById(@Param("id") String id, @Param("name") String name);
 }

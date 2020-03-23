@@ -2,6 +2,7 @@ package com.wuzhi.index.service.impl;
 
 import com.wuzhi.index.bean.*;
 import com.wuzhi.index.mapper.BusinessMapper;
+import com.wuzhi.index.mapper.UserMapper;
 import com.wuzhi.index.service.BusinessService;
 import com.wuzhi.index.websocket.WebSocketService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,6 +16,9 @@ public class BusinessServiceImpl implements BusinessService {
 
     @Autowired
     private BusinessMapper businessMapper;
+
+    @Autowired
+    private UserMapper userMapper;
 
     @Autowired
     private WebSocketService webSocketService;
@@ -62,6 +66,7 @@ public class BusinessServiceImpl implements BusinessService {
     @Override
     public Boolean updateResume(Map<String, String> params) {
         int count = businessMapper.updateResume(params);
+        if(count > 0) userMapper.updateUsernameById(params.get("user_id"), params.get("name"));
         return count > 0;
     }
 

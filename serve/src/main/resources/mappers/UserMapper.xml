@@ -93,4 +93,8 @@
     <insert id="addBackuser" parameterType="java.util.Map">
         insert into backuser(username, password, name, email, depart) values(#{username},#{password},#{name},#{email},#{depart})
     </insert>
+
+    <update id="updateUsernameById">
+        update user set name = #{name} where id = #{id}
+    </update>
 </mapper>
