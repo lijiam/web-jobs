@@ -110,4 +110,8 @@ public class UserServiceImpl implements UserService {
         return userMapper.addBackuser(params) > 0;
     }
 
+    @Override
+    public Boolean updatePassword(Map<String, String> params) {
+        return userMapper.updatePassword(params) > 0;
+    }
 }

@@ -45,5 +45,7 @@ public interface UserMapper {
 
     int addBackuser(Map<String, String> params);
 
+    int updatePassword(Map<String, String> params);
+
     int updateUsernameById(@Param("id") String id, @Param("name") String name);
 }

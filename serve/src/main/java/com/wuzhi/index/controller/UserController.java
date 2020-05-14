@@ -98,4 +98,9 @@ public class UserController {
     public Boolean addBackuser(@RequestBody Map<String, String> params) {
         return userService.addBackuser(params);
     }
+
+    @RequestMapping("/updatePassword")
+    public Boolean updatePassword(@RequestBody Map<String, String> params) {
+        return userService.updatePassword(params);
+    }
 }

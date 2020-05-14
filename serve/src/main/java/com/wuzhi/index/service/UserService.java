@@ -40,4 +40,6 @@ public interface UserService {
     Boolean deleteBackuserById(String id);
 
     Boolean addBackuser(Map<String, String> params);
+
+    Boolean updatePassword(Map<String, String> params);
 }

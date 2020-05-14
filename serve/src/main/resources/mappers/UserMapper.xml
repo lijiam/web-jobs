@@ -97,4 +97,8 @@
     <update id="updateUsernameById">
         update user set name = #{name} where id = #{id}
     </update>
+
+    <update id="updatePassword" parameterType="java.util.Map">
+        update user set password = #{password} where id = #{user_id}
+    </update>
 </mapper>
